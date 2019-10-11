@@ -1,0 +1,314 @@
+<form [formGroup]="contractConditionForm">
+    <div class="p-3 position-relative">
+        <div class="b-form-readonly"></div>
+        <div>
+            <h5 class="text-uppercase">VI. phân tích điều kiện hợp đồng (contract conditions)
+            </h5>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <strong>Các mục đánh giá (item evaluation)</strong>
+            </div>
+            <div class="col-md-6">
+                <strong>Nội dung & Nhận xét (Comments)</strong>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 d-flex align-items-center">
+                1. Dạng và kiểu hợp đồng (Type of contract)
+            </div>
+            <div class="col-md-6">
+                <!-- <input [appAutoFocus]="routerAction != 'view'" appEnterPreventDefault tabindex="1" formControlName="typeOfContract"
+                        class="form-control"> -->
+                <div class="group">
+
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
+                        </ng-autocomplete>
+
+                        <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item.name"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 d-flex mt-2">
+                2. Thời hạn hoàn thành (Time for completion)
+            </div>
+            <div class="col-md-6">
+                <div class="group">
+                    <input tabindex="2" formControlName="timeForCompletion" class="form-control " myNumberOnly [attr.disabled]="contractConditionForm.get('timeForCompletionCheckbox').value ? '' : null">
+                    <div>
+                        <select class="form-control" name="listTime" tabindex="2">
+              <option *ngFor="let item of listTime">{{item}}</option>
+            </select>
+                    </div>
+                </div>
+
+
+                <div class="mt-1 d-flex align-items-center">
+
+                    <input type="checkbox" class="" formControlName="timeForCompletionCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('timeForCompletionCheckbox').value === true">
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 mt-2">
+                3. Ngày bắt đầu thi công (Commencement date)
+            </div>
+            <div class="col-md-6">
+
+                <div class="group">
+                    <input class="form-control datePicker" matInput [matDatepicker]="picker" placeholder="TBC" formControlName="commencementDate" [attr.disabled]="contractConditionForm.get('commencementDateCheckbox').value ? '' : null">
+                    <div>
+                        <mat-datepicker-toggle matSuffix [for]="picker" class="pickerBtn "></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                </div>
+
+
+                <div class="mt-1 d-flex align-items-center">
+
+
+                    <input type="checkbox" class="" formControlName="commencementDateCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('commencementDateCheckbox').value === true">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 mt-2">
+                4. Thời hạn bảo hành (Warranty period)
+            </div>
+            <div class="col-md-6">
+                <div class="group">
+                    <input tabindex="5" class="form-control input-dropdown-group" formControlName="warrantyPeriod" myNumberOnly [attr.disabled]="contractConditionForm.get('warrantyPeriodCheckbox').value ? '' : null" [value]="contractConditionForm.get('warrantyPeriod').value | thousandSeparate">
+                    <div>
+                        <select class="form-control" name="listTime" tabindex="2">
+              <option *ngFor="let item of listTime">{{item}}</option>
+            </select>
+                    </div>
+
+                    <div>
+                    </div>
+
+
+                </div>
+                <div class="mt-1 d-flex align-items-center">
+
+                    <input type="checkbox" class="" formControlName="warrantyPeriodCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('warrantyPeriodCheckbox').value === true">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 mt-2">
+                5. Bảo lãnh dự thầu (Tender security)
+            </div>
+            <div class="col-md-6">
+                <div class="group">
+                    <input tabindex="7" myNumberOnly formControlName="tenderSecurity" class="form-control input-dropdown-group" [attr.disabled]="contractConditionForm.get('tenderSecurityCheckbox').value ? '' : null" [value]="contractConditionForm.get('tenderSecurity').value | thousandSeparate">
+                    <div>
+                        <select class="form-control" name="listCurrency" tabindex="2">
+              <option *ngFor="let item of listCurrency">{{item}}</option>
+            </select>
+                    </div>
+
+                </div>
+
+                <div>
+
+                </div>
+                <div class="mt-1 d-flex align-items-center">
+
+                    <input type="checkbox" class="" formControlName="tenderSecurityCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('tenderSecurityCheckbox').value === true">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 mt-2">
+                6. Bảo lãnh hợp đồng (Performance security)
+            </div>
+            <div class="col-md-6">
+                <input type="number" tabindex="9" [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null" formControlName="performanceSecurity">
+                <span class="input-unit">%</span>
+                <div class="mt-1 d-flex align-items-center">
+
+                    <input type="checkbox" class="" formControlName="performanceSecurityCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('performanceSecurityCheckbox').value === true">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6 d-flex mt-2">
+                7. Phạt trễ tiến độ (Delay damages for the works)
+            </div>
+            <div class="col-md-6">
+                <input tabindex="10" class="form-control input-percent" min="0" max="100" myNumberOnly [attr.disabled]="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value ? '' : null">
+                <span class="input-unit">%</span>
+                <div class="mt-1 d-flex align-items-center">
+
+                    <input type="checkbox" class="" formControlName="delayDamagesForTheWorksCheckbox">
+                    <span class="custom-control-indicator"></span>
+
+                    <span class="pl-2">
+            Chưa có thông tin
+          </span>
+                </div>
+                <div class="mt-1 d-flex">
+                    <input class="form-control" *ngIf="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value === true">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 d-flex align-items-center">
+            8. Yêu cầu bảo hiểm (Insurance)
+        </div>
+        <div class="col-md-6">
+            <input tabindex="11" class="form-control">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            9. Phương thức thanh toán (Payment terms)
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 pl-5 d-flex mt-2">
+            <i class="fa fa-long-arrow-right mr-2" aria-hidden="true"></i> Tiền tạm ứng (Advance payment)
+        </div>
+        <div class="col-md-6">
+            <input type="number" class="form-control input-percent" max=100 [attr.min]="1" [attr.max]="100" myNumberOnly [attr.disabled]="contractConditionForm.get('advancePaymentCheckbox').value ? '' : null">
+            <span class="input-unit">%</span>
+            <div class="mt-1 d-flex align-items-center">
+
+                <input type="checkbox" class="" formControlName="advancePaymentCheckbox">
+                <span class="custom-control-indicator"></span>
+
+                <span class="pl-2">
+          Chưa có thông tin
+        </span>
+            </div>
+            <div class="mt-1 d-flex">
+                <input class="form-control" *ngIf="contractConditionForm.get('advancePaymentCheckbox').value === true">
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 pl-5 d-flex">
+            <i class="fa fa-long-arrow-right mr-2 mt-025" aria-hidden="true"></i> Mốc thanh toán/ thanh toán hàng tháng (Monthly payment or milestone)
+        </div>
+        <div class="col-md-6">
+            <div class="ng-autocomplete">
+                <ng-autocomplete [data]="dataThanhToan" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 pl-5 mt-2">
+            <i class="fa fa-long-arrow-right mr-2" aria-hidden="true"></i> Tiền giữ lại (Retention money)
+        </div>
+        <div class="col-md-6">
+            <input tabindex="14" min="0" max="100" myNumberOnly class="form-control input-percent" [attr.disabled]="contractConditionForm.get('retentionMoneyCheckbox').value ? '' : null">
+            <span class="input-unit">%</span>
+            <div class="mt-1 d-flex align-items-center">
+
+                <input type="checkbox" class="" formControlName="retentionMoneyCheckbox">
+                <span class="custom-control-indicator"></span>
+
+                <span class="pl-2">
+          Chưa có thông tin
+        </span>
+            </div>
+            <div class="mt-1 d-flex">
+                <input class="form-control" *ngIf="contractConditionForm.get('retentionMoneyCheckbox').value === true">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 d-flex align-items-center">
+            10. Điều kiện đặc biệt khác (Special conditions)
+        </div>
+        <div class="col-md-6">
+            <textarea rows="2" tabindex="15" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <button class="btn border" tabindex="17" routerLink="../estimated-budget">
+      <i class="fa font-size-3 mr-3 fa-angle-left" aria-hidden="true"></i>
+      Trở về
+    </button>
+        <button class="btn btn-primary ml-1" tabindex="16" routerLink="../director-proposal">
+      Tiếp
+      <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
+    </button>
+        <ng-container *ngIf="!isViewMode">
+            <button class="btn btn-primary ml-1" type="button" tabindex="5">
+        Lưu và Tiếp
+        <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
+      </button>
+        </ng-container>
+    </div>
+</form>

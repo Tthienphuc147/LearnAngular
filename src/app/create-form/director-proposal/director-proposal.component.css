@@ -1,0 +1,12 @@
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.datePicker {
+    width: 700px;
+}
+
+.pickerBtn {
+    color: rgb(92, 87, 87);
+}

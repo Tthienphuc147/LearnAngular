@@ -1,0 +1,19 @@
+select {
+    width: 100px;
+    margin: 10px 0;
+    background-color: rgb(201, 26, 26);
+    color: #fff;
+}
+
+.price-group {
+    display: flex;
+    align-items: center;
+}
+
+.price-group input {
+    width: 650px;
+}
+
+input[check-box] {
+    padding-right: 5px;
+}

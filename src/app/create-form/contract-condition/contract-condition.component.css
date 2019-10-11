@@ -1,0 +1,38 @@
+.mt-025 {
+    margin-top: .25rem;
+}
+
+.input-percent {
+    padding-right: 2rem;
+    appearance: none;
+}
+
+.input-unit {
+    position: absolute;
+    top: .4rem;
+    right: 1.5rem;
+}
+
+select {
+    width: 100px;
+    margin: 10px 0;
+    background-color: rgb(92, 87, 87);
+    color: #fff;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.datePicker {
+    width: 700px;
+}
+
+.pickerBtn {
+    color: rgb(92, 87, 87);
+}
+
+.autocomplete-container {
+    width: 700px;
+}
