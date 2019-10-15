@@ -171,7 +171,8 @@
                 6. Bảo lãnh hợp đồng (Performance security)
             </div>
             <div class="col-md-6">
-                <input type="number" tabindex="9" [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null" formControlName="performanceSecurity">
+                <input type="number" tabindex="9" appInputNumberNegativeDecimal  [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null"
+                    formControlName="performanceSecurity">
                 <span class="input-unit">%</span>
                 <div class="mt-1 d-flex align-items-center">
 

@@ -18,8 +18,12 @@ import { ContractConditionComponent } from './create-form/contract-condition/con
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
 import { EnterPreventDefaultDirective } from './shared/directive/enter-prevent-default.directive';
+import { InputNumberNegativeDecimalDirective } from './shared/directive/input-number-negative-decimal.directive';
 import { NumberOnlyDirective } from './shared/directive/number.directive';
 import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
+import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
+import { AlertService } from './shared/service/alert.service';
+
 
 
 
@@ -32,7 +36,9 @@ import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
     DirectorProposalComponent,
     NumberOnlyDirective,
     ThousandSeparate,
-    EnterPreventDefaultDirective
+    EnterPreventDefaultDirective,
+    InputNumberNegativeDecimalDirective,
+    VnCurrencyPipe
 
   ],
   imports: [
@@ -46,7 +52,7 @@ import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
