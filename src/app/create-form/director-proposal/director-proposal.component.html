@@ -10,10 +10,16 @@
             </div>
             <div class="col-md-8 row">
                 <div class="col-md-6">
-                    <input type="radio" tabindex="1" [value]="true" formControlName="isAgreed"> Đồng ý tham gia/ Agree
+                    <input type="radio" tabindex="1" [value]="true" formControlName="isAgreed" id="agreed"> 
+                    <label for="agreed">
+                     Đồng ý tham gia/ Agree
+                    </label>
                 </div>
                 <div class="col-md-6">
-                    <input type="radio" tabindex="2" [value]="false" formControlName="isAgreed"> Không đồng ý tham gia/ No agree
+                    <input type="radio" tabindex="2" [value]="false" formControlName="isAgreed" id="notAgreed"> 
+                    <label for="notAgreed">
+                    Không đồng ý tham gia/ No agree
+                    </label>
                 </div>
             </div>
         </div>
@@ -31,9 +37,9 @@
             </div>
             <div class="col-md-8">
                 <div class="group">
-                    <input tabindex="4" class="form-control datePicker" matInput [matDatepicker]="picker" placeholder="" formControlName="date" width="100%">
+                    <input tabindex="4"  class="form-control datePicker" matInput [matDatepicker]="picker" placeholder="" formControlName="dateS" width="100%">
                     <div>
-                        <mat-datepicker-toggle tabindex="5" matSuffix [for]="picker" class="pickerBtn "></mat-datepicker-toggle>
+                        <mat-datepicker-toggle  tabindex="5" matSuffix [for]="picker" class="pickerBtn "></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </div>
                 </div>
@@ -45,9 +51,9 @@
             </div>
             <div class="col-md-8">
                 <div class="group">
-                    <input tabindex="6" class="form-control datePicker" matInput [matDatepicker]="picker1" placeholder="" formControlName="expectedDate">
+                    <input tabindex="6" [min]="directorProposalForm.get('dateS').value " class="form-control datePicker" matInput [matDatepicker]="picker1" placeholder="" formControlName="expectedDate">
                     <div>
-                        <mat-datepicker-toggle tabindex="7" matSuffix [for]="picker1" class="pickerBtn "></mat-datepicker-toggle>
+                        <mat-datepicker-toggle   tabindex="7" matSuffix [for]="picker1" class="pickerBtn "></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                     </div>
                 </div>

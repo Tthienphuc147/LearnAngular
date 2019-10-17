@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder ,AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,22 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class DirectorProposalComponent implements OnInit {
 
   directorProposalForm: FormGroup;
+  minDate = new Date(2019, 10, 7);
   constructor(
     private fb: FormBuilder
   ) { }
 
   ngOnInit() {
     this.createForm();
+  
   }
   createForm() {
 
     this.directorProposalForm = this.fb.group({
       isAgreed: new FormControl(),
       reason: new FormControl(),
-      date: new FormControl(),
+      dateS: new FormControl(),
       expectedDate: new FormControl()
 
     });
   }
-
+ 
 }

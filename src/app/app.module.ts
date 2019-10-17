@@ -13,6 +13,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { CommonModule } from '@angular/common';
+
 import { CreateFormComponent } from './create-form/create-form.component';
 import { ContractConditionComponent } from './create-form/contract-condition/contract-condition.component';
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
@@ -54,7 +56,8 @@ import { AlertService } from './shared/service/alert.service';
     ReactiveFormsModule,
     AutocompleteLibModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CommonModule
   ],
   providers: [AlertService],
   bootstrap: [AppComponent]
