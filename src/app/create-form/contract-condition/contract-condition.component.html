@@ -171,7 +171,7 @@
                 6. Bảo lãnh hợp đồng (Performance security)
             </div>
             <div class="col-md-6">
-                <input type="number" tabindex="9" appInputNumberNegativeDecimal  [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null"
+                <input tabindex="9" appInputNumberNegativeDecimal  [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null"
                     formControlName="performanceSecurity">
                 <span class="input-unit">%</span>
                 <div class="mt-1 d-flex align-items-center">
@@ -193,7 +193,10 @@
                 7. Phạt trễ tiến độ (Delay damages for the works)
             </div>
             <div class="col-md-6">
-                <input tabindex="10" class="form-control input-percent" min="0" max="100" myNumberOnly [attr.disabled]="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value ? '' : null">
+                
+              <input tabindex="10" 
+              formControlName="delayDamagesForTheWorks"
+              class="form-control input-percent"  inputNumber myNumberOnly  [attr.disabled]="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value ? '' : null">
                 <span class="input-unit">%</span>
                 <div class="mt-1 d-flex align-items-center">
 

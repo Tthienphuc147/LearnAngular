@@ -23,6 +23,8 @@ import { NumberOnlyDirective } from './shared/directive/number.directive';
 import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
 import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
 import { AlertService } from './shared/service/alert.service';
+import { MinMaxDirective } from './shared/directive/input-minmax.directive';
+
 
 
 
@@ -38,7 +40,9 @@ import { AlertService } from './shared/service/alert.service';
     ThousandSeparate,
     EnterPreventDefaultDirective,
     InputNumberNegativeDecimalDirective,
-    VnCurrencyPipe
+    VnCurrencyPipe,
+    MinMaxDirective,
+   
 
   ],
   imports: [
