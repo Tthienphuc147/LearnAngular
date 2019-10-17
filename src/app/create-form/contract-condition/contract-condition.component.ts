@@ -77,7 +77,7 @@ export class ContractConditionComponent implements OnInit {
       delayDamagesForTheWorks: new FormControl(),
       advancePayment: new FormControl(),
       retentionMoney: new FormControl(),
-      performanceSecurity :new FormControl()
+      performanceSecurity: new FormControl()
     });
   }
 

@@ -18,13 +18,13 @@ import { ContractConditionComponent } from './create-form/contract-condition/con
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
 import { EnterPreventDefaultDirective } from './shared/directive/enter-prevent-default.directive';
+import { MinMaxDirective } from './shared/directive/input-minmax.directive';
 import { InputNumberNegativeDecimalDirective } from './shared/directive/input-number-negative-decimal.directive';
 import { NumberOnlyDirective } from './shared/directive/number.directive';
+import { AmountConverterPipe } from './shared/pipes/amountConverter.module';
 import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
 import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
 import { AlertService } from './shared/service/alert.service';
-import { MinMaxDirective } from './shared/directive/input-minmax.directive';
-
 
 
 
@@ -42,7 +42,7 @@ import { MinMaxDirective } from './shared/directive/input-minmax.directive';
     InputNumberNegativeDecimalDirective,
     VnCurrencyPipe,
     MinMaxDirective,
-   
+    AmountConverterPipe
 
   ],
   imports: [

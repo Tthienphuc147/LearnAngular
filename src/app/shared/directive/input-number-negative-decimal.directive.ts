@@ -7,7 +7,6 @@ import {
   Renderer
 } from '@angular/core';
 
-
 import { AlertService } from './../service/alert.service';
 import { NgControl } from '../../../../node_modules/@angular/forms';
 
@@ -18,7 +17,6 @@ const PADDING = '000000';
   host: {
     '(change)': 'formatInputValue($event.target.value)',
     '(blur)': 'formatInputValue($event.target.value)',
-    '(focus)': 'formatToNumber($event.target.value)',
     '(paste)': 'pasteNumber($event)'
   },
 })
@@ -40,7 +38,7 @@ export class InputNumberNegativeDecimalDirective implements OnInit {
   constructor(
     private _el: ElementRef,
     private ngControl: NgControl,
- 
+
     private renderer: Renderer,
     private alertService: AlertService,
   ) {
@@ -60,7 +58,7 @@ export class InputNumberNegativeDecimalDirective implements OnInit {
     this.ngControl.valueAccessor.writeValue(this.transformNotDenominations(value));
   }
 
-  
+
 
   transformNotDenominations(value: number | string, fractionSize: number = 2): string {
     // fractionSize = this.fractionSize ? this.fractionSize : 0;

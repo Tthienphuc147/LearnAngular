@@ -14,10 +14,15 @@ export class DirectorProposalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.createForm();
   }
   createForm() {
 
     this.directorProposalForm = this.fb.group({
+      isAgreed: new FormControl(),
+      reason: new FormControl(),
+      date: new FormControl(),
+      expectedDate: new FormControl()
 
     });
   }
