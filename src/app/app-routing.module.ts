@@ -5,12 +5,10 @@ import { ContractConditionComponent } from './create-form/contract-condition/con
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
 
+import { FormloginComponent } from './formlogin/formlogin.component'
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EstimatedBudgetComponent
-  },
+ 
   {
     path: 'estimated-budget',
     component: EstimatedBudgetComponent
@@ -23,6 +21,10 @@ const routes: Routes = [
     path: 'director-proposal',
     component: DirectorProposalComponent
   },
+  {
+    path:'',
+    component: FormloginComponent
+  }
 
 
 

@@ -1,5 +1,6 @@
 import { FormGroup, FormControl, FormBuilder ,AbstractControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { PackageService } from '../../shared/service/package.service';
 
 @Component({
   selector: 'app-director-proposal',
@@ -9,22 +10,27 @@ import { Component, OnInit } from '@angular/core';
 export class DirectorProposalComponent implements OnInit {
 
   directorProposalForm: FormGroup;
-  minDate = new Date(2019, 10, 7);
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private fs: PackageService
   ) { }
 
   ngOnInit() {
     this.createForm();
+
   
+  }
+  ngOnDestroy() {
+        this.fs.Data.directorProposal=this.directorProposalForm.value;
+    
   }
   createForm() {
 
     this.directorProposalForm = this.fb.group({
-      isAgreed: new FormControl(),
-      reason: new FormControl(),
-      dateS: new FormControl(),
-      expectedDate: new FormControl()
+      isAgreed: new FormControl(this.fs.Data.directorProposal.isAgreed),
+      reason: new FormControl(this.fs.Data.directorProposal.reason),
+      dateS: new FormControl(this.fs.Data.directorProposal.dateS),
+      expectedDate: new FormControl(this.fs.Data.directorProposal.expectedDate)
 
     });
   }

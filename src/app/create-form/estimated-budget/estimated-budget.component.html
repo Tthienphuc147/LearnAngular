@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6">
                 <div class="price-group">
-                    <input tabindex="1" formControlName="draftBudgetOfPackage" class="price form-control" [attr.disabled]="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value ? '' : null" myNumberOnly [value]="estimatedBudgetForm.get('draftBudgetOfPackage').value | thousandSeparate " >
+                    <input tabindex="1" formControlName="draftBudgetOfPackage" class="price form-control" [attr.disabled]="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value ? '' : null" myNumberOnly [value]="estimatedBudgetForm.get('draftBudgetOfPackage').value | thousandSeparate ">
                     <div>
                         <div class="form-group">
                             <select class="form-control" name="currency" tabindex="2">
@@ -39,7 +39,7 @@
                     </span>
                 </div>
                 <div class="mt-1 d-flex ">
-                    <input tabindex="4" class="form-control " *ngIf="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value === true">
+                    <input tabindex="4" class="form-control " *ngIf="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value === true"  formControlName="draftBudgetOfPackageDesc">
                 </div>
 
             </div>
@@ -49,7 +49,7 @@
                 2. Ghi chú thêm (Additional notes)
             </div>
             <div class="col-md-6 ">
-                <input tabindex="5" type="text " class="form-control ">
+                <input tabindex="5" type="text " class="form-control " formControlName="additionalNote">
             </div>
         </div>
         <div class="text-center mt-4 ">
