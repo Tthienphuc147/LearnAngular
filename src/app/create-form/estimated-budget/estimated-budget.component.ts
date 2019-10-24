@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, AbstractControl, Validators, FormControl } from '@angular/forms';
 
-import { PackageService } from '../../shared/service/package.service'
+import { FormService } from './../../shared/service/form.service';
+import { PackageService } from '../../shared/service/package.service';
 @Component({
   selector: 'app-estimated-budget',
   templateUrl: './estimated-budget.component.html',
@@ -20,7 +21,8 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private fs: PackageService
+    private fs: PackageService,
+    private forms: FormService
   ) {
 
   }
@@ -28,9 +30,10 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.createForm();
+    // tslint:disable-next-line:max-line-length
 
   }
-
+  get f() { return this.estimatedBudgetForm.controls; }
   ngOnDestroy() {
     this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
   }
@@ -42,12 +45,17 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
     }
   }
   createForm() {
-
     this.estimatedBudgetForm = this.fb.group({
       draftBudgetOfPackageCheckbox: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCheckbox),
       draftBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackage),
       additionalNote: new FormControl(this.fs.Data.estimatedBuget.additionalNote),
       draftBudgetOfPackageDesc: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageDesc)
+    });
+  }
+  saveAndNext() {
+    // tslint:disable-next-line:max-line-length
+    this.forms.submit(this.fs.Data.estimatedBuget).subscribe((data) => {
+      console.log(data);
     });
   }
 

@@ -1,10 +1,12 @@
+import { MatFormField } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormField } from '@angular/material/form-field';
+import { NgModule } from '@angular/core';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
@@ -13,9 +15,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { FormloginComponent } from './formlogin/formlogin.component';
 import { ContractConditionComponent } from './create-form/contract-condition/contract-condition.component';
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
@@ -27,9 +28,9 @@ import { AmountConverterPipe } from './shared/pipes/amountConverter.module';
 import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
 import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
 import { AlertService } from './shared/service/alert.service';
-import { PackageService } from './shared/service/package.service';
-import { FormloginComponent } from './formlogin/formlogin.component';
+import { FormService } from './shared/service/form.service';
 import { LoginService } from './shared/service/login.service';
+import { PackageService } from './shared/service/package.service';
 
 
 
@@ -49,7 +50,7 @@ import { LoginService } from './shared/service/login.service';
     MinMaxDirective,
     AmountConverterPipe,
     FormloginComponent,
-    
+
 
   ],
   imports: [
@@ -66,8 +67,9 @@ import { LoginService } from './shared/service/login.service';
     HttpClientModule
   ],
   providers: [AlertService,
-  PackageService,
-LoginService],
+    PackageService,
+    LoginService,
+    FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
