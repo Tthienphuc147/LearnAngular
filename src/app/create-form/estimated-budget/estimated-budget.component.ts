@@ -31,6 +31,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.createForm();
     // tslint:disable-next-line:max-line-length
+    console.log(this.fs.Data.estimatedBuget);
 
   }
   get f() { return this.estimatedBudgetForm.controls; }

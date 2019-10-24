@@ -29,10 +29,9 @@ import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
 import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
 import { AlertService } from './shared/service/alert.service';
 import { FormService } from './shared/service/form.service';
-import { LoginService } from './shared/service/login.service';
+
 import { PackageService } from './shared/service/package.service';
-
-
+import { LoginService } from './shared/service/login.service';
 
 
 @NgModule({
@@ -50,6 +49,7 @@ import { PackageService } from './shared/service/package.service';
     MinMaxDirective,
     AmountConverterPipe,
     FormloginComponent,
+  
 
 
   ],
