@@ -12,6 +12,7 @@ import { LoginService } from '../shared/service/login.service';
 })
 export class FormloginComponent implements OnInit {
   loginForm: FormGroup;
+  public token: string;
   constructor(
     private loginService: LoginService,
     private fb: FormBuilder,
@@ -30,6 +31,8 @@ export class FormloginComponent implements OnInit {
   onSubmit() {
     this.loginService.login(this.f.username.value, this.f.password.value).subscribe((data) => {
       console.log(data);
+      this.token=data.result.accessToken;
+      localStorage.setItem('token',this.token);
       this.router.navigate(['/estimated-budget']);
     });
   }

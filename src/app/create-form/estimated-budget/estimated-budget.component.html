@@ -1,4 +1,4 @@
-<form [formGroup]="estimatedBudgetForm">
+<form [formGroup]="estimatedBudgetForm" >
     <div class="p-3 position-relative">
         <div class="b-form-readonly"></div>
         <div>
@@ -18,11 +18,11 @@
             </div>
             <div class="col-md-6">
                 <div class="price-group">
-                    <input tabindex="1" formControlName="draftBudgetOfPackage" class="price form-control" [attr.disabled]="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value ? '' : null" myNumberOnly [value]="estimatedBudgetForm.get('draftBudgetOfPackage').value | thousandSeparate ">
+                    <input tabindex="1"  formControlName="draftBudgetOfPackage" class="price form-control" [attr.disabled]="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value ? '' : null" myNumberOnly [value]="estimatedBudgetForm.get('draftBudgetOfPackage').value | thousandSeparate ">
                     <div>
                         <div class="form-group">
-                            <select class="form-control" name="currency" tabindex="2">
-                        <option *ngFor="let item of listCurrency">{{item}}</option>
+                            <select class="form-control" name="currency" tabindex="2" formControlName="currencyBudgetOfPackage">
+                        <option [value]="item.key" *ngFor="let item of listCurrency" >{{item.displayText}}</option>
                       </select>
                         </div>
 
@@ -66,6 +66,10 @@
             </ng-container> -->
             <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="saveAndNext()" routerLink="../contract-condition">
                     Lưu và Tiếp
+                    <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
+                </button>
+            <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="getApi()">
+                    Get API
                     <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
                 </button>
         </div>

@@ -23,14 +23,11 @@
                 <div class="group">
 
                     <div class="ng-autocomplete">
-                        <ng-autocomplete   tabindex="1" [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                         [notFoundTemplate]="notFoundTemplate" 
-                
-                          class="p-auto">
+                        <ng-autocomplete tabindex="1" [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
                         </ng-autocomplete>
 
-                        <ng-template  #itemTemplate let-item>
-                            <a [innerHTML]="item.name" ></a>
+                        <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item.name"></a>
                         </ng-template>
 
                         <ng-template #notFoundTemplate let-notFound>
@@ -70,8 +67,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input class="form-control" *ngIf="contractConditionForm.get('timeForCompletionCheckbox').value === true" tabindex="6"
-                    formControlName="timeForCompletionDesc">
+                    <input class="form-control" *ngIf="contractConditionForm.get('timeForCompletionCheckbox').value === true" tabindex="6" formControlName="timeForCompletionDesc">
                 </div>
             </div>
 
@@ -102,8 +98,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="10" class="form-control" *ngIf="contractConditionForm.get('commencementDateCheckbox').value === true"
-                    formControlName="commencementDateDesc">
+                    <input tabindex="10" class="form-control" *ngIf="contractConditionForm.get('commencementDateCheckbox').value === true" formControlName="commencementDateDesc">
                 </div>
             </div>
         </div>
@@ -135,8 +130,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="14" class="form-control" *ngIf="contractConditionForm.get('warrantyPeriodCheckbox').value === true"
-                    formControlName="warrantyPeriodDesc">
+                    <input tabindex="14" class="form-control" *ngIf="contractConditionForm.get('warrantyPeriodCheckbox').value === true" formControlName="warrantyPeriodDesc">
                 </div>
             </div>
         </div>
@@ -168,8 +162,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="18" class="form-control" *ngIf="contractConditionForm.get('tenderSecurityCheckbox').value === true"
-                     formControlName="tenderSecurityDesc" >
+                    <input tabindex="18" class="form-control" *ngIf="contractConditionForm.get('tenderSecurityCheckbox').value === true" formControlName="tenderSecurityDesc">
                 </div>
             </div>
         </div>
@@ -190,8 +183,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="21" class="form-control" *ngIf="contractConditionForm.get('performanceSecurityCheckbox').value === true"
-                    formControlName="performanceSecurityDesc">
+                    <input tabindex="21" class="form-control" *ngIf="contractConditionForm.get('performanceSecurityCheckbox').value === true" formControlName="performanceSecurityDesc">
                 </div>
             </div>
         </div>
@@ -213,8 +205,7 @@
           </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="24" class="form-control" *ngIf="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value === true"
-                    formControlName="delayDamagesForTheWorksDesc">
+                    <input tabindex="24" class="form-control" *ngIf="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value === true" formControlName="delayDamagesForTheWorksDesc">
                 </div>
             </div>
         </div>
@@ -252,8 +243,7 @@
         </span>
             </div>
             <div class="mt-1 d-flex">
-                <input tabindex="28" class="form-control" *ngIf="contractConditionForm.get('advancePaymentCheckbox').value === true"
-                formControlName="advancePaymentDesc">
+                <input tabindex="28" class="form-control" *ngIf="contractConditionForm.get('advancePaymentCheckbox').value === true" formControlName="advancePaymentDesc">
             </div>
         </div>
 
@@ -294,8 +284,7 @@
         </span>
             </div>
             <div class="mt-1 d-flex">
-                <input tabindex="32" class="form-control" *ngIf="contractConditionForm.get('retentionMoneyCheckbox').value === true"
-                formControlName="retentionMoneyDesc">
+                <input tabindex="32" class="form-control" *ngIf="contractConditionForm.get('retentionMoneyCheckbox').value === true" formControlName="retentionMoneyDesc">
             </div>
         </div>
     </div>
@@ -304,8 +293,7 @@
             10. Điều kiện đặc biệt khác (Special conditions)
         </div>
         <div class="col-md-6">
-            <textarea rows="2" tabindex="33" class="form-control" 
-            formControlName="specialCondition"></textarea>
+            <textarea rows="2" tabindex="33" class="form-control" formControlName="specialCondition"></textarea>
         </div>
     </div>
     <div class="text-center mt-4">
@@ -317,11 +305,9 @@
       Tiếp
       <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
     </button>
-        <!-- <ng-container *ngIf="!isViewMode">
-            <button class="btn btn-primary ml-1" type="button" tabindex="5">
-        Lưu và Tiếp
-        <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
-      </button>
-        </ng-container> -->
+        <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="saveAndNext()" routerLink="../director-proposal">
+                    Lưu và Tiếp
+                    <i class="fa font-size-3 ml-3 fa-angle-right " aria-hidden="true "></i>
+                </button>
     </div>
 </form>

@@ -1,15 +1,16 @@
-import { Component, OnInit , OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Form, FormBuilder, Validators } from '@angular/forms';
 
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { PackageService } from '../../shared/service/package.service'
+import { FormService } from 'src/app/shared/service/form.service';
 
 @Component({
   selector: 'app-contract-condition',
   templateUrl: './contract-condition.component.html',
   styleUrls: ['./contract-condition.component.css']
 })
-export class ContractConditionComponent implements OnInit {
+export class ContractConditionComponent implements OnInit, OnDestroy {
 
   contractConditionForm: FormGroup;
 
@@ -45,16 +46,18 @@ export class ContractConditionComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private fs: PackageService
+    private fs: PackageService,
+    private forms: FormService
 
   ) { }
   ngOnInit() {
     this.createForm();
 
   }
+  // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {
-    this.fs.Data.contractCondition=this.contractConditionForm.value;
-    
+    this.fs.Data.contractCondition = this.contractConditionForm.value;
+
   }
   selectEvent(item) {
     // do something with selected item
@@ -68,6 +71,7 @@ export class ContractConditionComponent implements OnInit {
   onFocused(e) {
     // do something when input is focused
   }
+  get f() { return this.contractConditionForm.controls; }
   createForm() {
 
     this.contractConditionForm = this.fb.group({
@@ -97,7 +101,13 @@ export class ContractConditionComponent implements OnInit {
       advancePaymentDesc: new FormControl(this.fs.Data.contractCondition.advancePaymentDesc),
       retentionMoneyDesc: new FormControl(this.fs.Data.contractCondition.retentionMoneyDesc),
       specialCondition: new FormControl(this.fs.Data.contractCondition.specialCondition)
-     
+
+    });
+  }
+  saveAndNext() {
+    // tslint:disable-next-line:max-line-length
+    this.forms.submit().subscribe((data) => {
+      console.log(data);
     });
   }
 
