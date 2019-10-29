@@ -84,7 +84,7 @@ private datePipe : DatePipe
       advancePaymentCheckbox: new FormControl(this.fs.Data.contractCondition.advancePaymentCheckbox),
       retentionMoneyCheckbox: new FormControl(this.fs.Data.contractCondition.retentionMoneyCheckbox),
       timeForCompletion: new FormControl(this.fs.Data.contractCondition.timeForCompletion),
-      commencementDate: new FormControl(DateTimeConvertHelper.fromTimestampToDtObject(this.fs.Data.contractCondition.commencementDate)),
+      commencementDate: new FormControl(this.fs.Data.contractCondition.commencementDate),
       warrantyPeriod: new FormControl(this.fs.Data.contractCondition.warrantyPeriod),
       tenderSecurity: new FormControl(this.fs.Data.contractCondition.tenderSecurity),
       delayDamagesForTheWorks: new FormControl(this.fs.Data.contractCondition.delayDamagesForTheWorks),
@@ -122,7 +122,7 @@ private datePipe : DatePipe
     this.forms.get().subscribe(res => {
       console.log(res.result.contractCondition.commencementDate);
       console.log(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate));
-      this.contractConditionForm.get('commencementDate').patchValue(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate));
+      this.contractConditionForm.get('commencementDate').patchValue(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate * 1000));
     });
   }
 
