@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Form, FormBuilder, Validators } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { PackageService } from '../../shared/service/package.service'
 import { FormService } from 'src/app/shared/service/form.service';
-
+import DateTimeConvertHelper from 'src/app/shared/datetime-convert-helper';
 @Component({
   selector: 'app-contract-condition',
   templateUrl: './contract-condition.component.html',
@@ -47,12 +47,12 @@ export class ContractConditionComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private fs: PackageService,
-    private forms: FormService
-
+    private forms: FormService,
+private datePipe : DatePipe
   ) { }
   ngOnInit() {
     this.createForm();
-
+    this.getApi();
   }
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {
@@ -84,7 +84,7 @@ export class ContractConditionComponent implements OnInit, OnDestroy {
       advancePaymentCheckbox: new FormControl(this.fs.Data.contractCondition.advancePaymentCheckbox),
       retentionMoneyCheckbox: new FormControl(this.fs.Data.contractCondition.retentionMoneyCheckbox),
       timeForCompletion: new FormControl(this.fs.Data.contractCondition.timeForCompletion),
-      commencementDate: new FormControl(this.fs.Data.contractCondition.commencementDate),
+      commencementDate: new FormControl(DateTimeConvertHelper.fromTimestampToDtObject(this.fs.Data.contractCondition.commencementDate)),
       warrantyPeriod: new FormControl(this.fs.Data.contractCondition.warrantyPeriod),
       tenderSecurity: new FormControl(this.fs.Data.contractCondition.tenderSecurity),
       delayDamagesForTheWorks: new FormControl(this.fs.Data.contractCondition.delayDamagesForTheWorks),
@@ -103,12 +103,28 @@ export class ContractConditionComponent implements OnInit, OnDestroy {
       specialCondition: new FormControl(this.fs.Data.contractCondition.specialCondition)
 
     });
+    
   }
   saveAndNext() {
+   
+    this.fs.Data.contractCondition = this.contractConditionForm.value;
     // tslint:disable-next-line:max-line-length
+    this.fs.Data.contractCondition.commencementDate=DateTimeConvertHelper.fromDtObjectToSecon(this.contractConditionForm.get('commencementDate').value);
     this.forms.submit().subscribe((data) => {
+
       console.log(data);
     });
+
+    console.log(this.datePipe.transform(this.contractConditionForm.get('commencementDate').value,'dd/MM/yyyy'));
   }
+  getApi() {
+    this.fs.Data.contractCondition = this.contractConditionForm.value;
+    this.forms.get().subscribe(res => {
+      console.log(res.result.contractCondition.commencementDate);
+      console.log(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate));
+      this.contractConditionForm.get('commencementDate').patchValue(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate));
+    });
+  }
+
 
 }

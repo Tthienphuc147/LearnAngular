@@ -20,9 +20,13 @@ export class DirectorProposalComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-
+    console.log(this.fs.Data.estimatedBuget.additionalNote);
+    if (this.fs.Data.estimatedBuget.additionalNote == "") {
+      this.directorProposalForm.disable();
+  }
 
   }
+ 
   ngOnDestroy() {
     this.fs.Data.directorProposal = this.directorProposalForm.value;
 

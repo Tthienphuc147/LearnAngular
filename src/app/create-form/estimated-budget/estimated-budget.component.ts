@@ -58,24 +58,12 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       draftBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackage),
       additionalNote: new FormControl(this.fs.Data.estimatedBuget.additionalNote),
       draftBudgetOfPackageDesc: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageDesc),
-      // draftBudgetOfPackageCurrency: this.fb.group({
-      //   // tslint:disable-next-line:max-line-length
-      //   key: new FormControl(this.listCurrency[0]),
-      //   // tslint:disable-next-line:max-line-length
-      //   value: new FormControl(this.listCurrency[0]),
-
-      //   // tslint:disable-next-line:max-line-length
-      //   displayText: new FormControl(this.listCurrency[0])
-      //   // tslint:disable-next-line:max-line-length
-
-      // }),
+  
       currencyBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency &&
-        this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency.key)
+        this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency.displayText)
     });
   }
   saveAndNext() {
-    console.log(this.estimatedBudgetForm.value);
-    // tslint:disable-next-line:max-line-length
     this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
     this.forms.submit().subscribe((data) => {
       console.log(data);
@@ -86,13 +74,12 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   getApi() {
     this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
     this.forms.get().subscribe(res => {
-      console.log(res.result.estimatedBudgetOfPakage);
+      console.log(res.result);
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);
-      this.estimatedBudgetForm.get('currencyBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.key);
+      this.estimatedBudgetForm.get('currencyBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.displayText);
     });
   }
-
 
 }

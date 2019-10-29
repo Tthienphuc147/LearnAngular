@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { DatePipe } from '@angular/common';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
@@ -69,7 +69,8 @@ import { LoginService } from './shared/service/login.service';
   providers: [AlertService,
     PackageService,
     LoginService,
-    FormService],
+    FormService,
+    DatePipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
