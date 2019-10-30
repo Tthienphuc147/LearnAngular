@@ -98,6 +98,23 @@ export class FormService {
       );
 
   }
+  getExcel(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // tslint:disable-next-line:max-line-length
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+       
+        
+      }),
+      responseType: 'blob' as 'json'
+    };
+
+    // tslint:disable-next-line:max-line-length
+    return this.http.get<any>(`http://115.79.35.119:9886/api/hbc/bidopportunity/export?userId=164`, httpOptions)
+    
+
+  }
 
 
 }

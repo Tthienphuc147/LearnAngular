@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, AbstractControl, Validators, FormControl } from '@angular/forms';
 // tslint:disable-next-line:import-blacklist
-
+import * as FileSaver from 'file-saver';
 import { FormService } from './../../shared/service/form.service';
 import { PackageService } from '../../shared/service/package.service';
 import { Currency } from 'src/app/shared/model/currency.model';
@@ -70,9 +70,16 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
 
     });
   }
+  exportFile(){
+ //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
+ this.forms.getExcel().subscribe( response => {
+  var downloadUrl= URL.createObjectURL(response);
+  window.open(downloadUrl);
+ });
+  }
 
   getApi() {
-    this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
+    //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
     this.forms.get().subscribe(res => {
       console.log(res.result);
       // tslint:disable-next-line:no-string-literal
