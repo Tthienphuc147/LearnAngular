@@ -10,6 +10,7 @@ import { UploadService } from './../shared/service/upload.service';
 })
 export class UploadHsmtComponent implements OnInit {
   uploadForm: FormGroup;
+  filedata:any;
   listTypeFile=[{
     id: 1,
     name: 'Bản vẽ thuyết trình'
@@ -23,6 +24,7 @@ export class UploadHsmtComponent implements OnInit {
     name: 'Tiêu chí kỹ thuật(Specs)'
   }]
   keyword = 'name';
+  
   constructor(
     private fb: FormBuilder,
     private us: UploadService
@@ -52,24 +54,30 @@ export class UploadHsmtComponent implements OnInit {
       editName: new FormControl(),
       date:new FormControl(),
       description: new FormControl(),
+      fileUpload: new FormControl()
     });
    
+  }
+  fileEvent(e){
+      this.filedata=e.target.files[0];
+      console.log(e);
   }
   submitForm() {
       const packageId=1942;
       const documentName = this.uploadForm.get('editName').value;
       const version = this.uploadForm.get('version').value;
-      const documentType ="7"
+      const documentType ="7";
       const description = this.uploadForm.get('description').value;
       const date = this.uploadForm.get('date').value;
       const link = this.uploadForm.get('link').value;
-      
+      const file= this.filedata;
           this.us.upload(
             packageId,
             documentName,
             documentType,
             description, 
-            date,     
+            date,   
+            file,  
             link,
             version).subscribe(data => {
               console.log(data);
