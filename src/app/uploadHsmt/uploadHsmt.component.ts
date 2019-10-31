@@ -65,6 +65,9 @@ export class UploadHsmtComponent implements OnInit {
       this.filedata=e.target.files[0];
       this.filename=this.filedata.name;
   }
+  inputChange() {
+    this.errorMess=false;
+  }
 
   submitForm() {
     const isFile = (this.uploadForm.get('fileUpload').value) ? true : false;
@@ -92,19 +95,29 @@ export class UploadHsmtComponent implements OnInit {
             link,
             version).subscribe(data => {
               console.log(data);
-            }, err => {
-             
+              
             });
+            alert("Upload thành công");
+            this.clearForm();
+            
     }
       
-    
-      
-    
-
-   
-
-     
+  
    }
+   deleteFileUpload() {
+    this.uploadForm.get('link').enable();
+  
+      this.filename = null;
+  }
+  clearForm(){
+    this.uploadForm.get('editName').setValue('');
+    this.uploadForm.get('version').setValue('');
+    this.uploadForm.get('description').setValue('');
+    this.uploadForm.get('date').setValue('');
+    this.uploadForm.get('link').setValue('');
+    this.deleteFileUpload();
+
+  }
       
     
   

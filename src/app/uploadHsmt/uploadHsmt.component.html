@@ -25,20 +25,25 @@
                               <td class="w-30 label no-boder bold-title">Đường dẫn link</td>
                               <td class="w-70 no-boder">
                                   <input #autofocus class="w-100" class="form-control"
-                                  formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null">
+                                  formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null"
+                                  (click)=inputChange()>
                               </td>
                           </tr>
                           <tr>
                               <td class="w-30 label no-boder bold-title">Hoặc</td>
                               <td class="no-boder d-flex justify-content-between">
                                   <div class="fileUpload">
-                                      <button class="btn btn-primary" style="width: 150px;border-radius: 3px;"   [attr.disabled]="uploadForm.get('link').value ? '' : null">
+                                      <button class="btn btn-primary" style="width: 150px;border-radius: 3px;"    (click)=inputChange()  [attr.disabled]="uploadForm.get('link').value ? '' : null">
                                           <i class="fa fa-cloud-upload " aria-hidden="true"></i>&nbsp;&nbsp;
                                           Chọn File</button>
-                                      <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null" formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
+                                      <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null"       (click)=inputChange() formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
                                   </div>
                                   <div style="width: calc(100% - 120px);" class="d-flex justify-content-between">
                                       <div> <span class="text-breakline" style="padding: 20px;">{{filename}}</span></div>
+                                      <div *ngIf="filename">
+                                        <button (click)="deleteFileUpload()"
+                                            class="btn btn-secondary">X</button>
+                                    </div>
                                       
                                   </div>
                               </td>
