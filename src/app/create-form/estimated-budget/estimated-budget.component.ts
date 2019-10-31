@@ -60,7 +60,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       draftBudgetOfPackageDesc: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageDesc),
   
       currencyBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency &&
-        this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency.displayText)
+        this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency)
     });
   }
   saveAndNext() {
@@ -73,6 +73,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   exportFile(){
  //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
  this.forms.getExcel().subscribe( response => {
+   console.log(response);
   var downloadUrl= URL.createObjectURL(response);
   window.open(downloadUrl);
  });
@@ -85,7 +86,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);
-      this.estimatedBudgetForm.get('currencyBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.displayText);
+      this.estimatedBudgetForm.get('currencyBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency);
     });
   }
 

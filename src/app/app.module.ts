@@ -32,45 +32,49 @@ import { FormService } from './shared/service/form.service';
 
 import { PackageService } from './shared/service/package.service';
 import { LoginService } from './shared/service/login.service';
-
+import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
+import { UploadService } from './shared/service/upload.service'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CreateFormComponent,
-    EstimatedBudgetComponent,
-    ContractConditionComponent,
-    DirectorProposalComponent,
-    NumberOnlyDirective,
-    ThousandSeparate,
-    EnterPreventDefaultDirective,
-    InputNumberNegativeDecimalDirective,
-    VnCurrencyPipe,
-    MinMaxDirective,
-    AmountConverterPipe,
-    FormloginComponent,
-  
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    DropDownsModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AutocompleteLibModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    CommonModule,
-    HttpClientModule
-  ],
-  providers: [AlertService,
-    PackageService,
-    LoginService,
-    FormService,
-    DatePipe ],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      CreateFormComponent,
+      EstimatedBudgetComponent,
+      ContractConditionComponent,
+      DirectorProposalComponent,
+      NumberOnlyDirective,
+      ThousandSeparate,
+      EnterPreventDefaultDirective,
+      InputNumberNegativeDecimalDirective,
+      VnCurrencyPipe,
+      MinMaxDirective,
+      AmountConverterPipe,
+      FormloginComponent,
+      UploadHsmtComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      DropDownsModule,
+      BrowserAnimationsModule,
+      FormsModule,
+      ReactiveFormsModule,
+      AutocompleteLibModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      CommonModule,
+      HttpClientModule
+   ],
+   providers: [
+      AlertService,
+      PackageService,
+      LoginService,
+      FormService,
+      DatePipe,
+      UploadService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

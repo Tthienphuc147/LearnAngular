@@ -23,7 +23,7 @@
                 <div class="group">
 
                     <div class="ng-autocomplete">
-                        <ng-autocomplete tabindex="1" [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
+                        <ng-autocomplete tabindex="1" [data]="data" formControlName="typeOfContract" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
                         </ng-autocomplete>
 
                         <ng-template #itemTemplate let-item>

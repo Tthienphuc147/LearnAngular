@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContractConditionComponent } from './create-form/contract-condition/contract-condition.component';
 import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
-
+import {UploadHsmtComponent} from './uploadHsmt/uploadHsmt.component'
 import { FormloginComponent } from './formlogin/formlogin.component'
 
 const routes: Routes = [
@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'director-proposal',
     component: DirectorProposalComponent
+  },
+  {
+    path:'upload-hsmt',
+    component: UploadHsmtComponent
   },
   {
     path:'',

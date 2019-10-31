@@ -100,7 +100,8 @@ private datePipe : DatePipe
       insurance: new FormControl(this.fs.Data.contractCondition.insurance),
       advancePaymentDesc: new FormControl(this.fs.Data.contractCondition.advancePaymentDesc),
       retentionMoneyDesc: new FormControl(this.fs.Data.contractCondition.retentionMoneyDesc),
-      specialCondition: new FormControl(this.fs.Data.contractCondition.specialCondition)
+      specialCondition: new FormControl(this.fs.Data.contractCondition.specialCondition),
+      typeOfContract:new FormControl(this.fs.Data.contractCondition.typeOfContract)
 
     });
     
@@ -121,8 +122,8 @@ private datePipe : DatePipe
     this.fs.Data.contractCondition = this.contractConditionForm.value;
     this.forms.get().subscribe(res => {
       console.log(res.result.contractCondition.commencementDate);
-      console.log(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate));
       this.contractConditionForm.get('commencementDate').patchValue(DateTimeConvertHelper.fromTimestampToDtObject(res.result.contractCondition.commencementDate * 1000));
+      this.contractConditionForm.get('typeOfContract').setValue(res.result.contractCondition.typeOfContract);
     });
   }
 
