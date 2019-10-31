@@ -11,6 +11,9 @@ import { UploadService } from './../shared/service/upload.service';
 export class UploadHsmtComponent implements OnInit {
   uploadForm: FormGroup;
   filedata:any;
+  filename:any;
+  errorMess;
+  isSubmitted:boolean;
   listTypeFile=[{
     id: 1,
     name: 'Bản vẽ thuyết trình'
@@ -60,9 +63,17 @@ export class UploadHsmtComponent implements OnInit {
   }
   fileEvent(e){
       this.filedata=e.target.files[0];
-      console.log(e);
+      this.filename=this.filedata.name;
   }
+
   submitForm() {
+    const isFile = (this.uploadForm.get('fileUpload').value) ? true : false;
+    const isLinkFile = (this.uploadForm.get('link').value && this.uploadForm.get('link').value.trim()) ? true : false;
+    if (!isFile &&  !isLinkFile) {
+      this.errorMess = 'Vui lòng chọn file hoặc đường dẫn link đến file!';
+      this.uploadForm.disable;
+    }
+    else{
       const packageId=1942;
       const documentName = this.uploadForm.get('editName').value;
       const version = this.uploadForm.get('version').value;
@@ -84,7 +95,16 @@ export class UploadHsmtComponent implements OnInit {
             }, err => {
              
             });
-        }
+    }
+      
+    
+      
+    
+
+   
+
+     
+   }
       
     
   

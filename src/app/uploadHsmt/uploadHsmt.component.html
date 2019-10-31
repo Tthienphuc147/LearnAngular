@@ -25,54 +25,25 @@
                               <td class="w-30 label no-boder bold-title">Đường dẫn link</td>
                               <td class="w-70 no-boder">
                                   <input #autofocus class="w-100" class="form-control"
-                                  formControlName="link" tabindex="1" type="text">
+                                  formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null">
                               </td>
                           </tr>
                           <tr>
                               <td class="w-30 label no-boder bold-title">Hoặc</td>
                               <td class="no-boder d-flex justify-content-between">
                                   <div class="fileUpload">
-                                      <button class="btn btn-primary" style="width: 150px;border-radius: 3px;" >
+                                      <button class="btn btn-primary" style="width: 150px;border-radius: 3px;"   [attr.disabled]="uploadForm.get('link').value ? '' : null">
                                           <i class="fa fa-cloud-upload " aria-hidden="true"></i>&nbsp;&nbsp;
                                           Chọn File</button>
-                                      <input type="file" class="upload " formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
+                                      <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null" formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
                                   </div>
                                   <div style="width: calc(100% - 120px);" class="d-flex justify-content-between">
-                                      <div> <span class="text-breakline"></span></div>
-                                      <div >
-                                          <button class="btn btn-secondary">X</button>
-                                      </div>
+                                      <div> <span class="text-breakline" style="padding: 20px;">{{filename}}</span></div>
+                                      
                                   </div>
                               </td>
                           </tr>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Loại HSMT</td>
-                              <td class="no-boder d-flex">
-                                  <!-- <kendo-dropdownlist class="w-100" tabindex="3" formControlName="type" [textField]="'text'"
-                                      [valueField]="'id'" [disabled]="itemBidDocument" [data]="listTypeFile" (valueChange)="valueTypeDocChange($event)">
-                                  </kendo-dropdownlist> -->
-                                  <div class="group">
-
-                                    <div class="ng-autocomplete">
-                                        <ng-autocomplete tabindex="1" [data]="listTypeFile" tabindex="3" formControlName="type"  [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
-                                        </ng-autocomplete>
-                
-                                        <ng-template #itemTemplate let-item>
-                                            <a [innerHTML]="item.name"></a>
-                                        </ng-template>
-                
-                                        <ng-template #notFoundTemplate let-notFound>
-                                            <div [innerHTML]="notFound"></div>
-                                        </ng-template>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary" type="button" tabindex="2">
-                              <i class="fa fa-search"></i>
-                            </button>
-                                    </div>
-                                </div>
-                              </td>
-                          </tr>
+                         
                           <tr>
                               <td class="w-30 label no-boder bold-title required">Tên</td>
                               <td class="w-70 no-boder">
@@ -116,6 +87,9 @@
               </div>
 
           </div>
+          <div class="w-100 center-parent" *ngIf="errorMess" class="alert alert-danger" role="alert">
+            <span> {{errorMess}}</span>
+        </div>
           <div class="action-bar alignment-but center-parent">
               <button  tabindex="8" type="submit" class="btn btn-primary ml-1 cus-but-cs" (click)="submitForm()">
                   Upload

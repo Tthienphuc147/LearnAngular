@@ -34,7 +34,7 @@ postFile(formData: FormData): Observable<any> {
   return this.http
       .post(`http://115.79.35.119:9886/api/hbc/biddocument/upload`,formData, {
         headers: new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded',
+          // 'Content-Type': 'multipart/form-data',
           // tslint:disable-next-line:max-line-length
           Authorization:`Bearer ${localStorage.getItem('token')}`
         })
