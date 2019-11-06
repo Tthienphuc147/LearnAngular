@@ -34,6 +34,7 @@ import { PackageService } from './shared/service/package.service';
 import { LoginService } from './shared/service/login.service';
 import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
 import { UploadService } from './shared/service/upload.service'
+import { PackagePermissionComponent } from './PackagePermission/PackagePermission.component';
 
 @NgModule({
    declarations: [
@@ -50,7 +51,8 @@ import { UploadService } from './shared/service/upload.service'
       MinMaxDirective,
       AmountConverterPipe,
       FormloginComponent,
-      UploadHsmtComponent
+      UploadHsmtComponent,
+     
    ],
    imports: [
       BrowserModule,

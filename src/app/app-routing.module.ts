@@ -9,27 +9,28 @@ import { FormloginComponent } from './formlogin/formlogin.component'
 
 const routes: Routes = [
  
-  {
-    path: 'estimated-budget',
-    component: EstimatedBudgetComponent
-  },
-  {
-    path: 'contract-condition',
-    component: ContractConditionComponent
-  },
-  {
-    path: 'director-proposal',
-    component: DirectorProposalComponent
-  },
-  {
-    path:'upload-hsmt',
-    component: UploadHsmtComponent
-  },
-  {
-    path:'',
-    component: FormloginComponent
-  }
-
+  // {
+  //   path: 'estimated-budget',
+  //   component: EstimatedBudgetComponent
+  // },
+  // {
+  //   path: 'contract-condition',
+  //   component: ContractConditionComponent
+  // },
+  // {
+  //   path: 'director-proposal',
+  //   component: DirectorProposalComponent
+  // },
+  // {
+  //   path:'upload-hsmt',
+  //   component: UploadHsmtComponent
+  // },
+  // {
+  //   path:'',
+  //   component: FormloginComponent
+  // }
+  { path: 'package', loadChildren: './PackagePermission/PackagePermission.module#PackagePermisionModule' },
+  { path: 'create-form', loadChildren: './create-form/create-form.module#CreateFormModule' }
 
 
 ];

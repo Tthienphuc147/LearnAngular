@@ -6,9 +6,7 @@
         <div class="sidebar-content">
             <div class="sidebar-brand">
                 <a href="#">PHIẾU ĐỀ NGHỊ DỰ THẦU (PROPOSED TENDER PARTICIPATING REPORT)</a>
-                <div id="close-sidebar">
-                    <i class="fas fa-times"></i>
-                </div>
+
             </div>
 
             <!-- sidebar-header  -->
@@ -18,23 +16,30 @@
                 <ul>
 
                     <li class="sidebar-dropdown">
-                        <a routerLink="estimated-budget" routerLinkActive="active-link">
+                        <a routerLink="estimated-budget">
 
-                            <span>IV.Giá gói thầu tạm tính</span>
-
-                        </a>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a href="#">
-
-                            <span>VI.Phân tích điều kiện hợp đồng</span>
+                           IV.Giá gói thầu tạm tính
 
                         </a>
                     </li>
                     <li class="sidebar-dropdown">
-                        <a href="#">
+                        <a routerLink="contract-condition">
 
-                            <span>VII.Ý kiến đề xuất của Giám đốc dự thầu</span>
+                            VI.Phân tích điều kiện hợp đồng
+
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a routerLink="director-proposal">
+
+                            VII.Ý kiến đề xuất của Giám đốc dự thầu
+
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a routerLink="upload-hsmt">
+
+                            UPLOAD HSMT
 
                         </a>
                     </li>
@@ -50,7 +55,8 @@
     <!-- sidebar-wrapper  -->
     <main class="page-content">
         <div class="container-fluid">
-
+            <router-outlet></router-outlet>
+            
         </div>
 
     </main>

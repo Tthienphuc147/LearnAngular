@@ -10,27 +10,31 @@ import { EstimatedBudgetComponent } from './estimated-budget/estimated-budget.co
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'estimated-budget'
-  },
-  {
-    path: 'estimated-budget',
-    component: EstimatedBudgetComponent
-  },
-  {
-    path: 'contract-condition',
-    component: ContractConditionComponent
-  },
-  {
-    path: 'director-proposal',
-    component: DirectorProposalComponent
-  },
+    component: CreateFormComponent,
+    children: [
+      {
+        path: 'estimated-budget',
+        component: EstimatedBudgetComponent
+      },
+      {
+        path: 'contract-condition',
+        component: ContractConditionComponent
+      },
+      {
+        path: 'director-proposal',
+        component: DirectorProposalComponent
+      },
+      
+    ]
+}
+ 
 
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class CreateFormRoutingModule { }
