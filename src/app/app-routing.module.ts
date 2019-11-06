@@ -30,7 +30,8 @@ const routes: Routes = [
   //   component: FormloginComponent
   // }
   { path: 'package', loadChildren: './PackagePermission/PackagePermission.module#PackagePermisionModule' },
-  { path: 'create-form', loadChildren: './create-form/create-form.module#CreateFormModule' }
+  { path: 'create-form', loadChildren: './create-form/create-form.module#CreateFormModule' },
+  { path: '', loadChildren: './formlogin/formlogin.module#FormLoginModule' }
 
 
 ];

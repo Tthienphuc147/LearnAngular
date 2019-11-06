@@ -14,19 +14,6 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { CreateFormComponent } from './create-form/create-form.component';
-import { FormloginComponent } from './formlogin/formlogin.component';
-import { ContractConditionComponent } from './create-form/contract-condition/contract-condition.component';
-import { DirectorProposalComponent } from './create-form/director-proposal/director-proposal.component';
-import { EstimatedBudgetComponent } from './create-form/estimated-budget/estimated-budget.component';
-import { EnterPreventDefaultDirective } from './shared/directive/enter-prevent-default.directive';
-import { MinMaxDirective } from './shared/directive/input-minmax.directive';
-import { InputNumberNegativeDecimalDirective } from './shared/directive/input-number-negative-decimal.directive';
-import { NumberOnlyDirective } from './shared/directive/number.directive';
-import { AmountConverterPipe } from './shared/pipes/amountConverter.module';
-import { ThousandSeparate } from './shared/pipes/thoudand-separate.module';
-import { VnCurrencyPipe } from './shared/pipes/vn-currency-pipe.module';
 import { AlertService } from './shared/service/alert.service';
 import { FormService } from './shared/service/form.service';
 
@@ -39,15 +26,7 @@ import { PackagePermissionComponent } from './PackagePermission/PackagePermissio
 @NgModule({
    declarations: [
       AppComponent,
-      NumberOnlyDirective,
-      ThousandSeparate,
-      EnterPreventDefaultDirective,
-      InputNumberNegativeDecimalDirective,
-      VnCurrencyPipe,
-      MinMaxDirective,
-      AmountConverterPipe,
-      FormloginComponent,
-      UploadHsmtComponent,
+    
      
    ],
    imports: [

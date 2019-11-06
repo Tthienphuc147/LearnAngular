@@ -7,10 +7,10 @@ const routes: Routes = [
     {
         path: '',
         component: FormloginComponent,
-        children: [
-            { path: '', component: FormloginComponent },
+        // children: [
+        //     { path: '', component: FormloginComponent },
           
-        ]
+        // ]
     }
 ];
 

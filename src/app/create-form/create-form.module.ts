@@ -6,20 +6,25 @@ import { CreateFormComponent } from './create-form.component';
 import { ContractConditionComponent } from './contract-condition/contract-condition.component';
 import { DirectorProposalComponent } from './director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './estimated-budget/estimated-budget.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormloginComponent } from '../formlogin/formlogin.component';
+import { UploadHsmtComponent } from '../uploadHsmt/uploadHsmt.component';
+
+import { SharedModule } from './../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    AppRoutingModule,
-    BrowserModule,
+ 
+    SharedModule
+
+   
   ],
   declarations: [
     CreateFormComponent,
     EstimatedBudgetComponent,
     ContractConditionComponent,
-    DirectorProposalComponent
+    DirectorProposalComponent,
+    FormloginComponent,
+    UploadHsmtComponent,
   ]
 })
 export class CreateFormModule { }
