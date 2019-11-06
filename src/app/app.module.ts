@@ -39,10 +39,6 @@ import { PackagePermissionComponent } from './PackagePermission/PackagePermissio
 @NgModule({
    declarations: [
       AppComponent,
-      CreateFormComponent,
-      EstimatedBudgetComponent,
-      ContractConditionComponent,
-      DirectorProposalComponent,
       NumberOnlyDirective,
       ThousandSeparate,
       EnterPreventDefaultDirective,
