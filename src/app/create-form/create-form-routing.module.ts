@@ -6,6 +6,7 @@ import { CreateFormComponent } from './create-form.component';
 import { ContractConditionComponent } from './contract-condition/contract-condition.component';
 import { DirectorProposalComponent } from './director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './estimated-budget/estimated-budget.component';
+import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'director-proposal',
         component: DirectorProposalComponent
+      },
+      {
+        path: 'upload-hsmt',
+        component: UploadHsmtComponent
       },
       
     ]

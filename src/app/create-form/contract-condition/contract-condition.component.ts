@@ -53,6 +53,7 @@ private datePipe : DatePipe
   ngOnInit() {
     this.createForm();
     this.getApi();
+    console.log(this.data);
   }
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {

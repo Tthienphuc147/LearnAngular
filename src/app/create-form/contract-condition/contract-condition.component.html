@@ -23,7 +23,10 @@
                 <div class="group">
 
                     <div class="ng-autocomplete">
-                        <ng-autocomplete tabindex="1" [data]="data" formControlName="typeOfContract" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
+                        <ng-autocomplete tabindex="1" [data]="data" formControlName="typeOfContract"
+                            [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                            (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+                            [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto">
                         </ng-autocomplete>
 
                         <ng-template #itemTemplate let-item>
@@ -36,8 +39,8 @@
                     </div>
                     <div class="input-group-append">
                         <button class="btn btn-secondary" type="button" tabindex="2">
-              <i class="fa fa-search"></i>
-            </button>
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -48,11 +51,12 @@
             </div>
             <div class="col-md-6">
                 <div class="group">
-                    <input tabindex="3" formControlName="timeForCompletion" class="form-control " myNumberOnly [attr.disabled]="contractConditionForm.get('timeForCompletionCheckbox').value ? '' : null">
+                    <input tabindex="3" formControlName="timeForCompletion" class="form-control " myNumberOnly
+                        [attr.disabled]="contractConditionForm.get('timeForCompletionCheckbox').value ? '' : null">
                     <div>
                         <select class="form-control" name="listTime" tabindex="4">
-              <option *ngFor="let item of listTime">{{item}}</option>
-            </select>
+                            <option *ngFor="let item of listTime">{{item}}</option>
+                        </select>
                     </div>
                 </div>
 
@@ -63,11 +67,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input class="form-control" *ngIf="contractConditionForm.get('timeForCompletionCheckbox').value === true" tabindex="6" formControlName="timeForCompletionDesc">
+                    <input class="form-control"
+                        *ngIf="contractConditionForm.get('timeForCompletionCheckbox').value === true" tabindex="6"
+                        formControlName="timeForCompletionDesc">
                 </div>
             </div>
 
@@ -79,9 +85,12 @@
             <div class="col-md-6">
 
                 <div class="group">
-                    <input tabindex="7" class="form-control datePicker" matInput [matDatepicker]="picker" placeholder="TBC" formControlName="commencementDate" [attr.disabled]="contractConditionForm.get('commencementDateCheckbox').value ? '' : null">
+                    <input tabindex="7" class="form-control datePicker" matInput [matDatepicker]="picker"
+                        placeholder="TBC" formControlName="commencementDate"
+                        [attr.disabled]="contractConditionForm.get('commencementDateCheckbox').value ? '' : null">
                     <div>
-                        <mat-datepicker-toggle tabindex="8" matSuffix [for]="picker" class="pickerBtn "></mat-datepicker-toggle>
+                        <mat-datepicker-toggle tabindex="8" matSuffix [for]="picker" class="pickerBtn ">
+                        </mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </div>
                 </div>
@@ -94,11 +103,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="10" class="form-control" *ngIf="contractConditionForm.get('commencementDateCheckbox').value === true" formControlName="commencementDateDesc">
+                    <input tabindex="10" class="form-control"
+                        *ngIf="contractConditionForm.get('commencementDateCheckbox').value === true"
+                        formControlName="commencementDateDesc">
                 </div>
             </div>
         </div>
@@ -108,11 +119,14 @@
             </div>
             <div class="col-md-6">
                 <div class="group">
-                    <input tabindex="11" class="form-control input-dropdown-group" formControlName="warrantyPeriod" myNumberOnly [attr.disabled]="contractConditionForm.get('warrantyPeriodCheckbox').value ? '' : null" [value]="contractConditionForm.get('warrantyPeriod').value | thousandSeparate">
+                    <input tabindex="11" class="form-control input-dropdown-group" formControlName="warrantyPeriod"
+                        myNumberOnly
+                        [attr.disabled]="contractConditionForm.get('warrantyPeriodCheckbox').value ? '' : null"
+                        [value]="contractConditionForm.get('warrantyPeriod').value | thousandSeparate">
                     <div>
                         <select class="form-control" name="listTime" tabindex="12">
-              <option *ngFor="let item of listTime">{{item}}</option>
-            </select>
+                            <option *ngFor="let item of listTime">{{item}}</option>
+                        </select>
                     </div>
 
                     <div>
@@ -126,11 +140,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="14" class="form-control" *ngIf="contractConditionForm.get('warrantyPeriodCheckbox').value === true" formControlName="warrantyPeriodDesc">
+                    <input tabindex="14" class="form-control"
+                        *ngIf="contractConditionForm.get('warrantyPeriodCheckbox').value === true"
+                        formControlName="warrantyPeriodDesc">
                 </div>
             </div>
         </div>
@@ -140,11 +156,14 @@
             </div>
             <div class="col-md-6">
                 <div class="group">
-                    <input tabindex="15" myNumberOnly formControlName="tenderSecurity" class="form-control input-dropdown-group" [attr.disabled]="contractConditionForm.get('tenderSecurityCheckbox').value ? '' : null" [value]="contractConditionForm.get('tenderSecurity').value | thousandSeparate">
+                    <input tabindex="15" myNumberOnly formControlName="tenderSecurity"
+                        class="form-control input-dropdown-group"
+                        [attr.disabled]="contractConditionForm.get('tenderSecurityCheckbox').value ? '' : null"
+                        [value]="contractConditionForm.get('tenderSecurity').value | thousandSeparate">
                     <div>
                         <select class="form-control" name="listCurrency" tabindex="16">
-              <option *ngFor="let item of listCurrency">{{item}}</option>
-            </select>
+                            <option *ngFor="let item of listCurrency">{{item}}</option>
+                        </select>
                     </div>
 
                 </div>
@@ -158,11 +177,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="18" class="form-control" *ngIf="contractConditionForm.get('tenderSecurityCheckbox').value === true" formControlName="tenderSecurityDesc">
+                    <input tabindex="18" class="form-control"
+                        *ngIf="contractConditionForm.get('tenderSecurityCheckbox').value === true"
+                        formControlName="tenderSecurityDesc">
                 </div>
             </div>
         </div>
@@ -171,7 +192,10 @@
                 6. Bảo lãnh hợp đồng (Performance security)
             </div>
             <div class="col-md-6">
-                <input tabindex="19" appInputNumberNegativeDecimal [min]="0" [max]="100" class="form-control input-percent" appEnterPreventDefault [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null" formControlName="performanceSecurity">
+                <input tabindex="19" appInputNumberNegativeDecimal [min]="0" [max]="100"
+                    class="form-control input-percent" appEnterPreventDefault
+                    [attr.disabled]="contractConditionForm.get('performanceSecurityCheckbox').value ? '' : null"
+                    formControlName="performanceSecurity">
                 <span class="input-unit">%</span>
                 <div class="mt-1 d-flex align-items-center">
 
@@ -179,11 +203,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="21" class="form-control" *ngIf="contractConditionForm.get('performanceSecurityCheckbox').value === true" formControlName="performanceSecurityDesc">
+                    <input tabindex="21" class="form-control"
+                        *ngIf="contractConditionForm.get('performanceSecurityCheckbox').value === true"
+                        formControlName="performanceSecurityDesc">
                 </div>
             </div>
         </div>
@@ -193,7 +219,9 @@
             </div>
             <div class="col-md-6">
 
-                <input tabindex="22" formControlName="delayDamagesForTheWorks" appInputNumberNegativeDecimal [min]="0" [max]="100" class="form-control input-percent" appInputNumberNegativeDecimal [min]="0" [max]="100" [attr.disabled]="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value ? '' : null">
+                <input tabindex="22" formControlName="delayDamagesForTheWorks" appInputNumberNegativeDecimal [min]="0"
+                    [max]="100" class="form-control input-percent" appInputNumberNegativeDecimal [min]="0" [max]="100"
+                    [attr.disabled]="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value ? '' : null">
                 <span class="input-unit">%</span>
                 <div class="mt-1 d-flex align-items-center">
 
@@ -201,11 +229,13 @@
                     <span class="custom-control-indicator"></span>
 
                     <span class="pl-2">
-            Chưa có thông tin
-          </span>
+                        Chưa có thông tin
+                    </span>
                 </div>
                 <div class="mt-1 d-flex">
-                    <input tabindex="24" class="form-control" *ngIf="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value === true" formControlName="delayDamagesForTheWorksDesc">
+                    <input tabindex="24" class="form-control"
+                        *ngIf="contractConditionForm.get('delayDamagesForTheWorksCheckbox').value === true"
+                        formControlName="delayDamagesForTheWorksDesc">
                 </div>
             </div>
         </div>
@@ -231,7 +261,9 @@
             <i class="fa fa-long-arrow-right mr-2" aria-hidden="true"></i> Tiền tạm ứng (Advance payment)
         </div>
         <div class="col-md-6">
-            <input tabindex="26" type="number" class="form-control input-percent" formControlName="advancePayment" appInputNumberNegativeDecimal [min]="0" [max]="100" myNumberOnly [attr.disabled]="contractConditionForm.get('advancePaymentCheckbox').value ? '' : null">
+            <input tabindex="26" type="number" class="form-control input-percent" formControlName="advancePayment"
+                appInputNumberNegativeDecimal [min]="0" [max]="100" myNumberOnly
+                [attr.disabled]="contractConditionForm.get('advancePaymentCheckbox').value ? '' : null">
             <span class="input-unit">%</span>
             <div class="mt-1 d-flex align-items-center">
 
@@ -239,22 +271,28 @@
                 <span class="custom-control-indicator"></span>
 
                 <span class="pl-2">
-          Chưa có thông tin
-        </span>
+                    Chưa có thông tin
+                </span>
             </div>
             <div class="mt-1 d-flex">
-                <input tabindex="28" class="form-control" *ngIf="contractConditionForm.get('advancePaymentCheckbox').value === true" formControlName="advancePaymentDesc">
+                <input tabindex="28" class="form-control"
+                    *ngIf="contractConditionForm.get('advancePaymentCheckbox').value === true"
+                    formControlName="advancePaymentDesc">
             </div>
         </div>
 
     </div>
     <div class="row mt-3">
         <div class="col-md-6 pl-5 d-flex">
-            <i class="fa fa-long-arrow-right mr-2 mt-025" aria-hidden="true"></i> Mốc thanh toán/ thanh toán hàng tháng (Monthly payment or milestone)
+            <i class="fa fa-long-arrow-right mr-2 mt-025" aria-hidden="true"></i> Mốc thanh toán/ thanh toán hàng tháng
+            (Monthly payment or milestone)
         </div>
         <div class="col-md-6">
             <div class="ng-autocomplete">
-                <ng-autocomplete tabindex="29" [data]="dataThanhToan" [searchKeyword]="keyword" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                <ng-autocomplete tabindex="29" [data]="dataThanhToan" [searchKeyword]="keyword"
+                    (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">
                 </ng-autocomplete>
 
                 <ng-template #itemTemplate let-item>
@@ -272,7 +310,9 @@
             <i class="fa fa-long-arrow-right mr-2" aria-hidden="true"></i> Tiền giữ lại (Retention money)
         </div>
         <div class="col-md-6">
-            <input tabindex="30" formControlName="retentionMoney" appInputNumberNegativeDecimal [min]="0" [max]="100" myNumberOnly class="form-control input-percent" [attr.disabled]="contractConditionForm.get('retentionMoneyCheckbox').value ? '' : null">
+            <input tabindex="30" formControlName="retentionMoney" appInputNumberNegativeDecimal [min]="0" [max]="100"
+                myNumberOnly class="form-control input-percent"
+                [attr.disabled]="contractConditionForm.get('retentionMoneyCheckbox').value ? '' : null">
             <span class="input-unit">%</span>
             <div class="mt-1 d-flex align-items-center">
 
@@ -280,11 +320,13 @@
                 <span class="custom-control-indicator"></span>
 
                 <span class="pl-2">
-          Chưa có thông tin
-        </span>
+                    Chưa có thông tin
+                </span>
             </div>
             <div class="mt-1 d-flex">
-                <input tabindex="32" class="form-control" *ngIf="contractConditionForm.get('retentionMoneyCheckbox').value === true" formControlName="retentionMoneyDesc">
+                <input tabindex="32" class="form-control"
+                    *ngIf="contractConditionForm.get('retentionMoneyCheckbox').value === true"
+                    formControlName="retentionMoneyDesc">
             </div>
         </div>
     </div>
@@ -298,13 +340,14 @@
     </div>
     <div class="text-center mt-4">
         <button class="btn border" tabindex="34" routerLink="../estimated-budget">
-      <i class="fa font-size-3 mr-3 fa-angle-left" aria-hidden="true"></i>
-      Trở về
-    </button>
-        
-        <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="saveAndNext()" routerLink="../director-proposal">
-         Tiếp
-                    <i class="fa font-size-3 ml-3 fa-angle-right " aria-hidden="true "></i>
-                </button>
+            <i class="fa font-size-3 mr-3 fa-angle-left" aria-hidden="true"></i>
+            Trở về
+        </button>
+
+        <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="saveAndNext()"
+            routerLink="../director-proposal">
+            Tiếp
+            <i class="fa font-size-3 ml-3 fa-angle-right " aria-hidden="true "></i>
+        </button>
     </div>
 </form>

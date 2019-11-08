@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import DateTimeConvertHelper from '../shared/datetime-convert-helper';
-import { UploadService } from './../shared/service/upload.service';
+import DateTimeConvertHelper from '../../shared/datetime-convert-helper';
+import { UploadService } from '../../shared/service/upload.service';
 
 @Component({
   selector: 'app-uploadHsmt',

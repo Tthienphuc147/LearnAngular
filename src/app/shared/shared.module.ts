@@ -23,20 +23,15 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-
-    CommonModule,
-    AppRoutingModule,
+    
     DropDownsModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AutocompleteLibModule,
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-   BrowserModule,
-   RouterModule
-
+    RouterModule
   ],
   declarations:[
     NumberOnlyDirective,
@@ -48,10 +43,8 @@ import { RouterModule } from '@angular/router';
     AmountConverterPipe,
   ],
  exports: [
-    CommonModule,
-    AppRoutingModule,
+
     DropDownsModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     AutocompleteLibModule,
@@ -66,6 +59,7 @@ import { RouterModule } from '@angular/router';
     MinMaxDirective,
     AmountConverterPipe,
     RouterModule
+ 
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,99 @@
+.group-bg {
+    background-color: #f68e56;
+  }
+  
+  .group {
+    display: grid;
+    grid-template-columns: 30px 30px 192px;
+    padding-left: 5px;
+    background-color: #eb9f3c;
+  }
+  .group .btn-icon {
+    margin-top: 16px;
+    margin-left: 6px;
+  }
+  .group .group-name {
+    min-height: 40px;
+    width: 192px;
+  }
+  .group .group-name .item-group {
+    padding: 5px 10px;
+    color: white;
+    height: 100%;
+  }
+  .group .group-name .item-group input {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+  
+  .customers {
+    width: calc(100% - 193px);
+    min-height: 40px;
+    background-color: #F4F4F4;
+  }
+  .customers .customer {
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .boder-table {
+    padding: 20px 30px 35px 30px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  
+  .customer-contact {
+    width: calc(100% - 80px);
+  }
+  
+  .button-delete {
+    width: 80px;
+    background-color: white;
+  }
+  
+  .label-contact {
+    width: 70px;
+  }
+  
+  .btn-icon {
+    color: white;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
+  }
+  
+  .btn-icon-plus {
+    background-color: #00a0e3;
+  }
+  
+  .btn-icon-minus {
+    background-color: #EA5552;
+  }
+  
+  .icon {
+    margin-top: 2px;
+  }
+  .groupP {
+    display: flex;
+    align-items: center;
+}
+
+.datePicker {
+    width: 700px;
+}
+
+.pickerBtn {
+    color: rgb(92, 87, 87);
+}
+
+.autocomplete-container {
+    width: 700px;
+}

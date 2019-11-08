@@ -19,9 +19,11 @@ import { FormService } from './shared/service/form.service';
 
 import { PackageService } from './shared/service/package.service';
 import { LoginService } from './shared/service/login.service';
-import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
+import { UploadHsmtComponent } from './create-form/uploadHsmt/uploadHsmt.component';
 import { UploadService } from './shared/service/upload.service'
 import { PackagePermissionComponent } from './PackagePermission/PackagePermission.component';
+import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
    declarations: [
@@ -30,17 +32,11 @@ import { PackagePermissionComponent } from './PackagePermission/PackagePermissio
      
    ],
    imports: [
-      BrowserModule,
-      AppRoutingModule,
-      DropDownsModule,
+
+   BrowserModule,
       BrowserAnimationsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      AutocompleteLibModule,
-      MatDatepickerModule,
-      MatNativeDateModule,
-      CommonModule,
-      HttpClientModule
+      RouterModule,
+      AppRoutingModule
    ],
    providers: [
       AlertService,
@@ -48,7 +44,8 @@ import { PackagePermissionComponent } from './PackagePermission/PackagePermissio
       LoginService,
       FormService,
       DatePipe,
-      UploadService
+      UploadService,
+     
    ],
    bootstrap: [
       AppComponent
