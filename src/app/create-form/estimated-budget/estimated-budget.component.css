@@ -17,3 +17,7 @@ select {
 input[check-box] {
     padding-right: 5px;
 }
+.btn-nav{
+    background-color: rgb(92, 87, 87);
+    color:white;
+}

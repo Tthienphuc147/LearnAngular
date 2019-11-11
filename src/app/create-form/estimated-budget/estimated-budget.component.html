@@ -2,7 +2,9 @@
     <div class="p-3 position-relative">
         <div class="b-form-readonly"></div>
         <div>
+            
             <h5 class="text-uppercase">IV. giá gói thầu tạm tính (estimated budget of package)</h5>
+            <hr>
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
@@ -21,10 +23,12 @@
                     <input tabindex="1"  formControlName="draftBudgetOfPackage" class="price form-control" [attr.disabled]="estimatedBudgetForm.get('draftBudgetOfPackageCheckbox').value ? '' : null" myNumberOnly [value]="estimatedBudgetForm.get('draftBudgetOfPackage').value | thousandSeparate ">
                     <div>
                         <div class="form-group">
-                            <select class="form-control" name="currency" tabindex="2" formControlName="currencyBudgetOfPackage">
-                        <option [value]="item.key" *ngFor="let item of listCurrency" >{{item.displayText}}</option>
+                            <select class="form-control"  name="currency" tabindex="2" formControlName="currencyBudgetOfPackage">
+                                 
+                                <option [value]="item.key" [selected]="currency" *ngFor="let item of listCurrency" >{{item.displayText}}</option>
                       </select>
                         </div>
+                      
 
                     </div>
                 </div>
@@ -61,11 +65,11 @@
                     <i class="fa font-size-3 ml-3 fa-angle-right " aria-hidden="true "></i>
                 </button>
             </ng-container> -->
-            <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="saveAndNext()" routerLink="../contract-condition">
+            <button class="btn  btn-nav ml-1" type="button" tabindex="5" (click)="saveAndNext()" routerLink="../contract-condition" >
                    Tiếp
                     <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
                 </button>
-                <button class="btn btn-primary ml-1" type="button" tabindex="5" (click)="exportFile()" >
+                <button class="btn  btn-nav ml-1" type="button" tabindex="5" (click)="exportFile()" >
                     Xuất file Excel
                      <i class="fa font-size-3 ml-3 fa-angle-right" aria-hidden="true"></i>
                  </button>

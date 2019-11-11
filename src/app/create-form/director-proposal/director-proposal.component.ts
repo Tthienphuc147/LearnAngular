@@ -2,6 +2,7 @@ import { FormGroup, FormControl, FormBuilder, AbstractControl } from '@angular/f
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PackageService } from '../../shared/service/package.service';
 import { FormService } from 'src/app/shared/service/form.service';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-director-proposal',
@@ -11,10 +12,13 @@ import { FormService } from 'src/app/shared/service/form.service';
 export class DirectorProposalComponent implements OnInit {
 
   directorProposalForm: FormGroup;
+  dataUser;
+  
   constructor(
     private fb: FormBuilder,
     private fs: PackageService,
-    private forms: FormService
+    private forms: FormService,
+    private ls:LoginService
 
   ) { }
 
@@ -24,6 +28,7 @@ export class DirectorProposalComponent implements OnInit {
     if (this.fs.Data.estimatedBuget.additionalNote == "") {
       this.directorProposalForm.disable();
   }
+  this.getUserInfor();
 
   }
  
@@ -39,6 +44,13 @@ export class DirectorProposalComponent implements OnInit {
       dateS: new FormControl(this.fs.Data.directorProposal.dateS),
       expectedDate: new FormControl(this.fs.Data.directorProposal.expectedDate)
 
+    });
+  }
+  getUserInfor() {
+    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+      console.log(res.result);
+      // tslint:disable-next-line:no-string-literal
+     this.dataUser=res.result;
     });
   }
   saveAndNext() {

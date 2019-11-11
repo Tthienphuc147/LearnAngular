@@ -19,7 +19,7 @@ import { InputNumberNegativeDecimalDirective } from './directive/input-number-ne
 import { VnCurrencyPipe } from './pipes/vn-currency-pipe.module';
 import { MinMaxDirective } from './directive/input-minmax.directive';
 import { RouterModule } from '@angular/router';
-
+import { AlertModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -31,7 +31,8 @@ import { RouterModule } from '@angular/router';
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    AlertModule
   ],
   declarations:[
     NumberOnlyDirective,
@@ -58,7 +59,8 @@ import { RouterModule } from '@angular/router';
     VnCurrencyPipe,
     MinMaxDirective,
     AmountConverterPipe,
-    RouterModule
+    RouterModule,
+    AlertModule
  
   ]
 })

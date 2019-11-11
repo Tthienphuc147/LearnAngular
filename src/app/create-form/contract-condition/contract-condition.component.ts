@@ -5,6 +5,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { PackageService } from '../../shared/service/package.service'
 import { FormService } from 'src/app/shared/service/form.service';
 import DateTimeConvertHelper from 'src/app/shared/datetime-convert-helper';
+import { LoginService } from 'src/app/shared/service/login.service';
 @Component({
   selector: 'app-contract-condition',
   templateUrl: './contract-condition.component.html',
@@ -15,7 +16,7 @@ export class ContractConditionComponent implements OnInit, OnDestroy {
   contractConditionForm: FormGroup;
 
 
-
+  dataUser;
   keyword = 'name';
   listTime = ['Ngày', 'Tháng', 'Năm'];
   listCurrency = ['VND', 'USA'];
@@ -48,12 +49,14 @@ export class ContractConditionComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private fs: PackageService,
     private forms: FormService,
-private datePipe : DatePipe
+private datePipe : DatePipe,
+private ls:LoginService
   ) { }
   ngOnInit() {
     this.createForm();
     this.getApi();
     console.log(this.data);
+    this.getUserInfor();
   }
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {
@@ -106,6 +109,13 @@ private datePipe : DatePipe
 
     });
     
+  }
+  getUserInfor() {
+    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+      console.log(res.result);
+      // tslint:disable-next-line:no-string-literal
+     this.dataUser=res.result;
+    });
   }
   saveAndNext() {
    

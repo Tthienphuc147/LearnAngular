@@ -10,6 +10,7 @@ import * as FileSaver from 'file-saver';
 import { FormService } from './../../shared/service/form.service';
 import { PackageService } from '../../shared/service/package.service';
 import { Currency } from 'src/app/shared/model/currency.model';
+import { LoginService } from 'src/app/shared/service/login.service';
 @Component({
   selector: 'app-estimated-budget',
   templateUrl: './estimated-budget.component.html',
@@ -24,13 +25,14 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   estimatedBudgetForm: FormGroup;
   draftBudgetOfPackageCheckbox: FormControl;
   draftBudgetOfPackage: FormControl;
-
+  dataUser;
   data: any={};
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private fs: PackageService,
-    private forms: FormService
+    private forms: FormService,
+    private ls:LoginService
   ) {
 
   }
@@ -39,7 +41,9 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.createForm();
     this.getApi();
-
+    console.log(this.estimatedBudgetForm.get('currencyBudgetOfPackage').value);
+    this.getUserInfor();
+    
   }
   get f() { return this.estimatedBudgetForm.controls; }
   ngOnDestroy() {
@@ -63,6 +67,13 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
         this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency)
     });
   }
+  getUserInfor() {
+    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+
+      // tslint:disable-next-line:no-string-literal
+     this.dataUser=res.result;
+    });
+  }
   saveAndNext() {
     this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
     this.forms.submit().subscribe((data) => {
@@ -83,6 +94,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
     //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
     this.forms.get().subscribe(res => {
       console.log(res.result);
+      console.log(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency);
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);

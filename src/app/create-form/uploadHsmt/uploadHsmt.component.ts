@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import DateTimeConvertHelper from '../../shared/datetime-convert-helper';
 import { UploadService } from '../../shared/service/upload.service';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-uploadHsmt',
@@ -9,6 +10,7 @@ import { UploadService } from '../../shared/service/upload.service';
   styleUrls: ['./uploadHsmt.component.css']
 })
 export class UploadHsmtComponent implements OnInit {
+  dataUser;
   uploadForm: FormGroup;
   filedata:any;
   filename:any;
@@ -30,11 +32,13 @@ export class UploadHsmtComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private us: UploadService
+    private us: UploadService,
+    private ls:LoginService
   ) { }
 
   ngOnInit() {
     this.createForm();
+    this.getUserInfor();
   }
   selectEvent(item) {
     // do something with selected item
@@ -60,6 +64,13 @@ export class UploadHsmtComponent implements OnInit {
       fileUpload: new FormControl()
     });
    
+  }
+  getUserInfor() {
+    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+      console.log(res.result);
+      // tslint:disable-next-line:no-string-literal
+     this.dataUser=res.result;
+    });
   }
   fileEvent(e){
       this.filedata=e.target.files[0];

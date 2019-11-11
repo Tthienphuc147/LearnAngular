@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/shared/service/login.service';
 
 @Component({
   selector: 'app-create-form',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateFormComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private ls:LoginService
+  ) { }
+  dataUser;
+  userName;
+  avatar;
   ngOnInit() {
+    this.getUserInfor();
+    this.userName=localStorage.getItem("userName");
+    this.avatar=localStorage.getItem("avatar");
   }
+  getUserInfor() {
+    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+    
+
+     localStorage.setItem('userName',res.result.userName);
+     localStorage.setItem('avatar',res.result.avatar);
+   
+    });
+  }
+
+
 
 }

@@ -1,65 +1,109 @@
+
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </a>
     <nav id="sidebar" class="sidebar-wrapper">
-        <div class="sidebar-content">
-            <div class="sidebar-brand">
-                <a href="#">PHIẾU ĐỀ NGHỊ DỰ THẦU (PROPOSED TENDER PARTICIPATING REPORT)</a>
-
-            </div>
-
-            <!-- sidebar-header  -->
-
-            <!-- sidebar-search  -->
-            <div class="sidebar-menu">
-                <ul>
-
-                    <li class="sidebar-dropdown">
-                        <a routerLink="estimated-budget">
-
-                           IV.Giá gói thầu tạm tính
-
-                        </a>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a routerLink="contract-condition">
-
-                            VI.Phân tích điều kiện hợp đồng
-
-                        </a>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a routerLink="director-proposal">
-
-                            VII.Ý kiến đề xuất của Giám đốc dự thầu
-
-                        </a>
-                    </li>
-                    <li class="sidebar-dropdown">
-                        <a routerLink="upload-hsmt">
-
-                            UPLOAD HSMT
-
-                        </a>
-                    </li>
-                    
-
-
-                </ul>
-            </div>
-            <!-- sidebar-menu  -->
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <a href="#">HBC TENDER</a>
         </div>
-        <!-- sidebar-content  -->
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src={{avatar}}
+              alt="User picture">
+          </div>
+          <div class="user-info">
+            <span class="user-name">
+              <strong>{{userName}}</strong>
+            </span>
+  
+            <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Online</span>
+            </span>
+          </div>
+        </div>
 
+        <!-- sidebar-search  -->
+        <div class="sidebar-menu">
+          <ul>
+        
+            <li class="header-menu" >
+              <span>PHIẾU ĐỀ NGHỊ DỰ THẦU (PROPOSED TENDER PARTICIPATING REPORT)
+                </span>
+            </li>
+         
+            <li>
+              <a  routerLink="estimated-budget">
+              
+                <span>I.Giá gói thầu tạm tính</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="contract-condition">
+               
+                <span>II.Phân tích điều kiện hợp đồng</span>
+              </a>
+            </li>
+            <li>
+                    <a routerLink="director-proposal">
+                     
+                      <span>III.Ý kiến đề xuất của Giám đốc dự thầu</span>
+                    </a>
+                  </li>
+                  <li>
+                        <a routerLink="upload-hsmt">
+                         
+                          <span>IV.UPLOAD HSMT</span>
+                        </a>
+                      </li>
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+      <
     </nav>
     <!-- sidebar-wrapper  -->
     <main class="page-content">
-        <div class="container-fluid">
-            <router-outlet></router-outlet>
-            
-        </div>
-
+      <div class="container-fluid">
+      <router-outlet></router-outlet>
+      </div>
+  
     </main>
     <!-- page-content" -->
-</div>
+  </div>
+  <!-- page-wrapper -->
+  <script>
+      $(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(200);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+  }
+});
+
+$("#close-sidebar").click(function() {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function() {
+  $(".page-wrapper").addClass("toggled");
+});
+
+
+  </script>
