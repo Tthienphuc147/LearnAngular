@@ -3,6 +3,7 @@ import {  PPermissionService } from 'src/app/shared/service/ppermission.service'
 import { StakeHolder, CustomerStakeHolder } from 'src/app/shared/model/stack-holder.model';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { PackageService } from 'src/app/shared/service/package.service';
+import { Data } from './../../shared/model/data.model';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
 this.getApi();
 this.createForm();
+this.loadForm();
  
    
   }
@@ -56,60 +58,19 @@ this.createForm();
     })
 
   }
-  // addFormArrayItemToStackHolders( index: number ) {
-  //   const item = new StakeHolder(null,'','',[]);
-  //   this.listStackHolders.push( item );
-  
-  // }
-  
-  // addFormItem( groupId:number ) {
-  //   // this.listStackHolders.forEach( item => {
-  //   //   if ( item.id === groupId ) {
-  //   //     const obj = new CustomerStakeHolder();
-  //   //     obj.customerName = '';
-  //   //     obj.customerId = null;
-  //   //     item.customers.push( obj );
-  //   //   }
-  //   // } );
-  //   const obj = new CustomerStakeHolder();
-  //       obj.customerName = '';
-  //       obj.customerId = null;
-  //       this.data.push(obj);
 
-  // }
   onSubmit() {
     alert(JSON.stringify(this.permissionForm.value))
   }
 
 
   createForm(){
-    this.fs.get().subscribe(res => {
-      
-      for(let i =0; i <res.result.length; i++) {
-        
-        let item= new StakeHolder();
-        item.groupDesc=res.result[i].groupDesc;
-        item.id=res.result[i].id;
-        item.groupName=res.result[i].groupName;
-        item.customers=[];
-        this.listStackHolders.push(item);
-        this.permissionForm=this.fb.group({
-          items: this.fb.array(this.listStackHolders.map(data=>this.initItem(data)))
-        });
-    }
-    
-    
-    
+
+    this.permissionForm = this.fb.group({
+      items: this.fb.array([])      
     });
   }
-  initItem(data): FormGroup {
-  
-    return this.fb.group({
-      groupDesc:new FormControl(data.groupDesc)
-    }
 
-    );
-  }
   createItem(): FormGroup {
   
     return this.fb.group({
@@ -126,6 +87,46 @@ this.createForm();
     this.items = this.permissionForm.get('items') as FormArray;
     this.items.removeAt(index);
   }
+  loadForm(){
+    //create lines array first
+    this.fs.get().subscribe(res => {
+      
+      console.log(res.result);
+        for(let i =0; i <res.result.length; i++) {
+          
+          let item= new StakeHolder();
+          item.groupDesc=res.result[i].groupDesc;
+          item.id=res.result[i].id;
+          item.groupName=res.result[i].groupName;
+          item.customers=[];
+          const stakeHolderFormArray = this.permissionForm.get("items") as FormArray;
+        stakeHolderFormArray.push(this.stakeHolder(item));
+        for(let j=0;j<res.result[i].customers.length;j++){
+          const searchFormArray = stakeHolderFormArray.at(i).get("customers") as FormArray;
+          searchFormArray.push(this.stakeHolder(item));
+        }
+      }
+     
+      this.permissionForm.patchValue(res.result);
+    });
+  }
+   stakeHolder(data):FormGroup{
+    return this.fb.group({
+      id: data.id,
+      groupName: data.groupName,
+      groupDesc: data.groupDesc,
+      customers: this.fb.array([
+      ]),
+    })
+    
+      
+  }
+  get customer():FormGroup{
+    return this.fb.group({
+                
+              });
+  }
+  
 
 
 

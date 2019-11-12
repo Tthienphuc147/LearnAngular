@@ -49,7 +49,8 @@ export class FormComponent implements OnInit {
   error => {
       this.errorMsg="Nhập sai tên tài khoản hoặc mật khẩu"
 
-  });
+  }
+  );
   }
   createForm() {
     this.loginForm = this.fb.group({
