@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   token: string;
+  errorMsg: string;
   userId;
   constructor(
     private loginService: LoginService,
@@ -46,7 +47,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['create-form/estimated-budget']);
   },
   error => {
-      this.alertService.error(error);
+      this.errorMsg="Nhập sai tên tài khoản hoặc mật khẩu"
 
   });
   }
@@ -55,5 +56,8 @@ export class FormComponent implements OnInit {
       userName: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
+  }
+  hideError() {
+    this.errorMsg='';
   }
 }

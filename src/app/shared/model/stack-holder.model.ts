@@ -3,12 +3,13 @@ export class StakeHolder {
     groupName: string;
     groupDesc: string;
     customers: CustomerStakeHolder[];
-    constructor(id,groupName,groupDesc,customers){
-        this.id=id;
-        this.groupName=groupName;
-        this.groupDesc=groupDesc;
-        this.customers=customers;
-    }
+
+    // constructor(id,groupName,groupDesc,customers){
+    //     this.id=id;
+    //     this.groupName=groupName;
+    //     this.groupDesc=groupDesc;
+    //     this.customers=customers;
+    // }
 
 }
 
