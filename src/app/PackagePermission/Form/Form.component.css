@@ -1,6 +1,7 @@
 .group-bg {
-    background-color: #f68e56;
+  background-color: orange;
   }
+
   .boder-table[_ngcontent-c12] {
     padding: 20px 30px 35px 30px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
@@ -10,7 +11,6 @@
     display: grid;
     grid-template-columns: 30px 30px 192px;
     padding-left: 5px;
-    background-color: #eb9f3c;
   }
   .group .btn-icon {
     margin-top: 16px;

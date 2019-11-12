@@ -8,10 +8,10 @@
                                 <button type="submit" class="btn btn-danger  btn-block" style="width: 100px;">Lưu</button>
                         </div>
                         <ng-container formArrayName="items"  *ngFor="let item of permissionForm.controls['items'].controls; let i = index;">
-                          <ng-container [formGroupName]="i">
-                              <div class="d-flex flex-row align-items-stretch mt-1" *ngFor="let customer of item.controls['customers'].controls; index as k">
-                                  <div class="group" >
-                                      <ng-container  >
+                          <ng-container [formGroupName]="i" *ngFor="let customer of item.controls['customers'].controls; index as k">
+                              <div class="d-flex flex-row align-items-stretch mt-1" >
+                                  <div class="group"  [class.group-bg]="k === 0">
+                                      <ng-container *ngIf="k===0" >
                                           <div class="btn-icon btn-icon-plus" >
                                               <i class="fa fa-plus" style="margin-top: 2px" aria-hidden="true" (click)=addItem()></i>
                                           </div>
@@ -28,9 +28,9 @@
                                       </ng-container>
                                   </div>
                       
-                                  <div class="customers d-flex flex-row" >
-                                      <div class="customer-contact d-flex flex-row">
-                                          <div class="d-flex align-items-center customer w-40">
+                                  <div class="customers d-flex flex-row"  >
+                                      <div class="customer-contact d-flex flex-row" >
+                                          <div class="d-flex align-items-center customer w-40" >
                                              
                                               <div class="autocomplete-wrapper-2 ui-fluid p-2 w-100">
                                                   <!-- <p-autoComplete [(ngModel)]="customer.customerId" [suggestions]="customersSearchResults"
@@ -102,10 +102,10 @@
                                       </div>
                                       <div class="button-delete d-flex align-items-center">
                                           <div class="btn-icon btn-icon-plus">
-                                              <i class="fa fa-plus icon" aria-hidden="true" (click)=addFormItem(item.id)></i>
+                                              <i class="fa fa-plus icon" aria-hidden="true" (click)=addFormItem(i)></i>
                                           </div>
-                                          <div class="btn-icon btn-icon-minus" >
-                                              <i class="fa fa-minus icon" aria-hidden="true" ></i>
+                                          <div class="btn-icon btn-icon-minus" *ngIf="k !== 0">
+                                              <i class="fa fa-minus icon" aria-hidden="true" (click)=removeFormItem(i)></i>
                                           </div>
                                       </div>
                                   </div>

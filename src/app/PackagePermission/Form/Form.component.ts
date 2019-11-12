@@ -30,10 +30,11 @@ export class FormComponent implements OnInit {
     this.getApi();
     this.createForm();
     this.loadForm();
-    console.log(this.permissionForm.controls['items'].controls);
+
 
 
   }
+  get formData() { return <FormArray>this.permissionForm.get('items'); }
   selectEvent(item) {
     // do something with selected item
   }
@@ -105,13 +106,21 @@ export class FormComponent implements OnInit {
         item.id = res.result[i].id;
         item.groupName = res.result[i].groupName;
         item.customers = [];
+        this.listStackHolders.push(item);
         const stakeHolderFormArray = this.permissionForm.get('items') as FormArray;
         stakeHolderFormArray.push(this.stakeHolder(item));
+        if (!res.result[i].customers.length) {
+          res.result[i].customers.push({
+            id: '',
+            name: '',
+          })
+          
+        }
         for (let j = 0; j < res.result[i].customers.length; j++) {
           const searchFormArray = stakeHolderFormArray.at(i).get('customers') as FormArray;
           searchFormArray.push(this.customer);
         }
-        
+
       }
 
       this.permissionForm.patchValue(res.result);
@@ -135,9 +144,13 @@ export class FormComponent implements OnInit {
     });
   }
   addFormItem(index) {
-    const stakeHolderFormArray = this.permissionForm.get('items') as FormArray;
-    const searchFormArray = stakeHolderFormArray.at(index).get('customers') as FormArray;
-    searchFormArray.push(this.customer);
+    
+    ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).push(this.customer);
+      
+    
+  }
+  removeFormItem(index){
+    ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).removeAt(index);
   }
 
 
