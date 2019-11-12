@@ -9,7 +9,7 @@
                         </div>
                         <ng-container formArrayName="items"  *ngFor="let item of permissionForm.controls['items'].controls; let i = index;">
                           <ng-container [formGroupName]="i">
-                              <div class="d-flex flex-row align-items-stretch mt-1">
+                              <div class="d-flex flex-row align-items-stretch mt-1" *ngFor="let customer of item.controls['customers'].controls; index as k">
                                   <div class="group" >
                                       <ng-container  >
                                           <div class="btn-icon btn-icon-plus" >
@@ -28,7 +28,7 @@
                                       </ng-container>
                                   </div>
                       
-                                  <div class="customers d-flex flex-row">
+                                  <div class="customers d-flex flex-row" >
                                       <div class="customer-contact d-flex flex-row">
                                           <div class="d-flex align-items-center customer w-40">
                                              
@@ -102,7 +102,7 @@
                                       </div>
                                       <div class="button-delete d-flex align-items-center">
                                           <div class="btn-icon btn-icon-plus">
-                                              <i class="fa fa-plus icon" aria-hidden="true" ></i>
+                                              <i class="fa fa-plus icon" aria-hidden="true" (click)=addFormItem(item.id)></i>
                                           </div>
                                           <div class="btn-icon btn-icon-minus" >
                                               <i class="fa fa-minus icon" aria-hidden="true" ></i>
