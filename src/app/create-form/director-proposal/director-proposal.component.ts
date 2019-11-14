@@ -9,29 +9,29 @@ import { LoginService } from 'src/app/shared/service/login.service';
   templateUrl: './director-proposal.component.html',
   styleUrls: ['./director-proposal.component.css']
 })
-export class DirectorProposalComponent implements OnInit {
+export class DirectorProposalComponent implements OnInit,OnDestroy {
 
   directorProposalForm: FormGroup;
   dataUser;
-  
+
   constructor(
     private fb: FormBuilder,
     private fs: PackageService,
     private forms: FormService,
-    private ls:LoginService
+    private ls: LoginService
 
   ) { }
 
   ngOnInit() {
     this.createForm();
     console.log(this.fs.Data.estimatedBuget.additionalNote);
-    if (this.fs.Data.estimatedBuget.additionalNote == "") {
+    if (this.fs.Data.estimatedBuget.additionalNote === '') {
       this.directorProposalForm.disable();
-  }
-  this.getUserInfor();
+    }
+    this.getUserInfor();
 
   }
- 
+
   ngOnDestroy() {
     this.fs.Data.directorProposal = this.directorProposalForm.value;
 
@@ -47,10 +47,10 @@ export class DirectorProposalComponent implements OnInit {
     });
   }
   getUserInfor() {
-    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+    this.ls.getInfor(localStorage.getItem('userId')).subscribe(res => {
       console.log(res.result);
       // tslint:disable-next-line:no-string-literal
-     this.dataUser=res.result;
+      this.dataUser = res.result;
     });
   }
   saveAndNext() {

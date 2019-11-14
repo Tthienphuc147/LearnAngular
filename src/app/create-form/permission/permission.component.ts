@@ -31,7 +31,7 @@ export class PermissionComponent implements OnInit {
 
 
   }
-  get formData() { return <FormArray>this.permissionForm.get('items'); }
+  get formData() { return  this.permissionForm.get('items') as FormArray; }
   selectEvent(item) {
     // do something with selected item
   }
@@ -46,25 +46,26 @@ export class PermissionComponent implements OnInit {
   }
   getApi() {
     this.fs.getSearch().subscribe(res => {
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < res.result.items.length; i++) {
-        let item = {
+        const item = {
           id: res.result.items[i].id,
           name: res.result.items[i].customerName,
-        }
+        };
         this.data.push(item);
 
       }
-    })
+    });
 
   }
 
   onSubmit() {
 
-   
+
     // this.fs.updateStakeHolders( list ).subscribe( data => {
     //   alert( 'Cập nhật các bên liên quan thành công!' );
     // }, err => {
-      
+
     //   alert( 'Cập nhật các bên liên quan thất bại!' );
     // } );
   }
@@ -99,7 +100,7 @@ export class PermissionComponent implements OnInit {
     this.items.removeAt(index);
   }
   loadForm() {
-    //create lines array first
+    // create lines array first
     this.fs.get().subscribe(res => {
 
       console.log(res.result);
@@ -117,9 +118,10 @@ export class PermissionComponent implements OnInit {
           res.result[i].customers.push({
             id: '',
             name: '',
-          })
-          
+          });
+
         }
+        // tslint:disable-next-line: prefer-for-of
         for (let j = 0; j < res.result[i].customers.length; j++) {
           const searchFormArray = stakeHolderFormArray.at(i).get('customers') as FormArray;
           searchFormArray.push(this.customer);
@@ -137,7 +139,7 @@ export class PermissionComponent implements OnInit {
       groupDesc: data.groupDesc,
       customers: this.fb.array([
       ]),
-    })
+    });
 
 
   }
@@ -148,13 +150,13 @@ export class PermissionComponent implements OnInit {
     });
   }
   addFormItem(index) {
-    
+
     ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).push(this.customer);
     console.log(this.permissionForm.get('items') );
-      
-    
+
+
   }
-  removeFormItem(index,k){
+  removeFormItem(index, k) {
     ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).removeAt(k);
   }
 

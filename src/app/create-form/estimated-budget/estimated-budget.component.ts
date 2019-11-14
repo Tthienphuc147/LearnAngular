@@ -26,13 +26,13 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   draftBudgetOfPackageCheckbox: FormControl;
   draftBudgetOfPackage: FormControl;
   dataUser;
-  data: any={};
+  data: any = {};
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private fs: PackageService,
     private forms: FormService,
-    private ls:LoginService
+    private ls: LoginService
   ) {
 
   }
@@ -43,7 +43,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
     this.getApi();
     console.log(this.estimatedBudgetForm.get('currencyBudgetOfPackage').value);
     this.getUserInfor();
-    
+
   }
   get f() { return this.estimatedBudgetForm.controls; }
   ngOnDestroy() {
@@ -62,16 +62,16 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       draftBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackage),
       additionalNote: new FormControl(this.fs.Data.estimatedBuget.additionalNote),
       draftBudgetOfPackageDesc: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageDesc),
-  
+
       currencyBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency &&
         this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency)
     });
   }
   getUserInfor() {
-    this.ls.getInfor(localStorage.getItem("userId")).subscribe(res => {
+    this.ls.getInfor(localStorage.getItem('userId')).subscribe(res => {
 
       // tslint:disable-next-line:no-string-literal
-     this.dataUser=res.result;
+      this.dataUser = res.result;
     });
   }
   saveAndNext() {
@@ -81,17 +81,16 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
 
     });
   }
-  exportFile(){
- //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
- this.forms.getExcel().subscribe( response => {
-   console.log(response);
-  var downloadUrl= URL.createObjectURL(response);
-  window.open(downloadUrl);
- });
+  exportFile() {
+    this.forms.getExcel().subscribe(response => {
+      console.log(response);
+      const downloadUrl = URL.createObjectURL(response);
+      window.open(downloadUrl);
+    });
   }
 
   getApi() {
-    //this.fs.Data.estimatedBuget = this.estimatedBudgetForm.value;
+
     this.forms.get().subscribe(res => {
       console.log(res.result);
       console.log(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency);
