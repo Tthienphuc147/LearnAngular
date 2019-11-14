@@ -11,6 +11,7 @@ import { FormService } from './../../shared/service/form.service';
 import { PackageService } from '../../shared/service/package.service';
 import { Currency } from 'src/app/shared/model/currency.model';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 @Component({
   selector: 'app-estimated-budget',
   templateUrl: './estimated-budget.component.html',
@@ -19,8 +20,10 @@ import { LoginService } from 'src/app/shared/service/login.service';
 @Injectable()
 export class EstimatedBudgetComponent implements OnInit, OnDestroy {
 
-  listCurrency: Array<Currency> = [{ key: 'VND', value: 'VND', displayText: 'VND' },
-  { key: 'USD', value: 'USD', displayText: 'USD' }];
+  // listCurrency: Array<Currency> = [{ key: 'VND', value: 'VND', displayText: 'VND' },
+  // { key: 'USD', value: 'USD', displayText: 'USD' }];
+  // currency = 'VNĐ';
+  listCurrency: Array<string> = ['VNĐ', 'USD'];
   currency = 'VNĐ';
   estimatedBudgetForm: FormGroup;
   draftBudgetOfPackageCheckbox: FormControl;
@@ -41,9 +44,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.createForm();
     this.getApi();
-    console.log(this.estimatedBudgetForm.get('currencyBudgetOfPackage').value);
     this.getUserInfor();
-
   }
   get f() { return this.estimatedBudgetForm.controls; }
   ngOnDestroy() {
@@ -63,8 +64,13 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       additionalNote: new FormControl(this.fs.Data.estimatedBuget.additionalNote),
       draftBudgetOfPackageDesc: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageDesc),
 
-      currencyBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency &&
-        this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency)
+      // currencyBudgetOfPackage: new FormControl(this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency &&
+      //   this.fs.Data.estimatedBuget.draftBudgetOfPackageCurrency),
+        draftBudgetOfPackageCurrency: this.fb.group({
+          key:  this.listCurrency[0],
+          value:   this.listCurrency[0],
+          displayText: this.listCurrency[0]
+      }),
     });
   }
   getUserInfor() {
@@ -93,11 +99,11 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
 
     this.forms.get().subscribe(res => {
       console.log(res.result);
-      console.log(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency);
+      console.log(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.value);
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);
-      this.estimatedBudgetForm.get('currencyBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency);
+      this.estimatedBudgetForm.get('draftBudgetOfPackageCurrency').get('value').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.value);
     });
   }
 

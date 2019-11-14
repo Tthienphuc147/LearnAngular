@@ -1,9 +1,4 @@
-select {
-    width: 100px;
-    margin: 10px 0;
-    background-color: rgb(92, 87, 87);
-    color: #fff;
-}
+
 
 .price-group {
     display: flex;
@@ -25,3 +20,22 @@ input[check-box] {
     margin: 1rem 0;
     border-bottom: 1px dashed rgb(0, 0, 0);
   }
+  :host /deep/ kendo-dropdownlist {
+  max-width: 6rem;
+}
+:host /deep/ kendo-dropdownlist .k-dropdown-wrap {
+  border: none;
+  border-bottom-left-radius: 0.25rem;
+}
+:host /deep/ kendo-dropdownlist .k-input {
+  height: 2.3rem;
+  font-size: 0.875rem;
+  color: #000;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.input-dropdown-group {
+  width: calc(100% - 6rem) !important;
+  float: left;
+}
