@@ -42,6 +42,7 @@
                       
                                                     <div class="ng-autocomplete">
                                                         <ng-autocomplete tabindex="1" [data]="data" 
+                                                        
                                                             [searchKeyword]="keyword" (selected)='selectEvent($event)'
                                                             (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
                                                             [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"  
@@ -105,7 +106,7 @@
                                               <i class="fa fa-plus icon" aria-hidden="true" (click)=addFormItem(i)></i>
                                           </div>
                                           <div class="btn-icon btn-icon-minus" *ngIf="k !== 0">
-                                              <i class="fa fa-minus icon" aria-hidden="true" (click)=removeFormItem(i)></i>
+                                              <i class="fa fa-minus icon" aria-hidden="true" (click)=removeFormItem(i,k)></i>
                                           </div>
                                       </div>
                                   </div>

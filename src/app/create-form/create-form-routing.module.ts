@@ -7,6 +7,7 @@ import { ContractConditionComponent } from './contract-condition/contract-condit
 import { DirectorProposalComponent } from './director-proposal/director-proposal.component';
 import { EstimatedBudgetComponent } from './estimated-budget/estimated-budget.component';
 import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
+import { PermissionComponent } from './permission/permission.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'upload-hsmt',
         component: UploadHsmtComponent
       },
+      {
+        path: 'package',
+        component: PermissionComponent
+      },
       
     ]
 }
@@ -40,6 +45,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+ 
+exports: [RouterModule]
 })
 export class CreateFormRoutingModule { }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormComponent } from './Form/Form.component';
-import { PackagePermissionComponent } from './PackagePermission.component';
+
+import { PackagePermissionComponent } from './package-permission.component';
+import { PackagePermissionFormComponent } from './package-permission-form/package-permission-form.component';
 
 
 const routes: Routes = [
@@ -9,7 +10,7 @@ const routes: Routes = [
         path: '',
         component: PackagePermissionComponent,
         children: [
-            { path: '', component: FormComponent },
+            { path: '', component: PackagePermissionFormComponent  },
           
         ]
     }

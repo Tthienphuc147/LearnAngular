@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { NotificationService } from 'src/app/shared/service/notification.service';
 import { Router } from '@angular/router';
 import { AlertService } from './../../shared/service/alert.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
-export class FormComponent implements OnInit {
+export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
@@ -20,7 +21,9 @@ export class FormComponent implements OnInit {
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService ) {
+    private alertService: AlertService,
+    private notiService:NotificationService,
+    private toastr: ToastrService ) {
 
   }
 
@@ -39,11 +42,14 @@ export class FormComponent implements OnInit {
     }
     this.loginService.login(this.formControls.userName.value, this.formControls.password.value)
     .subscribe( data => {
+      this.toastr.success('Submitted successfully', 'EMP.Register');
       console.log(data.result);
       this.token=data.result.accessToken;
       localStorage.setItem("token",this.token);
       this.userId=data.result.userId;
       localStorage.setItem("userId",this.userId);
+      // this.notiService.showSuccess("Đăng nhập thành công", "Notification");
+      this.toastr.success('Submitted successfully', 'EMP.Register');
       this.router.navigate(['create-form/estimated-budget']);
   },
   error => {

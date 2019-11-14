@@ -7,11 +7,11 @@ import { Data } from './../../shared/model/data.model';
 
 
 @Component({
-  selector: 'app-Form',
-  templateUrl: './Form.component.html',
-  styleUrls: ['./Form.component.css']
+  selector: 'app-package-permission-form',
+  templateUrl: './package-permission-form.component.html',
+  styleUrls: ['./package-permission-form.component.css']
 })
-export class FormComponent implements OnInit {
+export class PackagePermissionFormComponent implements OnInit {
 
   keyword = 'name';
   placeholder = 'Tìm theo tên';
@@ -62,7 +62,14 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.permissionForm.value))
+
+   
+    // this.fs.updateStakeHolders( list ).subscribe( data => {
+    //   alert( 'Cập nhật các bên liên quan thành công!' );
+    // }, err => {
+      
+    //   alert( 'Cập nhật các bên liên quan thất bại!' );
+    // } );
   }
 
 
@@ -146,11 +153,12 @@ export class FormComponent implements OnInit {
   addFormItem(index) {
     
     ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).push(this.customer);
+    console.log(this.permissionForm.get('items') );
       
     
   }
-  removeFormItem(index){
-    ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).removeAt(index);
+  removeFormItem(index,k){
+    ((this.permissionForm.get('items') as FormArray).controls[index].get('customers') as FormArray).removeAt(k);
   }
 
 

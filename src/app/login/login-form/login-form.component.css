@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #F1F1F1;
   position: relative;
 }.btn-primary{
@@ -74,4 +74,14 @@ background-size:cover;
   display:block;
 }
 
+} */
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('../../../assets/images/Logo2.jpg');
+  background-size: cover;
+  background-position: center center;
 }

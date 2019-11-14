@@ -41,6 +41,19 @@ export class PPermissionService {
       );
 
   }
+  updateStakeHolders(data): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // tslint:disable-next-line:max-line-length
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      })
+    };
+    return this.http.post<any>(`http://115.79.35.119:9886/api/hbc/bidopportunity/1952/changebidstakeholdersgroupmembers`,data,httpOptions)
+    .map((res: Response) => res.json());
+
+}
+
   
 }
 

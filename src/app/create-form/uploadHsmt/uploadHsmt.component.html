@@ -1,112 +1,226 @@
-<form [formGroup]="uploadForm"  novalidate style="width: 70%;">
-  <div class="title-detail center-parent">
-      <div style="width: 20%;">
+<!-- <div class="container">
+        <form [formGroup]="uploadForm"  novalidate style="width: 70%;">
+                <div class="title-detail center-parent">
+                    <div style="width: 20%;">
+              
+                    </div>
+                    <div style="width: 80%;">
+                        <div class="media-header center-parent">
+                            <h3 class="d-inline mb-0 text-dark bold-title">UPLOAD HSMT</h3>
+                            <div class="separator"></div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <hr>
+                <div class="d-flex">
+                    <div class="w-100  mr-auto">
+                        <div>
+                            <div class="body cus-header" id="info-main">
+                               
+                                <table class=" table">
+              
+                                    <tbody>
+                                        <tr>
+                                            <td class="label no-boder bold-title">Đường dẫn link</td>
+                                            <td class=" no-boder">
+                                                <input #autofocus class="w-100" class="form-control"
+                                                formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null"
+                                                (click)=inputChange() style="width:740px;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30 label no-boder bold-title">Hoặc</td>
+                                            <td class="no-boder d-flex justify-content-between">
+                                                <div class="fileUpload">
+                                                    <button class="btn btn-nav" style="width: 150px;border-radius: 3px;"    (click)=inputChange()  [attr.disabled]="uploadForm.get('link').value ? '' : null">
+                                                        <i class="fa fa-cloud-upload " aria-hidden="true"></i>&nbsp;&nbsp;
+                                                        Chọn File</button>
+                                                    <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null"       (click)=inputChange() formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
+                                                </div>
+                                                <div style="width: calc(100% - 120px);" class="d-flex justify-content-between">
+                                                    <div> <span class="text-breakline" style="padding: 20px;">{{filename}}</span></div>
+                                                    <div *ngIf="filename">
+                                                      <button (click)="deleteFileUpload()"
+                                                          class="btn btn-secondary">X</button>
+                                                  </div>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                       
+                                        <tr>
+                                            <td class="w-30 label no-boder bold-title required">Tên</td>
+                                            <td class="w-70 no-boder">
+                                                <input #autofocus class="w-100" class="form-control"
+                                                tabindex="4" type="text" formControlName="editName"
+                                                style="width:740px;">
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30 label no-boder bold-title">Phiên bản</td>
+                                            <td class="w-70 no-boder">
+                                                <input #autofocus class="w-100" class="form-control"
+                                                tabindex="5" type="text" formControlName="version"
+                                                style="width:740px;">
+                                               
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30 label no-boder bold-title">Ngày nhận HSMT</td>
+                                            <td class="no-boder d-flex">
+                                               
+                                                <div class="group">
+                                                  <input tabindex="7" formControlName="date" class="form-control datePicker" matInput [matDatepicker]="picker" 
+                                                  style="width:700px;">
+                                                  <div>
+                                                      <mat-datepicker-toggle tabindex="6"  matSuffix [for]="picker" class="pickerBtn"></mat-datepicker-toggle>
+                                                      <mat-datepicker #picker></mat-datepicker>
+                                                  </div>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30 label no-boder bold-title">Mô tả/Nội dung cập nhật</td>
+                                            <td class="w-70 no-boder">
+                                             
+                                                    <textarea class="form-control" rows="3" tabindex="7" formControlName="description"
+                                                    style="width:740px;"></textarea>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+              
+                        </div>
+                        <div class="w-100 center-parent" *ngIf="errorMess" class="alert alert-danger" role="alert">
+                          <span> {{errorMess}}</span>
+                      </div>
+                        <div class="action-bar alignment-but center-parent">
+                            <button  tabindex="8" type="submit" class="btn btn-primary ml-1 cus-but-cs" (click)="submitForm()">
+                                Upload
+                            </button>
+                          
+                            <button tabindex="9" class="btn btn-secondary ml-1 cus-but-cs" >
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              </form>
+</div>  -->
+<form [formGroup]="uploadForm">
+    <div class="container">
+        <div class="b-form-readonly"></div>
+        <div>
 
-      </div>
-      <div style="width: 80%;">
-          <div class="media-header center-parent">
-              <h3 class="d-inline mb-0 text-dark bold-title">UPLOAD HSMT</h3>
-          </div>
-      </div>
-    
-  </div>
-  <hr>
-  <div class="d-flex">
-      <div class="w-100  mr-auto">
-          <div>
-              <div class="body cus-header" id="info-main">
-                  <!-- <div class="w-100 center-parent" class="alert alert-danger" role="alert">
-                      <span> {{errorMess}}</span>
-                  </div> -->
-                  <table class="w-100 table">
+            <h5 class="text-uppercase">upload hồ sơ mời thầu</h5>
+            <div class="separator"></div>
+        </div>
 
-                      <tbody>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Đường dẫn link</td>
-                              <td class="w-70 no-boder">
-                                  <input #autofocus class="w-100" class="form-control"
-                                  formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null"
-                                  (click)=inputChange() style="width:740px;">
-                              </td>
-                          </tr>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Hoặc</td>
-                              <td class="no-boder d-flex justify-content-between">
-                                  <div class="fileUpload">
-                                      <button class="btn btn-nav" style="width: 150px;border-radius: 3px;"    (click)=inputChange()  [attr.disabled]="uploadForm.get('link').value ? '' : null">
-                                          <i class="fa fa-cloud-upload " aria-hidden="true"></i>&nbsp;&nbsp;
-                                          Chọn File</button>
-                                      <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null"       (click)=inputChange() formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
-                                  </div>
-                                  <div style="width: calc(100% - 120px);" class="d-flex justify-content-between">
-                                      <div> <span class="text-breakline" style="padding: 20px;">{{filename}}</span></div>
-                                      <div *ngIf="filename">
-                                        <button (click)="deleteFileUpload()"
-                                            class="btn btn-secondary">X</button>
+        <div class="row mt-3">
+            <div class="col-md-6">
+
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        1. Đường dẫn link
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                        formControlName="link" tabindex="1" type="text" [attr.disabled]="uploadForm.get('fileUpload').value ? '' : null"
+                        (click)=inputChange() style="width:740px;">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                        <div class="col-md-6 d-flex align-items-center ">
+                            2. Hoặc
+                        </div>
+                        <div class="col-md-6 ">
+                                <div class="fileUpload">
+                                        <button class="btn btn-nav" style="width: 150px;border-radius: 3px;"    (click)=inputChange()  [attr.disabled]="uploadForm.get('link').value ? '' : null">
+                                            <i class="fa fa-cloud-upload " aria-hidden="true"></i>&nbsp;&nbsp;
+                                            Chọn File</button>
+                                        <input type="file" class="upload "  [attr.disabled]="uploadForm.get('link').value ? '' : null"       (click)=inputChange() formControlName="fileUpload" (change)="fileEvent($event)" tabindex="2"  accept=".jpg, .jpeg, .pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"/>
                                     </div>
-                                      
-                                  </div>
-                              </td>
-                          </tr>
-                         
-                          <tr>
-                              <td class="w-30 label no-boder bold-title required">Tên</td>
-                              <td class="w-70 no-boder">
-                                  <input #autofocus class="w-100" class="form-control"
-                                  tabindex="4" type="text" formControlName="editName"
-                                  style="width:740px;">
-                                  
-                              </td>
-                          </tr>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Phiên bản</td>
-                              <td class="w-70 no-boder">
-                                  <input #autofocus class="w-100" class="form-control"
-                                  tabindex="5" type="text" formControlName="version"
-                                  style="width:740px;">
-                                 
-                              </td>
-                          </tr>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Ngày nhận HSMT</td>
-                              <td class="no-boder d-flex">
-                                  <!-- <kendo-datepicker class="w-100" tabindex="6" formControlName="date"></kendo-datepicker> -->
-                                  <div class="group">
-                                    <input tabindex="7" formControlName="date" class="form-control datePicker" matInput [matDatepicker]="picker" 
-                                    style="width:700px;">
-                                    <div>
-                                        <mat-datepicker-toggle tabindex="6"  matSuffix [for]="picker" class="pickerBtn"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker></mat-datepicker>
+                                    <div  class="d-flex justify-content-between">
+                                        <div> <span class="text-breakline" style="padding: 20px;">{{filename}}</span></div>
+                                        <div *ngIf="filename">
+                                          <button (click)="deleteFileUpload()"
+                                              class="btn btn-secondary">X</button>
+                                      </div>
+                                      </div>
+                                        
+                        </div>
+                    </div>
+                    <div class="row mt-3 ">
+                            <div class="col-md-6 d-flex align-items-center ">
+                                3. Tên
+                            </div>
+                            <div class="col-md-6 ">
+                                    <input #autofocus class="form-control"
+                                    tabindex="4" type="text" formControlName="editName"
+                                    style="width:740px;">
+                            </div>
+                        </div>
+                        <div class="row mt-3 ">
+                                <div class="col-md-6 d-flex align-items-center ">
+                                    4. Phiên bản
+                                </div>
+                                <div class="col-md-6 ">
+                                        <input #autofocus class="form-control"
+                                        tabindex="5" type="text" formControlName="version"
+                                        style="width:740px;">
+                                </div>
+                            </div>
+                            <div class="row mt-3 ">
+                                    <div class="col-md-6 d-flex align-items-center ">
+                                       5. Ngày nhận HSMT
+                                    </div>
+                                    <div class="col-md-6 ">
+                                            <div class="group">
+                                                    <input tabindex="7" formControlName="date" class="form-control datePicker" matInput [matDatepicker]="picker" 
+                                                    style="min-width:700px !important;">
+                                                    <div>
+                                                        <mat-datepicker-toggle tabindex="6"  matSuffix [for]="picker" class="pickerBtn"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker></mat-datepicker>
+                                                    </div>
+                                                </div>
                                     </div>
                                 </div>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td class="w-30 label no-boder bold-title">Mô tả/Nội dung cập nhật</td>
-                              <td class="w-70 no-boder">
-                                  <!-- <textarea kendoTextArea tabindex="7" cols="3" rows="3" class="w-100 form-control no-resize-textarea"
-                                      formControlName="description"></textarea> -->
-                                      <textarea class="form-control" rows="3" tabindex="7" formControlName="description"
-                                      style="width:740px;"></textarea>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
+                                <div class="row mt-3 ">
+                                        <div class="col-md-6 d-flex align-items-center ">
+                                           6. Mô tả/nội dung cập nhật
+                                        </div>
+                                        <div class="col-md-6 ">
+                                                <textarea class="form-control" rows="3" tabindex="7" formControlName="description"
+                                                style="width:740px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class=" center-parent" *ngIf="errorMess" class="alert alert-danger" role="alert">
+                                            <span> {{errorMess}}</span>
+                                        </div>
+                                       <div class="row mt-5">
+                                            <div class="col-md-6 ">
+                                                
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                    <div class="group">
+                                                            <button  tabindex="8" type="submit" class="btn btn-nav ml-1 " (click)="submitForm()">
+                                                                Upload
+                                                            </button>
+                                                          
+                                                            <button tabindex="9" class="btn btn-secondary ml-1 " >
+                                                                Hủy
+                                                            </button>
+                                                        </div>
+                                            </div>
+                                       
+                                       </div>
+                
 
-          </div>
-          <div class="w-100 center-parent" *ngIf="errorMess" class="alert alert-danger" role="alert">
-            <span> {{errorMess}}</span>
+            </div>
         </div>
-          <div class="action-bar alignment-but center-parent">
-              <button  tabindex="8" type="submit" class="btn btn-primary ml-1 cus-but-cs" (click)="submitForm()">
-                  Upload
-              </button>
-            
-              <button tabindex="9" class="btn btn-secondary ml-1 cus-but-cs" >
-                  Hủy
-              </button>
-          </div>
-      </div>
-  </div>
+        </div>
+
 </form>

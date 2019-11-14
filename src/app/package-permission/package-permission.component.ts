@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-PackagePermission',
-  templateUrl: './PackagePermission.component.html',
-  styleUrls: ['./PackagePermission.component.css']
+  selector: 'app-package-permission',
+  templateUrl: './package-permission.component.html',
+  styleUrls: ['./package-permission.component.css']
 })
 export class PackagePermissionComponent implements OnInit {
 

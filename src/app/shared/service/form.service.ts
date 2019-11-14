@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 
 import { Data } from './../model/data.model';
 import { PackageService } from './package.service';
-import { FormloginComponent } from 'src/app/formlogin/formlogin.component';
+
 
 
 @Injectable()

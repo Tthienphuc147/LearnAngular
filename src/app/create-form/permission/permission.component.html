@@ -1,0 +1,122 @@
+<div class="container">
+    <form [formGroup]="permissionForm" (ngSubmit)="onSubmit()" style="padding-bottom: 200px;">
+            <div class="container">
+                    <div class="row">
+                      <p style="padding: 20px;">CÁC BÊN LIÊN QUAN/ STAKEHOLDERS</p>
+                    </div>
+                    <!-- <div  style="display: flex;justify-content: flex-end;padding-bottom: 50px;">
+                            <button type="submit" class="btn btn-block" style="width: 100px;
+                              background-color: rgb(92, 87, 87);
+    color:white;">Lưu</button>
+                    </div> -->
+                    <ng-container formArrayName="items"  *ngFor="let item of permissionForm.controls['items'].controls; let i = index;">
+                      <ng-container [formGroupName]="i" *ngFor="let customer of item.controls['customers'].controls; index as k">
+                          <div class="d-flex flex-row align-items-stretch mt-1" >
+                              <div class="group"  [class.group-bg]="k === 0">
+                                  <ng-container *ngIf="k===0" >
+                                      <div class="btn-icon btn-icon-plus" >
+                                          <i class="fa fa-plus" style="margin-top: 2px" aria-hidden="true" (click)=addItem()></i>
+                                      </div>
+                                       <div class="btn-icon btn-icon-minus" >
+                                          <i class="fa fa-minus" style="margin-top: 2px" aria-hidden="true" (click)=removeItem(i)></i>
+                                      </div>
+                                      <div class="group-name" >
+                                          <div class="item-group d-flex align-items-center">
+                                              <div class="align-middle">
+                                                  <input class="form-control"  type="text" formControlName="groupDesc" >
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </ng-container>
+                              </div>
+                  
+                              <div class="customers d-flex flex-row"  >
+                                  <div class="customer-contact d-flex flex-row" >
+                                      <div class="d-flex align-items-center customer w-40" >
+                                         
+                                          <div class="autocomplete-wrapper-2 ui-fluid p-2 w-100">
+                                              <!-- <p-autoComplete [(ngModel)]="customer.customerId" [suggestions]="customersSearchResults"
+                                                  [forceSelection]="true" [delay]="'400'" [emptyMessage]="'Không có dữ liệu'"
+                                                  placeholder="Tìm theo tên" [immutable]="true" (completeMethod)="searchCustomers($event.query)"
+                                                  [tabindex]="'9'" field="name" [multiple]="false" (onClear)="clearData(i, k)">
+                                              </p-autoComplete> -->
+                                              <div class="groupP">
+                  
+                                                <div class="ng-autocomplete" style="width: 300px;">
+                                                    <ng-autocomplete tabindex="1" [data]="data" 
+                                                    
+                                                        [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                                                        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+                                                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"  
+                                                        [placeHolder]="placeholder">
+                                                    </ng-autocomplete>
+                            
+                                                    <ng-template #itemTemplate let-item>
+                                                        <a [innerHTML]="item.name"></a>
+                                                    </ng-template>
+                            
+                                                    <ng-template #notFoundTemplate let-notFound>
+                                                        <div [innerHTML]="notFound"></div>
+                                                    </ng-template>
+                                                </div>
+                                                <div class="input-group-append ml-2">
+                                                    <button class="btn btn-secondary" type="button" >
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        
+                                          </div>
+                                      </div>
+                                      <div class="d-flex align-items-center customer w-60">
+                                          <div class="label-contact">Liên hệ:</div>
+                                          <div class="autocomplete-wrapper-2 ui-fluid p-2 w-100">
+                                              <!-- <p-autoComplete [(ngModel)]="customer.contacts" [suggestions]="contactsSearchResults"
+                                                  [forceSelection]="true" [delay]="'400'" [emptyMessage]="'Không có dữ liệu'"
+                                                  placeholder="Tìm theo tên" [immutable]="true" (completeMethod)="searchContacts($event.query)"
+                                                  [tabindex]="'9'" field="name" [multiple]="true">
+                                              </p-autoComplete> -->
+                                              <div class="groupP">
+                  
+                                                <div class="ng-autocomplete" style="width: 300px;">
+                                                    <ng-autocomplete tabindex="1" [data]="data" 
+                                                        [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                                                        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+                                                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"
+                                                        [placeHolder]="placeholder">
+                                                    </ng-autocomplete>
+                            
+                                                    <ng-template #itemTemplate let-item>
+                                                        <a [innerHTML]="item.name"></a>
+                                                    </ng-template>
+                            
+                                                    <ng-template #notFoundTemplate let-notFound>
+                                                        <div [innerHTML]="notFound"></div>
+                                                    </ng-template>
+                                                </div>
+                                                <div class="input-group-append ml-2">
+                                                    <button class="btn btn-secondary" type="button" >
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="button-delete d-flex align-items-center">
+                                      <div class="btn-icon btn-icon-plus">
+                                          <i class="fa fa-plus icon" aria-hidden="true" (click)=addFormItem(i)></i>
+                                      </div>
+                                      <div class="btn-icon btn-icon-minus" *ngIf="k !== 0">
+                                          <i class="fa fa-minus icon" aria-hidden="true" (click)=removeFormItem(i,k)></i>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </ng-container>
+                  </ng-container>
+                  </div>
+          
+    </form>
+</div>
+
