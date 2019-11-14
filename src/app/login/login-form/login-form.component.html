@@ -1,50 +1,62 @@
-
-<div class="container-fluid">
-  <div class="row no-gutter">
-      <!-- The image half -->
-      <div class="col-md-6 d-none d-md-flex bg-image"></div>
-
-
-      <!-- The content half -->
-      <div class="col-md-6 bg-light">
-          <div class="login d-flex align-items-center py-5">
-
-              <!-- Demo content-->
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-10 col-xl-7 mx-auto">
-                          <h4 class="display-4">ĐĂNG NHẬP</h4>
-                         
-                          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                              <div class="form-group" *ngIf="errorMsg">
-                                  <div class="alert alert-danger" role="alert">
-                                    {{errorMsg}}
-                                    </div>    
-                              </div>
-                              <div class="form-group mb-3">
-                                  <input type="text" placeholder="Tài khoản" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4"  formControlName="userName" (click)=hideError()
-                                  [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }">
-                                  <div *ngIf="submitted &&  formControls.userName.errors" class="invalid-feedback">
-                                    <div *ngIf="formControls.userName.errors.required" class="p-2">Trường này là bắt buộc nhập</div>
-                                </div>
-                              </div>
-                              <div class="form-group mb-3">
-                                  <input  type="password" placeholder="Mật khẩu" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                                  formControlName="password" (click)=hideError() [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }" >
-                                <div *ngIf="submitted && formControls.password.errors"  class="invalid-feedback">
-                                  <div *ngIf="formControls.password.errors.required" class="p-2">Trường này là bắt buộc nhập</div>
-                                </div>
-                              </div>
-                            
-                              <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng nhập</button>
-                              
-                          </form>
-                      </div>
+<div>
+  <div class="loginContainer row shadow" >
+    <div class="col-md-4 p-0">
+      <div class="loginImg">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="p-3 ">
+        <div class="titleDiv">
+          <h2 class="pagetitle">PHẦN MỀM QUẢN LÝ DỰ THẦU</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <section id="loginForm">
+              <form autocomplete="off" class="form-horizontal" role="form"  [formGroup]="loginForm" (ngSubmit)="onSubmit()">   
+                <div class="col-md-12" *ngIf="errorMsg">
+                  <div class="form-group">
+                      <div class="alert alert-danger" role="alert">
+                        {{errorMsg}}
+                        </div>    
                   </div>
-              </div><!-- End -->
-
+                </div>
+                            
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="Email">Tài khoản</label>
+                    <input autocomplete="false" class="form-control valid"  id="Email" name="Email" type="text"
+                formControlName="userName" (click)=hideError()
+                [ngClass]="{ 'is-invalid': submitted && formControls.userName.errors }">
+                <div *ngIf="submitted &&  formControls.userName.errors" class="invalid-feedback">
+                  <div *ngIf="formControls.userName.errors.required">Trường này là trường bắt buộc nhập</div>
+              </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="Password">Mật khẩu</label>
+                    <input autocomplete="false" class="form-control valid" id="Password" name="Password" type="password"
+                  formControlName="password" (click)=hideError() 
+                [ngClass]="{ 'is-invalid': submitted && formControls.password.errors }" >
+                <div *ngIf="submitted && formControls.password.errors"  class="invalid-feedback">
+                  <div *ngIf="formControls.password.errors.required">Trường này là trường bắt buộc nhập</div>
+                </div>
+                  </div>
+                </div>
+                <div class="col-md-offset-2 col-md-10 hideRow">
+                
+                </div>
+                <div class="form-group">
+                  <div class=" col-md-12">
+                    <input type="submit" value="ĐĂNG NHẬP" class="btn btn-primary w-100">
+                  </div>
+                </div>
+              
+              </form>                        </section>
           </div>
-      </div><!-- End -->
 
+        </div>
+      </div>
+    </div>
   </div>
 </div>

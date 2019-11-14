@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #F1F1F1;
   position: relative;
 }.btn-primary{
@@ -52,6 +52,10 @@ transition: all 0.3s ease;
   border-radius: 2px;
   border: 1px solid #E0DFDF;
 }
+.form-control.is-invalid{
+  border-color:#dc3545 !important;
+  background-image: url('../../../assets/images/icon.svg');
+}
 
 @media (max-width: 768px){
 .loginContainer {
@@ -74,14 +78,4 @@ background-size:cover;
   display:block;
 }
 
-} */
-.login,
-.image {
-  min-height: 100vh;
-}
-
-.bg-image {
-  background-image: url('../../../assets/images/Logo2.jpg');
-  background-size: cover;
-  background-position: center center;
 }

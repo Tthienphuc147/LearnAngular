@@ -103,7 +103,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);
-      this.estimatedBudgetForm.get('draftBudgetOfPackageCurrency').get('value').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.value);
+      this.estimatedBudgetForm.get('draftBudgetOfPackageCurrency').get('value').patchValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.value);
     });
   }
 

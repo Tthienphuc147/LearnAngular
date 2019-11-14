@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/shared/service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-form',
@@ -9,7 +10,8 @@ import { LoginService } from 'src/app/shared/service/login.service';
 export class CreateFormComponent implements OnInit {
 
   constructor(
-    private ls:LoginService
+    private ls:LoginService,
+    private router: Router,
   ) { }
   dataUser;
   userName;
@@ -27,6 +29,10 @@ export class CreateFormComponent implements OnInit {
      localStorage.setItem('avatar',res.result.avatar);
    
     });
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigate([``]);
   }
 
 
