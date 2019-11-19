@@ -1,0 +1,62 @@
+
+<form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
+    <div class="container">
+        <div class="b-form-readonly"></div>
+        <div>
+
+            <h5 class="text-uppercase">Thêm khu vực gói thầu</h5>
+            <div class="separator"></div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        1.Id
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="1" type="text" placeholder="Id"
+                        style="width:740px;"  formControlName="id">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        2.Tên khu vực
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="1" type="text" placeholder="Tên khu vực"
+                        style="width:740px;"  formControlName="tenkhuvuc">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                      3.Mô tả
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="1" type="text" placeholder="Mô tả"
+                        style="width:740px;"  formControlName="mota">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        4.Tỉnh thành
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="1" type="text" placeholder="Tỉnh thành"
+                        style="width:740px;"  formControlName="tinhthanh">
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!addForm.valid" class="btn btn btn-primary">Thêm mới khu vực</button>
+
+
+
+            </div>
+        </div>
+        </div>
+
+  </form>

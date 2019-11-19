@@ -40,7 +40,7 @@ select {
 
 .autocomplete-container {
     width: 100%;
-   
+
 }
 .btn-nav{
     background-color: rgb(92, 87, 87);
@@ -49,4 +49,11 @@ select {
 .separator {
     margin: 1rem 0;
     border-bottom: 1px dashed rgb(0, 0, 0);
+  }
+  .container {
+    background-color: #fff !important;
+    padding: 30px 30px;
+    -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   }

@@ -31,7 +31,7 @@ import { RouterModule } from '@angular/router';
       BrowserAnimationsModule,
 	   ToastrModule.forRoot(),
       RouterModule,
-      AppRoutingModule
+      AppRoutingModule,
    ],
    providers: [
       AlertService,

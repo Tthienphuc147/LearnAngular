@@ -1,7 +1,7 @@
 
 
-  <div class="vertical-nav bg-white" id="sidebar">
-  <div class="py-4 px-3 mb-4 bg-light">
+  <div class="vertical-nav " id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-top ">
     <div class="media d-flex align-items-center"><img src={{avatar}} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
         <h4 class="m-0">{{userName}}</h4>
@@ -10,55 +10,71 @@
     </div>
   </div>
 
-  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">PHIẾU ĐỀ NGHỊ DỰ THẦU </p>
+  <p class="text-light font-weight-bold text-uppercase px-3 small pb-4 mb-0">PHIẾU ĐỀ NGHỊ DỰ THẦU </p>
 
-  <ul class="nav flex-column bg-white mb-0">
+  <ul class="nav flex-column  mb-0">
     <li class="nav-item">
-      <a routerLink="estimated-budget" class="nav-link text-dark font-italic bg-light">
+      <a routerLink="estimated-budget" class="nav-link text-light font-italic ">
                 <i class="fa fa-money mr-3 text-gradient fa-fw"></i>
                 Giá gói thầu tạm tính
             </a>
     </li>
     <li class="nav-item">
-      <a routerLink="contract-condition" class="nav-link text-dark font-italic">
+      <a routerLink="contract-condition" class="nav-link text-light font-italic">
                 <i class="fa fa-cubes mr-3 text-gradient fa-fw"></i>
                 Phân tích điều kiện giám đốc
             </a>
     </li>
     <li class="nav-item">
-      <a routerLink="director-proposal" class="nav-link text-dark font-italic">
+      <a routerLink="director-proposal" class="nav-link text-light font-italic">
                 <i class="fa fa-cubes mr-3 text-gradient fa-fw"></i>
                 Ý kiến đề xuất của Giám đốc dự thầu
             </a>
     </li>
   </ul>
 
-  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Hồ sơ mời thầu</p>
+  <p class="text-light font-weight-bold text-uppercase px-3 small py-4 mb-0">Hồ sơ mời thầu</p>
 
-  <ul class="nav flex-column bg-white mb-0">
+  <ul class="nav flex-column  mb-0">
     <li class="nav-item">
-      <a routerLink="upload-hsmt" class="nav-link text-dark font-italic">
+      <a routerLink="upload-hsmt" class="nav-link text-light font-italic">
                 <i class="fa fa-cloud-upload mr-3 text-gradient fa-fw"></i>
                Upload hồ sơ mời thầu
             </a>
     </li>
-    
-  </ul>
-  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Quản lý phân quyền sử dụng gói thầu</p>
 
-  <ul class="nav flex-column bg-white mb-0">
+  </ul>
+  <p class="text-light font-weight-bold text-uppercase px-3 small py-4 mb-0">Quản lý phân quyền sử dụng gói thầu</p>
+
+  <ul class="nav flex-column  mb-0">
     <li class="nav-item">
-      <a routerLink="package" class="nav-link text-dark font-italic">
+      <a routerLink="package" class="nav-link text-light font-italic">
                 <i class="fa fa-users mr-3 text-gradient fa-fw"></i>
                 Người sử dụng
             </a>
     </li>
-    
+
   </ul>
- <a (click)="logout()" class="nav-link text-dark font-italic">
-                <i class="fa fa-sign-out mr-3 text-gradient fa-fw"></i>
-               Đăng xuất
+  <p class="text-light font-weight-bold text-uppercase px-3 small py-4 mb-0">Quản lý khu vực gói thầu</p>
+
+  <ul class="nav flex-column  mb-0 ">
+    <li class="nav-item">
+      <a routerLink="location" class="nav-link text-light font-italic">
+                <i class="fa fa-map-marker mr-3 text-gradient fa-fw"></i>
+                Khu vực gói thầu
             </a>
+    </li>
+
+  </ul>
+  <ul class="nav flex-column mb-0">
+      <li class="nav-item pt-5">
+        <a (click)="logout()" class="nav-link text-light font-italic">
+          <i class="fa fa-sign-out mr-3 text-gradient fa-fw"></i>
+         Đăng xuất
+      </a>
+      </li>
+  </ul>
+
 </div>
 <!-- End vertical navbar -->
 
@@ -66,7 +82,7 @@
 <!-- Page content holder -->
 <div class="page-content p-5" id="content">
     <router-outlet></router-outlet>
- 
+
 
 </div>
 <script>

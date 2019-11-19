@@ -7,6 +7,11 @@
   left: 0;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
+  background-color: #135377 !important;
+color:white;
+}
+.bg-top{
+  background-color: #125f8a !important;
 }
 
 .page-content {
@@ -72,4 +77,12 @@
 
 .text-gray {
   color: #aaa;
+}
+.nav-link:hover{
+  background-color: #125f8a !important;
+  color:white;
+  transition: 0.3s;
+}
+.nav-item a{
+  cursor: pointer;
 }

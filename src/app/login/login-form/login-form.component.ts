@@ -42,14 +42,11 @@ export class LoginFormComponent implements OnInit {
     }
     this.loginService.login(this.formControls.userName.value, this.formControls.password.value)
     .subscribe( data => {
-      this.toastr.success('Submitted successfully', 'EMP.Register');
       console.log(data.result);
       this.token=data.result.accessToken;
       localStorage.setItem("token",this.token);
       this.userId=data.result.userId;
       localStorage.setItem("userId",this.userId);
-      // this.notiService.showSuccess("Đăng nhập thành công", "Notification");
-      this.toastr.success('Submitted successfully', 'EMP.Register');
       this.router.navigate(['create-form/estimated-budget']);
   },
   error => {

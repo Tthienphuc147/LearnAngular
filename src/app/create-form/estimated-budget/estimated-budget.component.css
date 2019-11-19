@@ -39,3 +39,11 @@ input[check-box] {
   width: calc(100% - 6rem) !important;
   float: left;
 }
+.container {
+  background-color: #fff !important;
+  padding: 30px 30px;
+  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}
+

@@ -1,0 +1,64 @@
+{
+  "location": [
+    {
+      "id": 0,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Đà nẵng"
+    },
+    {
+      "id": 1,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Huế"
+    },
+    {
+      "id": 2,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Quảng Bình"
+    },
+    {
+      "id": 3,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Quảng Trị"
+    },
+    {
+      "id": 4,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Bình Định"
+    },
+    {
+      "id": 5,
+      "tenkhuvuc": "Miền trung",
+      "mota": "Miền trung",
+      "tinhthanh": "Bình Thuận"
+    },
+    {
+      "id": "112",
+      "tenkhuvuc": "a",
+      "mota": "a",
+      "tinhthanh": "a"
+    },
+    {
+      "id": "22",
+      "tenkhuvuc": "a",
+      "mota": "b",
+      "tinhthanh": "c"
+    },
+    {
+      "id": "33",
+      "tenkhuvuc": "g",
+      "mota": "g",
+      "tinhthanh": "g"
+    },
+    {
+      "id": "32",
+      "tenkhuvuc": "j",
+      "mota": "j",
+      "tinhthanh": "j"
+    }
+  ]
+}
