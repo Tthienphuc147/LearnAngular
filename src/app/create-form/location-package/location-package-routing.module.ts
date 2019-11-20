@@ -4,6 +4,7 @@ import { LocationPackageComponent } from './location-package.component';
 import { ListLocationComponent } from './list-location/list-location.component';
 import { DetailLocationComponent } from './detail-location/detail-location.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 
 
 
@@ -21,9 +22,14 @@ const routes: Routes = [
         component: DetailLocationComponent
       },
       {
+        path: 'edit/:id',
+        component: EditLocationComponent
+      },
+      {
         path: 'add',
         component: AddLocationComponent
       }
+
 
     ]
 }

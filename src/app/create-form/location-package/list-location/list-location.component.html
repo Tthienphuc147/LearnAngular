@@ -29,8 +29,8 @@
         <td>
           <div class="group">
             <a  [routerLink]="['detail/', item.id]">Xem</a>
-            <a >Sửa</a>
-            <a >Xóa</a>
+            <a [routerLink]="['edit/', item.id]">Sửa</a>
+            <a (click)="deleteLocation(item.id)">Xóa</a>
           </div>
         </td>
       </tr>

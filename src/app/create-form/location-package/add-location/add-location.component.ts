@@ -15,28 +15,19 @@ export class AddLocationComponent implements OnInit {
   tenkhuvuc = '';
   mota = '';
   tinhthanh = '';
-  data:LocationPackage
+  data: LocationPackage;
   constructor(
-    private ls: LocationService,
-    private router: Router,
-    private formBuilder: FormBuilder
+
 
   ) {}
 
   ngOnInit() {
-    this.data=new LocationPackage();
+    this.data = new LocationPackage();
+    this.data.id=this.id;
+    this.data.tenkhuvuc=this.tenkhuvuc;
+    this.data.mota=this.mota;
+    this.data.tinhthanh=this.tinhthanh;
   }
-  addForm(form: LocationPackage) {
-    console.log(form);
-    this.ls.addData(form).subscribe(
-      res => {
-        this.router.navigate(["/create-form/location"]);
-      },
-      err => {
-        console.log(err);
-      }
-    );
 
-  }
 
 }

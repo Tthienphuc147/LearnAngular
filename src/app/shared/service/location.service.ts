@@ -37,6 +37,7 @@ export class LocationService {
     // tslint:disable-next-line:max-line-length
     return this.http.get<any>(` http://localhost:3000/location/${id}`, httpOptions)
       .pipe(
+        
         // catchError(this.handleError('addHero', hero))
       );
 
@@ -54,13 +55,19 @@ export class LocationService {
     );
   }
 
-  // updateProduct (id, product): Observable<any> {
-  //   const url = `${apiUrl}/${id}`;
-  //   return this.http.put(url, product, httpOptions).pipe(
-  //     tap(_ => console.log(`updated product id=${id}`)),
-  //     catchError(this.handleError<any>('updateProduct'))
-  //   );
-  // }
+  updateData (id, location): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+
+      })
+    };
+    const apiUrl='http://localhost:3000/location';
+    const url = `${apiUrl}/${id}`;
+    return this.http.put(url, location, httpOptions).pipe(
+
+    );
+  }
 
   deleteData (id): Observable<LocationPackage> {
     const httpOptions = {
@@ -73,7 +80,7 @@ export class LocationService {
     const url = `${apiUrl}/${id}`;
 
     return this.http.delete<LocationPackage>(url, httpOptions).pipe(
-    
+
     );
   }
 
