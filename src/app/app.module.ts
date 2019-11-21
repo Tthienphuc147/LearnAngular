@@ -20,6 +20,7 @@ import { LoginService } from './shared/service/login.service';
 import { UploadService } from './shared/service/upload.service'
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { DocumentPackageModule } from './create-form/document-package/document-package.module';
 
 @NgModule({
    declarations: [

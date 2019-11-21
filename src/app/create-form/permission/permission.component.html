@@ -29,11 +29,11 @@
                                       </div>
                                   </ng-container>
                               </div>
-                  
+
                               <div class="customers d-flex flex-row"  >
                                   <div class="customer-contact d-flex flex-row" >
                                       <div class="d-flex align-items-center customer w-40" >
-                                         
+
                                           <div class="autocomplete-wrapper-2 ui-fluid p-2 w-100">
                                               <!-- <p-autoComplete [(ngModel)]="customer.customerId" [suggestions]="customersSearchResults"
                                                   [forceSelection]="true" [delay]="'400'" [emptyMessage]="'Không có dữ liệu'"
@@ -41,20 +41,20 @@
                                                   [tabindex]="'9'" field="name" [multiple]="false" (onClear)="clearData(i, k)">
                                               </p-autoComplete> -->
                                               <div class="groupP">
-                  
+
                                                 <div class="ng-autocomplete" style="width: 300px;">
-                                                    <ng-autocomplete tabindex="1" [data]="data" 
-                                                    
+                                                    <ng-autocomplete tabindex="1" [data]="data"
+
                                                         [searchKeyword]="keyword" (selected)='selectEvent($event)'
                                                         (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
-                                                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"  
+                                                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"
                                                         [placeHolder]="placeholder">
                                                     </ng-autocomplete>
-                            
+
                                                     <ng-template #itemTemplate let-item>
                                                         <a [innerHTML]="item.name"></a>
                                                     </ng-template>
-                            
+
                                                     <ng-template #notFoundTemplate let-notFound>
                                                         <div [innerHTML]="notFound"></div>
                                                     </ng-template>
@@ -65,7 +65,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        
+
                                           </div>
                                       </div>
                                       <div class="d-flex align-items-center customer w-60">
@@ -77,19 +77,19 @@
                                                   [tabindex]="'9'" field="name" [multiple]="true">
                                               </p-autoComplete> -->
                                               <div class="groupP">
-                  
+
                                                 <div class="ng-autocomplete" style="width: 300px;">
-                                                    <ng-autocomplete tabindex="1" [data]="data" 
+                                                    <ng-autocomplete tabindex="1" [data]="data"
                                                         [searchKeyword]="keyword" (selected)='selectEvent($event)'
                                                         (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
                                                         [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" class="p-auto"
                                                         [placeHolder]="placeholder">
                                                     </ng-autocomplete>
-                            
+
                                                     <ng-template #itemTemplate let-item>
                                                         <a [innerHTML]="item.name"></a>
                                                     </ng-template>
-                            
+
                                                     <ng-template #notFoundTemplate let-notFound>
                                                         <div [innerHTML]="notFound"></div>
                                                     </ng-template>
@@ -116,7 +116,7 @@
                       </ng-container>
                   </ng-container>
                   </div>
-          
+
     </form>
 </div>
 

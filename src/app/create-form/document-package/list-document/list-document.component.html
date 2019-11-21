@@ -1,0 +1,66 @@
+
+<div class="table-responsive text-nowrap">
+    <div style="float: right;">
+        <button [routerLink]="['add']" routerLinkActive="router-link-active"  class="btn btn btn-primary mb-5">
+          Thêm mới
+        </button>
+      </div>
+  <!--Table-->
+  <table class="table table-striped">
+
+    <!--Table head-->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tên</th>
+        <th>Phiên bản</th>
+        <th>Ngày upload</th>
+        <th>Mô tả</th>
+        <th>Thao tác</th>
+
+      </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+
+      <tr *ngFor="let item of data; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.version}}</td>
+        <td>{{convertTime(item.dateupload)}}</td>
+        <td>{{item.description}}</td>
+        <td>
+          <div class="group">
+            <!-- <a [routerLink]="['edit/', item.id]">Sửa</a>
+            <a (click)="deleteDocument(item.id)">Xóa</a> -->
+            <a href="#" class="btn btn-primary a-btn-slide-text" *ngIf="item.filename!==''">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <span><strong><i class="fa fa-download"></i></strong></span>
+            </a>
+            <a href="{{item.link}}" target="_blank" class="btn btn-primary a-btn-slide-text" *ngIf="item.link!==''">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <span><strong><i class="fa fa-link"></i></strong></span>
+            </a>
+            <a href="#" class="btn btn-primary a-btn-slide-text">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <span><strong><i class="fa fa-edit"></i> Sửa</strong></span>
+            </a>
+            <a (click)="deleteDocument(item.id)" class="btn btn-danger a-btn-slide-text">
+               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <span><strong><i class="fa fa-trash"></i> Xóa</strong></span>
+            </a>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+    <!--Table body-->
+
+
+  </table>
+  <!--Table-->
+</div>
+
+<!--Section: Live preview-->

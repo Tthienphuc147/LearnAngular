@@ -33,7 +33,7 @@ export class FormLocationComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
   ngOnInit() {
-    this.generateId();
+    // this.generateId();
     console.log(this.formReady);
     this.formLocation = this.formBuilder.group({
       id: new FormControl(this.formReady.id),
@@ -74,11 +74,11 @@ export class FormLocationComponent implements OnInit {
       }
     );
   }
-  generateId() {
-    this.ls.getData().subscribe(res => {
-      console.log(res);
-      const xMax = Math.max(...Array.from(res, o => o.id));
-      this.gId = xMax;
-    });
-  }
+  // generateId() {
+  //   this.ls.getData().subscribe(res => {
+  //     console.log(res);
+  //     const xMax = Math.max(...Array.from(res, o => o.id));
+  //     this.gId = xMax;
+  //   });
+  // }
 }

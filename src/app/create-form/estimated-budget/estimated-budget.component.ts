@@ -24,6 +24,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   // { key: 'USD', value: 'USD', displayText: 'USD' }];
   // currency = 'VNĐ';
   listCurrency: Array<string> = ['VNĐ', 'USD'];
+  public title: string = "";
   currency = 'VNĐ';
   estimatedBudgetForm: FormGroup;
   draftBudgetOfPackageCheckbox: FormControl;

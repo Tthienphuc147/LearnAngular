@@ -1,0 +1,59 @@
+.mt-025 {
+  margin-top: .25rem;
+}
+
+.input-percent {
+  padding-right: 2rem;
+  appearance: none;
+}
+
+.input-unit {
+  position: absolute;
+  top: .4rem;
+  right: 1.5rem;
+}
+
+select {
+  width: 100px;
+  margin: 10px 0;
+  background-color: rgb(92, 87, 87);
+  color: #fff;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.datePicker {
+  width: 700px;
+}
+
+.pickerBtn {
+  color: #fff;
+  background-color: rgb(92, 87, 87);
+  padding: 7px 0px;
+  border-radius: 5px;
+  margin-left: 2px;
+
+}
+
+.autocomplete-container {
+  width: 100%;
+
+}
+.btn-nav{
+  background-color: rgb(92, 87, 87);
+  color:white;
+}
+.separator {
+  margin: 1rem 0;
+  border-bottom: 1px dashed rgb(0, 0, 0);
+}
+.container {
+  background-color: #fff !important;
+  padding: 30px 30px;
+  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}

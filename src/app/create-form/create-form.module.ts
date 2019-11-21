@@ -24,6 +24,7 @@ import { DetailLocationComponent } from './location-package/detail-location/deta
 import { FormLocationComponent } from './location-package/form-location/form-location.component';
 import { AddLocationComponent } from './location-package/add-location/add-location.component';
 import { EditLocationComponent } from './location-package/edit-location/edit-location.component';
+import { DocumentPackageComponent } from './document-package/document-package.component';
 @NgModule({
   imports: [
 
@@ -39,6 +40,7 @@ import { EditLocationComponent } from './location-package/edit-location/edit-loc
     DirectorProposalComponent,
     UploadHsmtComponent,
     PermissionComponent,
+  
 
   ],
   providers: [
