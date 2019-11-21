@@ -1,4 +1,3 @@
-import { MatFormField } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,10 +16,8 @@ import { FormService } from './shared/service/form.service';
 import { PackageService } from './shared/service/package.service';
 import { LoginService } from './shared/service/login.service';
 
-import { UploadService } from './shared/service/upload.service'
-import { ToastrModule } from 'ngx-toastr';
+import { UploadService } from './shared/service/upload.service';
 import { RouterModule } from '@angular/router';
-import { DocumentPackageModule } from './create-form/document-package/document-package.module';
 
 @NgModule({
    declarations: [
@@ -30,7 +27,6 @@ import { DocumentPackageModule } from './create-form/document-package/document-p
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
-	   ToastrModule.forRoot(),
       RouterModule,
       AppRoutingModule,
    ],

@@ -19,11 +19,9 @@ import { InputNumberNegativeDecimalDirective } from './directive/input-number-ne
 import { VnCurrencyPipe } from './pipes/vn-currency-pipe.module';
 import { MinMaxDirective } from './directive/input-minmax.directive';
 import { RouterModule } from '@angular/router';
-import { AlertModule } from 'ngx-bootstrap';
 
-@NgModule({
+@NgModule( {
   imports: [
-    
     DropDownsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -32,9 +30,8 @@ import { AlertModule } from 'ngx-bootstrap';
     MatNativeDateModule,
     HttpClientModule,
     RouterModule,
-    AlertModule
   ],
-  declarations:[
+  declarations: [
     NumberOnlyDirective,
     ThousandSeparate,
     EnterPreventDefaultDirective,
@@ -43,7 +40,7 @@ import { AlertModule } from 'ngx-bootstrap';
     MinMaxDirective,
     AmountConverterPipe,
   ],
- exports: [
+  exports: [
 
     DropDownsModule,
     FormsModule,
@@ -60,8 +57,6 @@ import { AlertModule } from 'ngx-bootstrap';
     MinMaxDirective,
     AmountConverterPipe,
     RouterModule,
-    AlertModule
- 
   ]
-})
+} )
 export class SharedModule { }

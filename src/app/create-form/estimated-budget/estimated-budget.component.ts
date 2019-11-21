@@ -1,17 +1,12 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, AbstractControl, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 // tslint:disable-next-line:import-blacklist
-import * as FileSaver from 'file-saver';
 import { FormService } from './../../shared/service/form.service';
 import { PackageService } from '../../shared/service/package.service';
-import { Currency } from 'src/app/shared/model/currency.model';
 import { LoginService } from 'src/app/shared/service/login.service';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 @Component({
   selector: 'app-estimated-budget',
   templateUrl: './estimated-budget.component.html',
@@ -24,7 +19,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
   // { key: 'USD', value: 'USD', displayText: 'USD' }];
   // currency = 'VNĐ';
   listCurrency: Array<string> = ['VNĐ', 'USD'];
-  public title: string = "";
+  public title = '';
   currency = 'VNĐ';
   estimatedBudgetForm: FormGroup;
   draftBudgetOfPackageCheckbox: FormControl;
@@ -104,6 +99,7 @@ export class EstimatedBudgetComponent implements OnInit, OnDestroy {
       // tslint:disable-next-line:no-string-literal
       this.estimatedBudgetForm.get('draftBudgetOfPackage').setValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackage);
       this.estimatedBudgetForm.get('additionalNote').setValue(res.result.estimatedBudgetOfPakage.additionalNote);
+      // tslint:disable-next-line:max-line-length
       this.estimatedBudgetForm.get('draftBudgetOfPackageCurrency').get('value').patchValue(res.result.estimatedBudgetOfPakage.draftBudgetOfPackageCurrency.value);
     });
   }
