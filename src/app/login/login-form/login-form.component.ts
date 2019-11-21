@@ -4,12 +4,11 @@ import { LoginService } from 'src/app/shared/service/login.service';
 import { NotificationService } from 'src/app/shared/service/notification.service';
 import { Router } from '@angular/router';
 import { AlertService } from './../../shared/service/alert.service';
-import { ToastrService } from 'ngx-toastr';
-@Component({
+@Component( {
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
-})
+} )
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
@@ -17,13 +16,11 @@ export class LoginFormComponent implements OnInit {
   token: string;
   errorMsg: string;
   userId;
-  constructor(
+  constructor (
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService,
-    private notiService:NotificationService,
-    private toastr: ToastrService ) {
+    private alertService: AlertService ) {
 
   }
 
@@ -37,31 +34,31 @@ export class LoginFormComponent implements OnInit {
   get formControls() { return this.loginForm.controls; }
   onSubmit() {
     this.submitted = true;
-    if (this.loginForm.invalid) {
+    if ( this.loginForm.invalid ) {
       return;
     }
-    this.loginService.login(this.formControls.userName.value, this.formControls.password.value)
-    .subscribe( data => {
-      console.log(data.result);
-      this.token=data.result.accessToken;
-      localStorage.setItem("token",this.token);
-      this.userId=data.result.userId;
-      localStorage.setItem("userId",this.userId);
-      this.router.navigate(['create-form/estimated-budget']);
-  },
-  error => {
-      this.errorMsg="Nhập sai tên tài khoản hoặc mật khẩu"
+    this.loginService.login( this.formControls.userName.value, this.formControls.password.value )
+      .subscribe( data => {
+        console.log( data.result );
+        this.token = data.result.accessToken;
+        localStorage.setItem( 'token', this.token );
+        this.userId = data.result.userId;
+        localStorage.setItem( 'userId', this.userId );
+        this.router.navigate( ['create-form/estimated-budget'] );
+      },
+        error => {
+          this.errorMsg = 'Nhập sai tên tài khoản hoặc mật khẩu';
 
-  }
-  );
+        }
+      );
   }
   createForm() {
-    this.loginForm = this.fb.group({
-      userName: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-    });
+    this.loginForm = this.fb.group( {
+      userName: new FormControl( '', [Validators.required] ),
+      password: new FormControl( '', [Validators.required] )
+    } );
   }
   hideError() {
-    this.errorMsg='';
+    this.errorMsg = '';
   }
 }

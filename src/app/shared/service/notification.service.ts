@@ -1,27 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
-@Injectable({
+@Injectable( {
     providedIn: 'root'
-  })
+} )
 export class NotificationService {
-    constructor(private toastr: ToastrService) { }
-
-    showSuccess(message, title){
-        this.toastr.success(message, title)
-    }
-    showHTMLMessage(message, title){
-        this.toastr.success(message, title, {
-            enableHtml :  true
-        })
-    }
-    showSuccessWithTimeout(message, title, timespan){
-        this.toastr.success(message, title ,{
-            timeOut :  timespan
-        })
-    }
-  
+    constructor () { }
 }
 
 
