@@ -41,44 +41,38 @@
     {
       "id": 1,
       "name": "Estimate ver1",
-      "filename": "",
       "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
+      "file": null,
       "version": "2",
-      "dateupload": "1574208000",
+      "dateupload": 1574467200,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
       "id": 2,
       "name": "Estimate ver2",
-      "filename": "",
       "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
+      "file": null,
       "version": "3",
-      "dateupload": "1574208000",
+      "dateupload": 1574380800,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
-      "name": "fffffcc",
-      "link": "s",
-      "version": null,
-      "dateupload": "",
-      "description": "",
-      "id": 3
+      "id": 3,
+      "name": "Estimate 5",
+      "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
+      "file": null,
+      "version": "5",
+      "dateupload": 1574985600,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     {
-      "name": "a",
-      "link": "",
-      "version": null,
-      "dateupload": "",
-      "description": "",
-      "id": 4
-    },
-    {
-      "name": "hhh",
-      "link": "",
-      "version": null,
-      "dateupload": "",
-      "description": "",
-      "id": 5
+      "id": 4,
+      "name": "Estimate 6",
+      "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
+      "file": null,
+      "version": "6",
+      "dateupload": 1574380800,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     }
   ]
 }

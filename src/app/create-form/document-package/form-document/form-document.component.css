@@ -3,7 +3,7 @@
   overflow: hidden;
   cursor: pointer;
   width: auto;
-  
+
 
 }
 
@@ -17,4 +17,25 @@
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
+}
+
+.noti{
+  color:red;
+}
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.datePicker {
+  width: 700px;
+}
+
+.pickerBtn {
+  color: #fff;
+  background-color: rgb(92, 87, 87);
+  padding: 8px 0px;
+  border-radius: 5px;
+  margin-left: 2px;
+
 }

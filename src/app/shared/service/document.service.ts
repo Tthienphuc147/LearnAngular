@@ -40,20 +40,35 @@ export class DocumentService {
     );
   }
 
-  // updateData (id, location): Observable<any> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json',
+  updateData (id, location): Observable<DocumentPackage> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
 
-  //     })
-  //   };
-  //   const apiUrl='http://localhost:3000/location';
-  //   const url = `${apiUrl}/${id}`;
-  //   return this.http.put(url, location, httpOptions).pipe(
+      })
+    };
+    const apiUrl='http://localhost:3000/document';
+    const url = `${apiUrl}/${id}`;
+    return this.http.put<DocumentPackage>(url, location, httpOptions).pipe(
 
-  //   );
-  // }
+    );
+  }
+  getDetailData(id: number): Observable<DocumentPackage> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
 
+      })
+    };
+
+    // tslint:disable-next-line:max-line-length
+    return this.http.get<DocumentPackage>(` http://localhost:3000/document/${id}`, httpOptions)
+      .pipe(
+
+        // catchError(this.handleError('addHero', hero))
+      );
+
+  };
   deleteData (id): Observable<DocumentPackage> {
     const httpOptions = {
       headers: new HttpHeaders({

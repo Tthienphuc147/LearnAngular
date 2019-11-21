@@ -11,6 +11,6 @@ export class AddDocumentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.data = new DocumentPackage(null, '', '', '', null, '', '');
+    this.data = new DocumentPackage(null,'',null,'',null,'','');
   }
 }
