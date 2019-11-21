@@ -42,7 +42,6 @@
       "id": 1,
       "name": "Estimate ver1",
       "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
-      "file": null,
       "version": "2",
       "dateupload": 1574467200,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
@@ -68,8 +67,8 @@
     {
       "id": 4,
       "name": "Estimate 6",
-      "link": "https://files.consumerfinance.gov/f/201311_cfpb_kbyo_loan-estimate.pdf",
-      "file": null,
+      "link": "",
+      "file": "D:/Develop/Frontend/Angular/LearnAngular/src/assets/upload/1.pdf",
       "version": "6",
       "dateupload": 1574380800,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."

@@ -54,6 +54,9 @@ export class FormDocumentComponent implements OnInit {
   convertTime(date){
     return DateTimeConvertHelper.fromDtObjectToSecon(date);
   }
+  fileEvent(e){
+    this.formReady.file=e.target.files[0];
+}
 
 
 }

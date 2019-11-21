@@ -38,4 +38,5 @@ export class EditDocumentComponent implements OnInit {
   convertTime(date){
     return DateTimeConvertHelper.fromTimestampToDtObject(date * 1000);
   }
+  
 }

@@ -35,6 +35,10 @@ export class ListDocumentComponent implements OnInit {
   convertTime(date){
     return DateTimeConvertHelper.fromTimestampToDtStr(date * 1000);
   }
+  saveFile(file) {
+      const downloadUrl = URL.createObjectURL(file);
+      window.open(downloadUrl);
+  }
 
 
 }
