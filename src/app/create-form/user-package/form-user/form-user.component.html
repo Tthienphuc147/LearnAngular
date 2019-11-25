@@ -1,0 +1,118 @@
+
+<form [formGroup]="formUser" (ngSubmit)="onSubmit(formUser.value)">
+    <div class="container">
+        <div class="b-form-readonly"></div>
+        <div>
+
+            <h5 class="text-uppercase" *ngIf="!formReady.id">Thêm người dùng</h5>
+            <h5 class="text-uppercase" *ngIf="formReady.id" >Sửa người dùng</h5>
+            <div class="separator"></div>
+        </div>
+
+        <div class="row mt-3" >
+            <div class="col-md-6" >
+
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        1.Tên người dùng *
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="1" type="text" placeholder="Tên người dùng"
+                        style="width:740px;"  formControlName="tennguoidung"
+                        [ngClass]="{ 'is-invalid': submitted && f.tennguoidung.errors }">
+                        <div *ngIf="submitted && f.tennguoidung.errors" class="invalid-feedback">
+                            <div *ngIf="f.tennguoidung.errors.required">Phải nhập trường này</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                      2.Email
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="2" type="text" placeholder="Email"
+                        style="width:740px;"  formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Phải nhập trường này</div>
+                            <div *ngIf="f.email.errors.required">Phải nhập trường này</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        3.Website
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="3" type="text" placeholder="Website"
+                        style="width:740px;"  formControlName="website">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        4.Số điện thoại
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="4" type="text" placeholder="sdt"
+                        style="width:740px;"  formControlName="sdt">
+                    </div>
+                </div>
+                <div class="row mt-3 ">
+                    <div class="col-md-6 d-flex align-items-center ">
+                        5.Tài khoản
+                    </div>
+                    <div class="col-md-6 ">
+                        <input #autofocus class="form-control"
+                         tabindex="5" type="text" placeholder="taikhoan"
+                        style="width:740px;"  formControlName="taikhoan">
+                    </div>
+                </div>
+
+                    <div class="row mt-3 ">
+                        <div class="col-md-6 d-flex align-items-center ">
+                            6.Mật khẩu
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="password" formControlName="password" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback" >
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 ">
+                        <div class="col-md-6 d-flex align-items-center ">
+                            7.Nhập lại mật khẩu
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="password" formControlName="confirmPassword" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback" >
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                <button type="submit" class="btn btn btn-primary" *ngIf="!formReady.id"
+                >
+                  Thêm mới người dùng
+                </button>
+                <button type="submit"  class="btn btn btn-primary" *ngIf="formReady.id"
+                >
+                  Sửa người dùng
+                </button>
+
+
+
+
+            </div>
+        </div>
+        </div>
+
+  </form>

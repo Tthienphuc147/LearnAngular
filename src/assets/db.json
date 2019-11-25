@@ -13,12 +13,6 @@
       "tinhthanh": "Huế"
     },
     {
-      "id": 3,
-      "tenkhuvuc": "Miền trung",
-      "mota": "Miền trung",
-      "tinhthanh": "Quảng Bình"
-    },
-    {
       "id": 4,
       "tenkhuvuc": "Miền trung",
       "mota": "Miền trung",
@@ -81,6 +75,26 @@
       "version": null,
       "dateupload": null,
       "description": ""
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "tennguoidung": "Phan Văn A",
+      "email": "vana123@gmail.com",
+      "website": "https://www.deltacorp.vn",
+      "sdt": "0766699028",
+      "taikhoan": "phanvana",
+      "password": "phanvana123"
+    },
+    {
+      "id": 2,
+      "tennguoidung": "Phan Văn B",
+      "email": "vanb123@gmail.com",
+      "website": "https://www.deltacorp.vn",
+      "sdt": "0766699025",
+      "taikhoan": "phanvanb",
+      "password": "phanvanb123"
     }
   ]
 }

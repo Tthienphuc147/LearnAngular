@@ -24,7 +24,7 @@ export class ListLocationComponent implements OnInit {
   deleteLocation(id){
     this.ls.deleteData(id)
       .subscribe(res => {
-        
+
         }, (err) => {
           console.log(err);
 

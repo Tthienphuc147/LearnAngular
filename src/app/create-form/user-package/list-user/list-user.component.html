@@ -1,0 +1,54 @@
+
+<div class="table-responsive text-nowrap">
+  <div>
+      <button [routerLink]="['add']"    class="btn btn btn-danger mb-5">
+        Thêm
+      </button>
+    </div>
+<!--Table-->
+<table class="table table-striped">
+
+  <!--Table head-->
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên người dùng</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>SĐT</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+
+    <tr *ngFor="let item of data;">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.tennguoidung}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.website}}</td>
+      <td>{{item.sdt}}</td>
+      <td>
+        <div class="group">
+            <a [routerLink]="['edit/', item.id]" class="btn btn-primary a-btn-slide-text">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <span><strong><i class="fa fa-edit"></i> Sửa</strong></span>
+          </a>
+          <a (click)="deleteUser(item.id)" class="btn btn-danger a-btn-slide-text">
+             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <span><strong><i class="fa fa-trash"></i> Xóa</strong></span>
+          </a>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+  <!--Table body-->
+
+
+</table>
+<!--Table-->
+</div>
+
+<!--Section: Live preview-->

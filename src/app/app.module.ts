@@ -18,6 +18,7 @@ import { LoginService } from './shared/service/login.service';
 
 import { UploadService } from './shared/service/upload.service';
 import { RouterModule } from '@angular/router';
+import { UserPackageModule } from './create-form/user-package/user-package.module';
 
 @NgModule({
    declarations: [

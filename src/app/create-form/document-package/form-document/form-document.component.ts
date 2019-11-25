@@ -25,7 +25,7 @@ export class FormDocumentComponent implements OnInit {
     this.formReady.file = e.target.files[0];
   }
   saveFile() {
-    const downloadUrl = URL.createObjectURL( this.formReady.file );
+    const downloadUrl = URL.createObjectURL(this.formReady.file);
     window.open( downloadUrl );
   }
 
@@ -60,9 +60,7 @@ export class FormDocumentComponent implements OnInit {
   convertTime( date ) {
     return DateTimeConvertHelper.fromDtObjectToSecon( date );
   }
-  fileEvent(e){
-    this.formReady.file=e.target.files[0];
-}
+
 
 
 }

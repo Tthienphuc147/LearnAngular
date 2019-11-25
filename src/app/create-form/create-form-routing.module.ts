@@ -36,7 +36,8 @@ const routes: Routes = [
         component: PermissionComponent
       },
       { path: 'location',  loadChildren: () => import('./location-package/location-package.module').then(m => m.LocationPackageModule)  },
-      {path:'document-package',loadChildren: ()=> import('./document-package/document-package.module').then(m=>m.DocumentPackageModule)}
+      {path:'document-package',loadChildren: ()=> import('./document-package/document-package.module').then(m=>m.DocumentPackageModule)},
+      {path:'user-package',loadChildren: ()=> import('./user-package/user-package.module').then(m=>m.UserPackageModule)},
 
     ]
 }
