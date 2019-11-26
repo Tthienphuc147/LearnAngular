@@ -5,10 +5,8 @@ import { LocationService } from 'src/app/shared/service/location.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocationPackage } from 'src/app/shared/model/locationpackage.model';
 import { UserService } from 'src/app/shared/service/user.service';
-import { comparePassword } from 'src/app/shared/validator-helper';
 import { MustMatch } from 'src/app/shared/must-match.validator';
 
-import { isValidMailFormat } from 'src/app/shared/email.validator';
 @Component({
   selector: 'app-form-user',
   templateUrl: './form-user.component.html',
@@ -34,12 +32,12 @@ export class FormUserComponent implements OnInit {
     this.formUser = this.formBuilder.group({
       id: new FormControl(this.formReady.id),
       tennguoidung: new FormControl(this.formReady.tennguoidung,[Validators.required]),
-      email: new FormControl(this.formReady.email,[Validators.email]),
-      website: new FormControl(this.formReady.website),
-      sdt: new FormControl(this.formReady.sdt),
-      taikhoan: new FormControl(this.formReady.taikhoan),
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      email: new FormControl(this.formReady.email,[Validators.email,Validators.required]),
+      website: new FormControl(this.formReady.website,[Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
+      sdt: new FormControl(this.formReady.sdt,[Validators.required,Validators.minLength(10),Validators.maxLength(13),Validators.pattern('[0-9]+')]),
+      taikhoan: new FormControl(this.formReady.taikhoan,[Validators.required]),
+      password: [this.formReady.password, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [this.formReady.password, Validators.required]
   }, {
       validator: MustMatch('password', 'confirmPassword')
   });
@@ -51,7 +49,7 @@ export class FormUserComponent implements OnInit {
       if ( this.formUser.invalid ) {
         return;
       }
-   
+
         this.us.addData(form).subscribe(
           res => {
             this.router.navigate(["/create-form/user-package"]);
@@ -61,7 +59,7 @@ export class FormUserComponent implements OnInit {
             console.log(err);
           }
         );
-    
+
     } else {
       this.submitted = true;
       if ( this.formUser.invalid ) {
@@ -85,7 +83,7 @@ export class FormUserComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-   
+
 
   }
 

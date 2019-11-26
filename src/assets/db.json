@@ -95,6 +95,16 @@
       "sdt": "0766699025",
       "taikhoan": "phanvanb",
       "password": "phanvanb123"
+    },
+    {
+      "id": 3,
+      "tennguoidung": "Phan Văn C",
+      "email": "phanvanc@gmail.com",
+      "website": "",
+      "sdt": "0351669455",
+      "taikhoan": "phanvanc",
+      "password": "phanvanc123",
+      "confirmPassword": "phanvanc123"
     }
   ]
 }
