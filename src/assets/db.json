@@ -105,6 +105,16 @@
       "taikhoan": "phanvanc",
       "password": "phanvanc123",
       "confirmPassword": "phanvanc123"
+    },
+    {
+      "id": 4,
+      "tennguoidung": "",
+      "email": "",
+      "website": "",
+      "sdt": "",
+      "taikhoan": "QuyenDang",
+      "password": "123123",
+      "confirmPassword": ""
     }
   ]
 }

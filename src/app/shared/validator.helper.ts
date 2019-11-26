@@ -1,26 +1,41 @@
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import { FormGroup } from '@angular/forms';
 
-export default class DateTimeConvertHelper {
-    private static readonly dateFormat = 'DD/MM/YYYY';
-    private static readonly datetimeFormat = 'DD/MM/YYYY HH:mm';
-    private static readonly timeFormat = 'HH:mm';
-    private static readonly seconFormat = 'X';
 
-    static fromDtObjectToTimestamp(dtObject: Date): number {
-        return dtObject ? moment.utc(dtObject).add(7, 'hours').unix() : null;
+export default class ValidatorHelper {
+  private static validationMessages = {
+    required: 'Trường này là bắt buộc nhập',
+    email: 'Email không đúng định dạng',
+    website: 'Website không đúng định dạng',
+    sdt: 'Số điện thoại phải có ít nhất 10 chữ số',
+    password: 'Mật khẩu phải có ít nhất 6 kí tự',
+    userName: 'Tên đăng nhập phải có ít nhất 6 kí tự'
+
+  };
+  static getInvalidMessage(form: FormGroup, formErrors: object): string[] {
+    if (!form) {
+      return;
     }
-
-    static fromTimestampToDtObject(timestamp: number): Date {
-        console.log('1', timestamp)
-        return timestamp ? moment.utc(timestamp).subtract(7, 'hours').toDate() : null;
+    const errorMessages = [];
+    for (const field in formErrors) {
+      formErrors[field] = '';
+      const control = form.get(field);
+      if (control && !control.valid) {
+        // tslint:disable-next-line: forin
+        for (const key in control.errors) {
+          formErrors[field] += this.validationMessages[key] + '';
+          break;
+        }
+      }
     }
-
-    static fromTimestampToDtStr(timestamp: number): string {
-        return moment(timestamp).format(this.dateFormat);
+    for (const key in formErrors ) {
+      if (formErrors.hasOwnProperty(key) && formErrors[key].lenghth > 0) {
+        errorMessages.push(formErrors[key]);
+      }
     }
+    return errorMessages;
 
-    static fromDtObjectToSecon(dtObject: Date): number {
-        return dtObject ? Number(moment.utc(dtObject).add(7, 'hours').format(this.seconFormat)) : null;
-    }
+  }
+  static validateForm(form: FormGroup, formErrors: object): boolean {
+    return true;
+  }
 }

@@ -20,9 +20,9 @@
                         <input #autofocus class="form-control"
                          tabindex="1" type="text" placeholder="Tên người dùng"
                         style="width:740px;"  formControlName="tennguoidung"
-                        [ngClass]="{ 'is-invalid': submitted && f.tennguoidung.errors }">
-                        <div *ngIf="submitted && f.tennguoidung.errors" class="invalid-feedback">
-                            <div *ngIf="f.tennguoidung.errors.required">Phải nhập trường này</div>
+                        [ngClass]="{ 'is-invalid':  formErrors.tennguoidung }">
+                        <div  class="invalid-feedback">
+                            {{formErrors.tennguoidung}}
                         </div>
                     </div>
                 </div>
@@ -34,10 +34,11 @@
                         <input #autofocus class="form-control"
                          tabindex="2" type="text" placeholder="Email"
                         style="width:740px;"  formControlName="email"
-                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required">Phải nhập trường này</div>
-                            <div *ngIf="f.email.errors.email">Nhập sai định dạng email</div>
+                        [ngClass]="{ 'is-invalid': formErrors.email }">
+                        <div  class="invalid-feedback">
+                            <!-- <div *ngIf="f.email.errors.required">Phải nhập trường này</div>
+                            <div *ngIf="f.email.errors.email">Nhập sai định dạng email</div> -->
+                            {{formErrors.email}}
                         </div>
                     </div>
                 </div>
@@ -49,9 +50,9 @@
                         <input #autofocus class="form-control"
                          tabindex="3" type="text" placeholder="Website"
                         style="width:740px;"  formControlName="website"
-                        [ngClass]="{ 'is-invalid': submitted && f.website.errors }">
-                        <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
-                          <div *ngIf="f.website.errors.pattern">Nhập sai định dạng</div>
+                        [ngClass]="{ 'is-invalid': formErrors.website }">
+                        <div class="invalid-feedback">
+                          {{formErrors.website}}
                       </div>
                     </div>
                 </div>
@@ -63,11 +64,9 @@
                         <input #autofocus class="form-control"
                          tabindex="4" type="text" placeholder="sdt"
                         style="width:740px;"  formControlName="sdt"
-                        [ngClass]="{ 'is-invalid': submitted && f.sdt.errors }">
-                        <div *ngIf="submitted && f.sdt.errors" class="invalid-feedback">
-                          <div *ngIf="f.sdt.errors.required">Phải nhập trường này</div>
-                          <div *ngIf="f.sdt.errors.minlength || f.sdt.errors.maxlength">Số điện thoại không hợp lệ</div>
-                          <div *ngIf="f.sdt.errors.pattern">Nhập sai định dạng</div>
+                        [ngClass]="{ 'is-invalid': formErrors.sdt}">
+                        <div  class="invalid-feedback">
+                          {{formErrors.sdt}}
                       </div>
                     </div>
                 </div>
@@ -79,10 +78,9 @@
                         <input #autofocus class="form-control"
                          tabindex="5" type="text" placeholder="taikhoan"
                         style="width:740px;"  formControlName="taikhoan"
-                        [ngClass]="{ 'is-invalid': submitted && f.taikhoan.errors }">
-                        <div *ngIf="submitted && f.taikhoan.errors" class="invalid-feedback">
-                          <div *ngIf="f.taikhoan.errors.required">Phải nhập trường này</div>
-
+                        [ngClass]="{ 'is-invalid': formErrors.taikhoan }">
+                        <div class="invalid-feedback">
+                          {{formErrors.taikhoan}}
                       </div>
                     </div>
                 </div>
@@ -92,10 +90,9 @@
                             6.Mật khẩu
                         </div>
                         <div class="col-md-6 ">
-                            <input type="password" formControlName="password" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback" >
-                                <div *ngIf="f.password.errors.required">Phải nhập trường này</div>
-                                <div *ngIf="f.password.errors.minlength">Mật khẩu phải có ít nhất 6 kí tự</div>
+                            <input type="password" formControlName="password" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': formErrors.password }" />
+                            <div  class="invalid-feedback" >
+                              {{formErrors.password}}
                             </div>
                         </div>
                     </div>
@@ -104,10 +101,9 @@
                             7.Nhập lại mật khẩu
                         </div>
                         <div class="col-md-6 ">
-                            <input type="password" formControlName="confirmPassword" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback" >
-                                <div *ngIf="f.confirmPassword.errors.required">Phải nhập trường này</div>
-                                <div *ngIf="f.confirmPassword.errors.mustMatch">Mật khẩu không khớp</div>
+                            <input type="password" formControlName="confirmPassword" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': formErrors.confirmPassword}" />
+                            <div  class="invalid-feedback" >
+                              {{formErrors.confirmPassword}}
                             </div>
                         </div>
                     </div>
