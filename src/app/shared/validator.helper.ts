@@ -3,12 +3,13 @@ import { FormGroup } from '@angular/forms';
 
 export default class ValidatorHelper {
   private static validationMessages = {
-    required: 'Trường này là bắt buộc nhập',
+   
     email: 'Email không đúng định dạng',
     website: 'Website không đúng định dạng',
     sdt: 'Số điện thoại phải có ít nhất 10 chữ số',
     password: 'Mật khẩu phải có ít nhất 6 kí tự',
-    userName: 'Tên đăng nhập phải có ít nhất 6 kí tự'
+    userName: 'Tên đăng nhập phải có ít nhất 6 kí tự',
+    required: 'Trường này là bắt buộc nhập',
 
   };
   static getInvalidMessage(form: FormGroup, formErrors: object): string[] {
