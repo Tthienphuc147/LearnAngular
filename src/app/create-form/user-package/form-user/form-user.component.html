@@ -66,7 +66,7 @@
                         [ngClass]="{ 'is-invalid': submitted && f.sdt.errors }">
                         <div *ngIf="submitted && f.sdt.errors" class="invalid-feedback">
                           <div *ngIf="f.sdt.errors.required">Phải nhập trường này</div>
-                          <div *ngIf="f.sdt.errors.minLength || f.sdt.errors.maxLength">Số điện thoại không hợp lệ</div>
+                          <div *ngIf="f.sdt.errors.minlength || f.sdt.errors.maxlength">Số điện thoại không hợp lệ</div>
                           <div *ngIf="f.sdt.errors.pattern">Nhập sai định dạng</div>
                       </div>
                     </div>
@@ -95,7 +95,7 @@
                             <input type="password" formControlName="password" class="form-control" style="width:740px;" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback" >
                                 <div *ngIf="f.password.errors.required">Phải nhập trường này</div>
-                                <div *ngIf="f.password.errors.minLength">Mật khẩu phải có ít nhất 6 kí tự</div>
+                                <div *ngIf="f.password.errors.minlength">Mật khẩu phải có ít nhất 6 kí tự</div>
                             </div>
                         </div>
                     </div>

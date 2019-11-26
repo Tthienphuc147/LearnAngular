@@ -31,11 +31,12 @@ export class FormUserComponent implements OnInit {
     console.log(this.formReady);
     this.formUser = this.formBuilder.group({
       id: new FormControl(this.formReady.id),
-      tennguoidung: new FormControl(this.formReady.tennguoidung,[Validators.required]),
-      email: new FormControl(this.formReady.email,[Validators.email,Validators.required]),
-      website: new FormControl(this.formReady.website,[Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
-      sdt: new FormControl(this.formReady.sdt,[Validators.required,Validators.minLength(10),Validators.maxLength(13),Validators.pattern('[0-9]+')]),
-      taikhoan: new FormControl(this.formReady.taikhoan,[Validators.required]),
+      tennguoidung: new FormControl(this.formReady.tennguoidung, [Validators.required]),
+      email: new FormControl(this.formReady.email, [Validators.email, Validators.required]),
+      website: new FormControl(this.formReady.website, [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
+      // tslint:disable-next-line: max-line-length
+      sdt: new FormControl(this.formReady.sdt, [Validators.required, Validators.minLength(10), Validators.maxLength(13), Validators.pattern('[0-9]+')]),
+      taikhoan: new FormControl(this.formReady.taikhoan, [Validators.required]),
       password: [this.formReady.password, [Validators.required, Validators.minLength(6)]],
       confirmPassword: [this.formReady.password, Validators.required]
   }, {
@@ -50,9 +51,9 @@ export class FormUserComponent implements OnInit {
         return;
       }
 
-        this.us.addData(form).subscribe(
+      this.us.addData(form).subscribe(
           res => {
-            this.router.navigate(["/create-form/user-package"]);
+            this.router.navigate(['/create-form/user-package']);
             console.log(res);
           },
           err => {
@@ -67,7 +68,7 @@ export class FormUserComponent implements OnInit {
       }
       this.us.updateData(this.formReady.id, form).subscribe(
         res => {
-          this.router.navigate(["/create-form/user-package"]);
+          this.router.navigate(['/create-form/user-package']);
         },
         err => {
           console.log(err);
