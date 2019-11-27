@@ -7,6 +7,7 @@ import { LocationPackage } from 'src/app/shared/model/locationpackage.model';
 import { UserService } from 'src/app/shared/service/user.service';
 import { MustMatch } from 'src/app/shared/must-match.validator';
 import ValidatorHelper from 'src/app/shared/validator.helper';
+import CustomValidator from 'src/app/shared/customValidator';
 
 @Component({
   selector: 'app-form-user',
@@ -45,15 +46,16 @@ export class FormUserComponent implements OnInit {
   }
   get f() { return this.formUser.controls; }
   onSubmit(form: UserPackage) {
+    this.submitted=true;
+    if(this.validateForm()){
+      return;
+    }
     if (this.formReady.id === null) {
-      this.submitted = true;
-      if ( this.formUser.invalid ) {
-        return;
-      }
+   
 
       this.us.addData(form).subscribe(
           res => {
-
+            this.router.navigate(['/create-form/user-package']);
             console.log(res);
           },
           err => {
@@ -62,12 +64,10 @@ export class FormUserComponent implements OnInit {
         );
 
     } else {
-      this.submitted = true;
-      if ( this.formUser.invalid ) {
-        return;
-      }
+    
       this.us.updateData(this.formReady.id, form).subscribe(
         res => {
+          this.router.navigate(['/create-form/user-package']);
           console.log(res);
         },
         err => {
@@ -76,7 +76,7 @@ export class FormUserComponent implements OnInit {
       );
 
     }
-    this.router.navigate(['/create-form/user-package']);
+   
 
 
   }
@@ -94,12 +94,12 @@ export class FormUserComponent implements OnInit {
       id: new FormControl(this.formReady.id),
       tennguoidung: new FormControl(this.formReady.tennguoidung, [Validators.required]),
       email: new FormControl(this.formReady.email, [Validators.email, Validators.required]),
-      website: new FormControl(this.formReady.website, [Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
+      website: new FormControl(this.formReady.website),
       // tslint:disable-next-line: max-line-length
-      sdt: new FormControl(this.formReady.sdt, [Validators.required, Validators.minLength(10), Validators.maxLength(13), Validators.pattern('[0-9]+')]),
+      sdt: new FormControl(this.formReady.sdt, [Validators.required,CustomValidator.sdt]),
       taikhoan: new FormControl(this.formReady.taikhoan, [Validators.required]),
-      password: [this.formReady.password, [Validators.required, Validators.minLength(6)]],
-      confirmPassword: [this.formReady.password, Validators.required]
+      password: [this.formReady.password, [Validators.required,CustomValidator.password]],
+      confirmPassword: [this.formReady.password, [Validators.required,CustomValidator.password]]
   }, {
       validator: MustMatch('password', 'confirmPassword')
   });

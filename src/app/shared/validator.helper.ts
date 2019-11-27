@@ -6,10 +6,13 @@ export default class ValidatorHelper {
    
     email: 'Email không đúng định dạng',
     website: 'Website không đúng định dạng',
-    sdt: 'Số điện thoại phải có ít nhất 10 chữ số',
+    sdt: 'Số điện thoại phải có ít nhất 10 ',
     password: 'Mật khẩu phải có ít nhất 6 kí tự',
     userName: 'Tên đăng nhập phải có ít nhất 6 kí tự',
     required: 'Trường này là bắt buộc nhập',
+    patternPhone:'Số điện thoại không đúng định dạng',
+    mustMatch:'Không khớp'
+    
 
   };
   static getInvalidMessage(form: FormGroup, formErrors: object): string[] {
