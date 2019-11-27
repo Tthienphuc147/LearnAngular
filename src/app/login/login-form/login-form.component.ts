@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/shared/service/login.service';
 import { NotificationService } from 'src/app/shared/service/notification.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from './../../shared/service/alert.service';
 @Component( {
   selector: 'app-login-form',
@@ -16,11 +16,12 @@ export class LoginFormComponent implements OnInit {
   token: string;
   errorMsg: string;
   userId;
+  returnUrl: string;
   constructor (
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
-    private alertService: AlertService ) {
+    private route: ActivatedRoute ) {
 
   }
 
@@ -28,6 +29,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
 
     this.createForm();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
   }
 
@@ -44,7 +46,7 @@ export class LoginFormComponent implements OnInit {
         localStorage.setItem( 'token', this.token );
         this.userId = data.result.userId;
         localStorage.setItem( 'userId', this.userId );
-        this.router.navigate( ['create-form/estimated-budget'] );
+        this.router.navigate( [this.returnUrl] );
       },
         error => {
           this.errorMsg = 'Nhập sai tên tài khoản hoặc mật khẩu';
