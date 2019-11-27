@@ -9,6 +9,7 @@ import { EstimatedBudgetComponent } from './estimated-budget/estimated-budget.co
 import { UploadHsmtComponent } from './uploadHsmt/uploadHsmt.component';
 import { PermissionComponent } from './permission/permission.component';
 import { LocationPackageComponent } from './location-package/location-package.component';
+import { AuthGuard } from '../shared/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,9 @@ const routes: Routes = [
     children: [
       {
         path: 'estimated-budget',
-        component: EstimatedBudgetComponent
+        component: EstimatedBudgetComponent,
+
+
       },
       {
         path: 'contract-condition',
@@ -35,9 +38,10 @@ const routes: Routes = [
         path: 'package',
         component: PermissionComponent
       },
-      { path: 'location',  loadChildren: () => import('./location-package/location-package.module').then(m => m.LocationPackageModule)  },
-      {path:'document-package',loadChildren: ()=> import('./document-package/document-package.module').then(m=>m.DocumentPackageModule)},
-      {path:'user-package',loadChildren: ()=> import('./user-package/user-package.module').then(m=>m.UserPackageModule)},
+      // tslint:disable-next-line: max-line-length
+      { path: 'location',  loadChildren: () => import('./location-package/location-package.module').then(m => m.LocationPackageModule) , canActivate: [AuthGuard]},
+      {path:'document-package',loadChildren: ()=> import('./document-package/document-package.module').then(m=>m.DocumentPackageModule),canActivate: [AuthGuard]},
+      {path:'user-package',loadChildren: ()=> import('./user-package/user-package.module').then(m=>m.UserPackageModule),canActivate: [AuthGuard]},
 
     ]
 }
