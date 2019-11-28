@@ -151,6 +151,9 @@ input[type=radio]:checked + label::after {
 .form-control.is-invalid{
   border-color:#dc3545 !important;
 }
+.invalid-feedback{
+  display: block;
+}
 
 
 

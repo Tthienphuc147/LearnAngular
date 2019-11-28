@@ -19,7 +19,8 @@ export class Login2FormComponent implements OnInit {
     username: '',
     email: '',
     password: '',
-    confirmpassword: ''
+    confirmpassword: '',
+    role:''
   };
   constructor(
     private fb: FormBuilder,
@@ -44,12 +45,17 @@ export class Login2FormComponent implements OnInit {
 
     this.loginForm2 = this.fb.group({
       username: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required, CustomValidator.password]),
-      confirmpassword: new FormControl('', [Validators.required, CustomValidator.password])
+      confirmpassword: new FormControl('', [Validators.required, CustomValidator.password]),
+      role:new FormControl('',[Validators.required])
 
     }, {
       validator: MustMatch('password', 'confirmpassword')
+  });
+  this.loginForm2.valueChanges.subscribe(data => {
+    this.onFormValueChanged(data);
+    console.log(data);
   });
   }
   onSubmit() {
@@ -57,7 +63,8 @@ export class Login2FormComponent implements OnInit {
     if (this.validateForm()) {
       return;
     }
-    alert('a');
+    alert('Đăng ký thành công')
+
   }
 
 

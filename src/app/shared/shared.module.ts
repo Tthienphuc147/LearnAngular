@@ -23,7 +23,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
-
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 
 @NgModule( {
@@ -39,7 +39,8 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzButtonModule,
     NzInputModule,
     NzCheckboxModule,
-    NzRadioModule
+    NzRadioModule,
+    NzIconModule
   ],
   declarations: [
     NumberOnlyDirective,
@@ -70,7 +71,8 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzButtonModule,
     NzInputModule,
     NzCheckboxModule,
-    NzRadioModule
+    NzRadioModule,
+    NzIconModule
   ]
 } )
 export class SharedModule { }
