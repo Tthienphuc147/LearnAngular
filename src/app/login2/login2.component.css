@@ -1,0 +1,91 @@
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+.login-block {
+  background: rgb(101,158,113);
+  background: linear-gradient(90deg, rgba(101,158,113,1) 0%, rgba(59,190,70,1) 35%, rgba(152,255,188,1) 100%);
+  /* display: flex;
+  justify-content: center; */
+  width: 100%;
+  min-height: 100%;
+  padding: 50px 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.banner-sec {
+
+  background-size: cover;
+  height: auto;
+  border-radius: 0 10px 10px 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, rgba(211, 210, 210, 0.6) 0%,rgba(226, 226, 226, 0.76) 100%), url('https://cdn.shopify.com/s/files/1/0378/7109/products/NF2321231_1024x1024.jpg?v=1549531445');
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.banner-sec .logo-banner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.banner-sec .logo-banner img{
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+}
+.banner-sec .logo-banner .title-logo-banner{
+  font-size: 30px;
+  font-weight: bold;
+  color:#fff;
+  letter-spacing: 0.5;
+  font-family: 'Roboto Condensed', sans-serif;
+
+}
+.banner-sec .logo-banner .sub-title-logo-banner{
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.5;
+  font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+}
+.carousel-inner {
+  border-radius: 0 10px 10px 0;
+}
+
+.login-sec {
+  padding: 50px 30px;
+  position: relative;
+}
+.login-sec .copy-text {
+  position: absolute;
+  width: 80%;
+  bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-sec h2 {
+  margin-bottom: 30px;
+  font-weight:800;
+  font-size: 20px;
+  color: #000;
+}
+.login-sec input{
+  background-color: rgba(241, 241, 241, 0.507);
+  border: none;
+}
+.login-sec button{
+  width: 100%;
+}

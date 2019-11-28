@@ -19,6 +19,11 @@ import { InputNumberNegativeDecimalDirective } from './directive/input-number-ne
 import { VnCurrencyPipe } from './pipes/vn-currency-pipe.module';
 import { MinMaxDirective } from './directive/input-minmax.directive';
 import { RouterModule } from '@angular/router';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
+
 
 @NgModule( {
   imports: [
@@ -30,6 +35,9 @@ import { RouterModule } from '@angular/router';
     MatNativeDateModule,
     HttpClientModule,
     RouterModule,
+    NzButtonModule,
+    NzInputModule,
+    NzCheckboxModule
   ],
   declarations: [
     NumberOnlyDirective,

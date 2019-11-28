@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 
-import { DatePipe } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 
 
 
@@ -21,10 +21,24 @@ import { RouterModule } from '@angular/router';
 import { UserPackageModule } from './create-form/user-package/user-package.module';
 import { AuthGuard } from './shared/auth.guard';
 import { CustomPreloadingStrategy } from './shared/service/custom-preloading.service';
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from 'ng-zorro-antd';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import en from '@angular/common/locales/en';
+import { Login2Component } from './login2/login2.component';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+import { IconDefinition } from '@ant-design/icons-angular';
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
+
+registerLocaleData(en);
 
 @NgModule({
    declarations: [
       AppComponent,
+      Login2Component,
 
    ],
    imports: [
@@ -32,6 +46,10 @@ import { CustomPreloadingStrategy } from './shared/service/custom-preloading.ser
       BrowserAnimationsModule,
       RouterModule,
       AppRoutingModule,
+      NgZorroAntdModule,
+      FormsModule,
+      HttpClientModule,
+      NgZorroAntdModule
    ],
    providers: [
       AlertService,
@@ -41,7 +59,9 @@ import { CustomPreloadingStrategy } from './shared/service/custom-preloading.ser
       DatePipe,
       UploadService,
       AuthGuard,
-      CustomPreloadingStrategy
+      CustomPreloadingStrategy,
+      { provide: NZ_I18N, useValue: en_US },
+      , { provide: NZ_ICONS, useValue: icons }
    ],
    bootstrap: [
       AppComponent
