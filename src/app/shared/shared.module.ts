@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
 
 
 
@@ -37,7 +38,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     RouterModule,
     NzButtonModule,
     NzInputModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NzRadioModule
   ],
   declarations: [
     NumberOnlyDirective,

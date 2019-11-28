@@ -3,25 +3,25 @@
 .login-block {
   background: rgb(101,158,113);
   background: linear-gradient(90deg, rgba(101,158,113,1) 0%, rgba(59,190,70,1) 35%, rgba(152,255,188,1) 100%);
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   width: 100%;
   min-height: 100%;
   padding: 50px 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
 .banner-sec {
-
   background-size: cover;
   height: auto;
   border-radius: 0 10px 10px 0;
   padding: 0;
-  background-image: linear-gradient(to bottom, rgba(211, 210, 210, 0.6) 0%,rgba(226, 226, 226, 0.76) 100%), url('https://cdn.shopify.com/s/files/1/0378/7109/products/NF2321231_1024x1024.jpg?v=1549531445');
+  background-image: linear-gradient(to bottom, rgba(247, 247, 247, 0.705) 0%,rgba(197, 197, 197, 0.904) 100%), url('https://cdn.shopify.com/s/files/1/0378/7109/products/NF2321231_1024x1024.jpg?v=1549531445');
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100%;
 
 }
 .banner-sec .logo-banner{
@@ -53,11 +53,24 @@
   font-family: 'Roboto Condensed', sans-serif;
 
 }
+.banner-sec .banner-footer{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color:#fff;
+  font-weight: lighter;
+  justify-self: flex-end;
+
+}
 
 .container {
   background: #fff;
   border-radius: 10px;
   box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+}
+.container .row{
   min-height: 100%;
 }
 .carousel-inner {
@@ -88,4 +101,22 @@
 }
 .login-sec button{
   width: 100%;
+}
+.login-sec .checkbox{
+
+  background-color: #fff;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+}
+.login-sec input[type=radio]:checked ~ .check {
+  border: 5px solid #0DFF92;
+}
+
+.login-sec input[type=radio]:checked ~ .check::before{
+  background: #0DFF92;
+}
+
+.login-sec input[type=radio]:checked ~ label{
+  color: #0DFF92;
 }
