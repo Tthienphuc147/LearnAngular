@@ -20,6 +20,7 @@ import { UploadService } from './shared/service/upload.service';
 import { RouterModule } from '@angular/router';
 import { UserPackageModule } from './create-form/user-package/user-package.module';
 import { AuthGuard } from './shared/auth.guard';
+import { CustomPreloadingStrategy } from './shared/service/custom-preloading.service';
 
 @NgModule({
    declarations: [
@@ -39,7 +40,8 @@ import { AuthGuard } from './shared/auth.guard';
       FormService,
       DatePipe,
       UploadService,
-      AuthGuard
+      AuthGuard,
+      CustomPreloadingStrategy
    ],
    bootstrap: [
       AppComponent

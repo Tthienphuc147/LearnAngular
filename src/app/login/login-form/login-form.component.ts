@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   errorMsg: string;
   userId;
   returnUrl: string;
-  constructor (
+  constructor(
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
@@ -29,7 +29,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {
 
     this.createForm();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
 
   }
 
@@ -46,7 +46,14 @@ export class LoginFormComponent implements OnInit {
         localStorage.setItem( 'token', this.token );
         this.userId = data.result.userId;
         localStorage.setItem( 'userId', this.userId );
-        this.router.navigate( [this.returnUrl] );
+        console.log(this.returnUrl, 'url');
+        if (this.returnUrl === '/') {
+          this.router.navigate( ['create-form/estimated-budget'] );
+
+        } else {
+          this.router.navigate([this.returnUrl]);
+        }
+
       },
         error => {
           this.errorMsg = 'Nhập sai tên tài khoản hoặc mật khẩu';
