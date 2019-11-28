@@ -67,6 +67,10 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     MinMaxDirective,
     AmountConverterPipe,
     RouterModule,
+    NzButtonModule,
+    NzInputModule,
+    NzCheckboxModule,
+    NzRadioModule
   ]
 } )
 export class SharedModule { }

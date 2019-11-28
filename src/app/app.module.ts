@@ -18,16 +18,17 @@ import { LoginService } from './shared/service/login.service';
 
 import { UploadService } from './shared/service/upload.service';
 import { RouterModule } from '@angular/router';
-import { UserPackageModule } from './create-form/user-package/user-package.module';
+
 import { AuthGuard } from './shared/auth.guard';
 import { CustomPreloadingStrategy } from './shared/service/custom-preloading.service';
 import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import en from '@angular/common/locales/en';
-import { Login2Component } from './login2/login2.component';
+
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { IconDefinition } from '@ant-design/icons-angular';
+
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };
@@ -37,8 +38,7 @@ registerLocaleData(en);
 
 @NgModule({
    declarations: [
-      AppComponent,
-      Login2Component,
+      AppComponent
 
    ],
    imports: [
@@ -46,10 +46,10 @@ registerLocaleData(en);
       BrowserAnimationsModule,
       RouterModule,
       AppRoutingModule,
-      NgZorroAntdModule,
       FormsModule,
       HttpClientModule,
-      NgZorroAntdModule
+      NgZorroAntdModule,
+
    ],
    providers: [
       AlertService,

@@ -9,7 +9,8 @@ const routes: Routes = [
   // tslint:disable-next-line: max-line-length
   { path: 'create-form', loadChildren: () => import('./create-form/create-form.module').then(m => m.CreateFormModule),canActivate: [AuthGuard],data: { preload: true }},
   { path: 'login',  loadChildren: () => import('./login/login.module').then(m => m.LoginModule),data: { preload: true }  },
-  {path:'',component:Login2Component}
+  { path: '',  loadChildren: () => import('./login2/login2.module').then(m => m.Login2Module),data: { preload: true }  },
+
 
 
 ];
